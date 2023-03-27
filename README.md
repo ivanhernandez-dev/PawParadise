@@ -5,6 +5,7 @@
 - ¿Por qué elegimos java?
 - ¿Qué arquitectura hemos elegido?
 - ¿Por qué hemos elegido MySQL como SGBD?
+- ¿Por qué hemos elegido AWS para hostear nuestra página web?
 
 ## ¿Por qué elegimos Java?
 
@@ -27,3 +28,7 @@ Al utilizar interfaces en las capas de negocio y repositorio, se puede cambiar f
 Elegimos MySQL debido a su disponibilidad, fiabilidad, escalabilidad, flexibilidad y soporte de la comunidad. Además, MySQL es capaz de manejar grandes cantidades de datos y es compatible con diferentes sistemas operativos y lenguajes de programación, lo que nos permite desarrollar nuestra página web utilizando el lenguaje de programación y herramientas que prefiramos.
 
 Hemos elegido InnoDB como motor de nuestra base de datos porque es capaz de manejar transacciones de manera eficiente y puede manejar un alto volumen de usuarios concurrentes, lo que lo hace adecuado para un sistema de ventas en línea confiable y escalable.
+
+## ¿Por qué hemos elegido AWS para hostear nuestra página web?
+
+Hemos elegido Amazon Web Services (AWS) para hostear nuestra página web porque AWS es una plataforma de nube que ofrece alta disponibilidad, escalabilidad y seguridad. AWS nos permite escalar los recursos de nuestro servidor según sea necesario, lo que nos permite manejar picos de tráfico y garantizar que nuestra página web esté siempre disponible para los usuarios. Además, AWS también nos brinda opciones de seguridad y cumplimiento para garantizar que los datos de nuestros clientes estén protegidos.
