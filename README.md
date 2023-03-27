@@ -4,6 +4,7 @@
 
 - ¿Por qué elegimos java?
 - ¿Qué arquitectura hemos elegido?
+- ¿Por qué hemos elegido MySQL como SGBD?
 
 ## ¿Por qué elegimos Java?
 
@@ -20,3 +21,9 @@ Hemos elegido la arquitectura por capas. Es una forma común de estructurar el c
 - Capa de repositorio (Repository): Esta capa es la encargada de la interacción con la base de datos. Aquí es donde se realizan las operaciones de lectura y escritura en la base de datos. Esta capa se utiliza para abstraer la complejidad de la base de datos y hacer que sea más fácil interactuar con ella.
 
 Al utilizar interfaces en las capas de negocio y repositorio, se puede cambiar fácilmente la implementación de un componente usando polimorfismo sin afectar a otras partes del sistema siempre y cuando se implemente la misma interfaz.
+
+## ¿Por qué hemos elegido MySQL como SGBD?
+
+Elegimos MySQL debido a su disponibilidad, fiabilidad, escalabilidad, flexibilidad y soporte de la comunidad. Además, MySQL es capaz de manejar grandes cantidades de datos y es compatible con diferentes sistemas operativos y lenguajes de programación, lo que nos permite desarrollar nuestra página web utilizando el lenguaje de programación y herramientas que prefiramos.
+
+Hemos elegido InnoDB como motor de nuestra base de datos porque es capaz de manejar transacciones de manera eficiente y puede manejar un alto volumen de usuarios concurrentes, lo que lo hace adecuado para un sistema de ventas en línea confiable y escalable.
