@@ -1,4 +1,7 @@
-<h1 style="text-align: center">Paw-Paradise</h1>
+
+<div align="center">
+  <img alt="banner" src="src/main/resources/static/img/logo-l.png?raw=true">
+</div>
 
 ## Índice
 - Idea de marca
