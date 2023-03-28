@@ -4,6 +4,7 @@
 
 ## Índice
 - [Idea de marca](#idea-de-marca)
+  - [Filosofía](#filosofía) 
   - [Paleta de colores](#paleta-de-colores)
   - [Tipografías](#tipografías)
 - [Desarrollo de la web](#desarrollo-de-la-web)
@@ -19,9 +20,17 @@
 
 ## Idea de marca
 
+### Filosofía
+
+En PawParadise vendemos complementos para mascotas a través de una tienda online que ofrece entregas en la **Península Ibérica e Islas Baleares**.
+
+Nuestra misión es ayudar a todas las personas a **compartir su tiempo con sus mascotas**. Ofrecemos complementos para facilitar tanto el día a día como los planes especiales (excursiones, vacaciones…). Para conseguirlo hemos puesto en valor el **confort** de nuestras mascotas, utilizando materiales y diseños que permiten **aunar practicidad con comodidad**.
+
+Otro factor de vital importancia para nosotros es el **cuidado de nuestro planeta** y por eso nuestros productos son de **fabricación de proximidad**, con **materiales respetuosos con el medio ambiente** y **100% reciclables**.
+
 ### Paleta de colores
 
-Tras realizar un estudio de mercado, hemos eleggido los siguientes colores porque reflejan las tendencias del mercado y nuestros valores:
+Tras realizar un estudio de mercado, hemos elegido los siguientes colores porque reflejan las tendencias del mercado y nuestros valores:
 
 - ![#66b6ab](https://placehold.co/15x15/66b6ab/66b6ab.png) `#66b6ab`
 - ![#ff5959](https://placehold.co/15x15/ff5959/ff5959.png) `#ff5959`

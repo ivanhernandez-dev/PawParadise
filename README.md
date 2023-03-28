@@ -4,20 +4,29 @@
 
 ## Table of Contents
 - [Brand Concept](#brand-concept)
-    - [Colour Palette](#colour-palette)
-    - [Typography](#typography)
+  - [Philosophy](#philosophy) 
+  - [Colour Palette](#colour-palette)
+  - [Typography](#typography)
 - [Website Development](#website-development)
-    - [Programming Language](#programming-language)
-    - [Architecture](#architecture)
-    - [Database Management System](#database-management-system)
-    - [Hosting](#hosting)
-    - [Testing](#testing)
+  - [Programming Language](#programming-language)
+  - [Architecture](#architecture)
+  - [Database Management System](#database-management-system)
+  - [Hosting](#hosting)
+  - [Testing](#testing)
 - [Work Methodology](#work-methodology)
-    - [Task Organisation](#task-organisation)
-    - [Version Control System](#version-control-system)
+  - [Task Organisation](#task-organisation)
+  - [Version Control System](#version-control-system)
 - [Collaborators](#collaborators)
 
 ## Brand Concept
+
+### Philosophy
+
+At PawParadise, we sell pet accessories through an online store that offers deliveries to the **Península Ibérica and Islas Baleares**.
+
+Our mission is to help all people **share their time with their pets**. We offer accessories to make both day-to-day life and special plans (excursions, vacations, etc.) easier. To achieve this, we have placed value on the **comfort** of our pets, using materials and designs that allow us to **combine practicality with comfort**.
+
+Another vital factor for us is the **care of our planet**, and that is why our products are **locally made**, with **environmentally friendly materials** and **100% recyclable**.
 
 ### Colour Palette
 
