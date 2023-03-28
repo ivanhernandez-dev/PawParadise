@@ -4,9 +4,9 @@
 </div>
 
 ## Índice
-- Idea de marca
-  - Paleta de colores
-  - Tipografías
+- [Idea de marca](README.md#idea-de-marca)
+  - [Paleta de colores](README.md#paleta-de-colores)
+  - [Tipografías](README.md#tipografías)
 - Desarrollo de la web
   - ¿Por qué elegimos java?
   - ¿Qué arquitectura hemos elegido?
