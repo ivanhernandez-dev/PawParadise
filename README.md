@@ -16,6 +16,7 @@
 - [Metodología de trabajo](README.md#metodología-de-trabajo)
   - [¿Cómo hemos organizado las tareas?](README.md#cómo-hemos-organizado-las-tareas)
   - [Sistema de control de versiones](README.md#sistema-de-control-de-versiones)
+- [Colaboradores](README.md#colaboradores)
 
 ## Idea de marca
 
@@ -87,3 +88,10 @@ Para organizar nuestras tareas hemos usado un tablero de `Trello`. Trello es una
 ### Sistema de control de versiones
 
 Para el control de versiones hemos usado `Git` y `Github`. Git es un sistema de control de versiones para rastrear y gestionar cambios en el código fuente de un proyecto de software. Github es una plataforma en línea para compartir y colaborar en proyectos utilizando Git. Las ventajas que ofrecen son: control de versiones, colaboración en equipo, backup y recuperación, ramificación y trabajo en nuevas características o solución de problemas sin afectar el código fuente principal.
+
+## Colaboradores
+
+- [Ismael Callado](https://github.com/ismael1DAW)
+- [Iván Hernández](https://github.com/ivher-dev)
+- [María Fandos](https://github.com/MariaMFM)
+- [Roberto Murcia](https://github.com/robeermurciia)
