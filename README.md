@@ -6,6 +6,7 @@
 ## Índice
 - Idea de marca
   - Paleta de colores
+  - Tipografías
 - Desarrollo de la web
   - ¿Por qué elegimos java?
   - ¿Qué arquitectura hemos elegido?
@@ -34,6 +35,12 @@ Tras realizar un estudio de mercado, hemos eleggido los siguientes colores porqu
 `#ececec` Color utilizado para el fondo de los recuadros o marcos de las categorías o fotos.
 
 `#e6e5e5` Color utilizado para el fondo de la web.
+
+### Tipografías
+
+Para la tipografía del logo y diferentes títulos de la página web hemos utilizado `Carter One`.
+La tipografía secundaria que hemos utilizado es: `Open Sans Hebrew Condensed`.
+
 
 ## Desarrollo de la web
 
