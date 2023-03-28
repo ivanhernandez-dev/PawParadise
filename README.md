@@ -4,19 +4,19 @@
 </div>
 
 ## Índice
-- [Idea de marca](README.md#idea-de-marca)
-  - [Paleta de colores](README.md#paleta-de-colores)
-  - [Tipografías](README.md#tipografías)
-- [Desarrollo de la web](README.md#desarrollo-de-la-web)
-  - [¿Por qué elegimos java?](README.md#por-qué-elegimos-java)
-  - [¿Qué arquitectura hemos elegido?](README.md#qué-arquitectura-hemos-elegido)
-  - [¿Por qué hemos elegido MySQL como SGBD?](README.md#por-qué-hemos-elegido-mysql-como-sgbd)
-  - [¿Por qué hemos elegido AWS para hostear nuestra página web?](README.md#por-qué-hemos-elegido-aws-para-hostear-nuestra-página-web)
-  - [Testing](README.md#testing)
-- [Metodología de trabajo](README.md#metodología-de-trabajo)
-  - [¿Cómo hemos organizado las tareas?](README.md#cómo-hemos-organizado-las-tareas)
-  - [Sistema de control de versiones](README.md#sistema-de-control-de-versiones)
-- [Colaboradores](README.md#colaboradores)
+- [Idea de marca](#idea-de-marca)
+  - [Paleta de colores](#paleta-de-colores)
+  - [Tipografías](#tipografías)
+- [Desarrollo de la web](#desarrollo-de-la-web)
+  - [¿Por qué elegimos java?](#por-qué-elegimos-java)
+  - [¿Qué arquitectura hemos elegido?](#qué-arquitectura-hemos-elegido)
+  - [¿Por qué hemos elegido MySQL como SGBD?](#por-qué-hemos-elegido-mysql-como-sgbd)
+  - [¿Por qué hemos elegido AWS para hostear nuestra página web?](#por-qué-hemos-elegido-aws-para-hostear-nuestra-página-web)
+  - [Testing](#testing)
+- [Metodología de trabajo](#metodología-de-trabajo)
+  - [¿Cómo hemos organizado las tareas?](#cómo-hemos-organizado-las-tareas)
+  - [Sistema de control de versiones](#sistema-de-control-de-versiones)
+- [Colaboradores](#colaboradores)
 
 ## Idea de marca
 
