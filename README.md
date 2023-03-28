@@ -7,15 +7,15 @@
 - [Idea de marca](README.md#idea-de-marca)
   - [Paleta de colores](README.md#paleta-de-colores)
   - [Tipografías](README.md#tipografías)
-- Desarrollo de la web
-  - ¿Por qué elegimos java?
-  - ¿Qué arquitectura hemos elegido?
-  - ¿Por qué hemos elegido MySQL como SGBD?
-  - ¿Por qué hemos elegido AWS para hostear nuestra página web?
-  - Testing
-- Metodolofía de trabajo
-  - ¿Cómo hemos organizado las tareas?
-  - Sistema de control de versiones
+- [Desarrollo de la web](README.md#desarrollo-de-la-web)
+  - [¿Por qué elegimos java?](README.md#por-qué-elegimos-java)
+  - [¿Qué arquitectura hemos elegido?](README.md#qué-arquitectura-hemos-elegido)
+  - [¿Por qué hemos elegido MySQL como SGBD?](README.md#por-qué-hemos-elegido-mysql-como-sgbd)
+  - [¿Por qué hemos elegido AWS para hostear nuestra página web?](README.md#por-qué-hemos-elegido-aws-para-hostear-nuestra-página-web)
+  - [Testing](README.md#testing)
+- [Metodología de trabajo](README.md#metodología-de-trabajo)
+  - [¿Cómo hemos organizado las tareas?](README.md#cómo-hemos-organizado-las-tareas)
+  - [Sistema de control de versiones](README.md#sistema-de-control-de-versiones)
 
 ## Idea de marca
 
