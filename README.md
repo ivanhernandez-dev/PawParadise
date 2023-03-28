@@ -8,13 +8,13 @@
   - [Paleta de colores](#paleta-de-colores)
   - [Tipografías](#tipografías)
 - [Desarrollo de la web](#desarrollo-de-la-web)
-  - [¿Por qué elegimos java?](#por-qué-elegimos-java)
-  - [¿Qué arquitectura hemos elegido?](#qué-arquitectura-hemos-elegido)
-  - [¿Por qué hemos elegido MySQL como SGBD?](#por-qué-hemos-elegido-mysql-como-sgbd)
-  - [¿Por qué hemos elegido AWS para hostear nuestra página web?](#por-qué-hemos-elegido-aws-para-hostear-nuestra-página-web)
+  - [Lenguaje de programación](#lenguaje-de-programación)
+  - [Arquitectura](#arquitectura)
+  - [Sistema gestor de base de datos](#sistema-gestor-de-base-de-datos)
+  - [Hosting](#hosting)
   - [Testing](#testing)
 - [Metodología de trabajo](#metodología-de-trabajo)
-  - [¿Cómo hemos organizado las tareas?](#cómo-hemos-organizado-las-tareas)
+  - [Organización de tareas](#organización-de-tareas)
   - [Sistema de control de versiones](#sistema-de-control-de-versiones)
 - [Colaboradores](#colaboradores)
 
@@ -49,13 +49,13 @@ La tipografía secundaria que hemos utilizado es: `Open Sans Hebrew Condensed`.
 
 ## Desarrollo de la web
 
-### ¿Por qué elegimos Java?
+### Lenguaje de programación
 
 Hemos elegido `Java` para programar el backend de nuestra página web debido a sus ventajas como lenguaje de programación. En primer lugar, Java es conocido por ser un lenguaje confiable y estable, lo que nos da la seguridad de que nuestro código será menos propenso a fallar o causar problemas. Además, Java es un lenguaje escalable y orientado a objetos, lo que facilita la escritura y el mantenimiento del código a largo plazo. Otra ventaja es que Java cuenta con una gran cantidad de recursos y una comunidad activa y comprometida de desarrolladores, lo que nos facilitará el aprendizaje y la solución de problemas.
 
 Hemos elegido `Spring` como framework para nuestra página web de Java debido a su modularidad, facilidad de integración, fuerte enfoque en la programación orientada a objetos y su gran comunidad de desarrolladores. Spring es una opción popular y confiable para el desarrollo de aplicaciones web escalables y de alta calidad.
 
-### ¿Qué arquitectura hemos elegido?
+### Arquitectura
 
 Hemos elegido la `arquitectura por capas`. Es una forma común de estructurar el código en aplicaciones de software. En este enfoque, se dividen las funciones y responsabilidades en diferentes capas, lo que permite una mejor organización, escalabilidad y mantenibilidad del código. A continuación, te explicamos las responsabilidades de las diferentes capas:
 
@@ -65,13 +65,13 @@ Hemos elegido la `arquitectura por capas`. Es una forma común de estructurar el
 
 Al utilizar interfaces en las capas de negocio y repositorio, se puede cambiar fácilmente la implementación de un componente usando polimorfismo sin afectar a otras partes del sistema siempre y cuando se implemente la misma interfaz.
 
-### ¿Por qué hemos elegido MySQL como SGBD?
+### Sistema gestor de base de datos
 
 Elegimos `MySQL` debido a su disponibilidad, fiabilidad, escalabilidad, flexibilidad y soporte de la comunidad. Además, MySQL es capaz de manejar grandes cantidades de datos y es compatible con diferentes sistemas operativos y lenguajes de programación, lo que nos permite desarrollar nuestra página web utilizando el lenguaje de programación y herramientas que prefiramos.
 
 Hemos elegido InnoDB como motor de nuestra base de datos porque es capaz de manejar transacciones de manera eficiente y puede manejar un alto volumen de usuarios concurrentes, lo que lo hace adecuado para un sistema de ventas en línea confiable y escalable.
 
-### ¿Por qué hemos elegido AWS para hostear nuestra página web?
+### Hosting
 
 Hemos elegido `Amazon Web Services (AWS)` para hostear nuestra página web porque AWS es una plataforma de nube que ofrece alta disponibilidad, escalabilidad y seguridad. AWS nos permite escalar los recursos de nuestro servidor según sea necesario, lo que nos permite manejar picos de tráfico y garantizar que nuestra página web esté siempre disponible para los usuarios. Además, AWS también nos brinda opciones de seguridad y cumplimiento para garantizar que los datos de nuestros clientes estén protegidos.
 
@@ -81,7 +81,7 @@ Hemos utilizado `JUnit` para crear y ejecutar diferentes tipos de tests para gar
 
 ## Metodología de trabajo
 
-### ¿Cómo hemos organizado las tareas?
+### Organización de tareas
 
 Para organizar nuestras tareas hemos usado un tablero de `Trello`. Trello es una herramienta en línea que ayuda a los equipos a organizar y colaborar en proyectos de manera visual y eficiente. Permite crear listas de tareas y tarjetas, agregar fechas límite y etiquetas, comentar en tarjetas y adjuntar archivos. Es flexible y personalizable para adaptarse a las necesidades del equipo y proyecto.
 
