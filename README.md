@@ -12,6 +12,7 @@
   - ¿Qué arquitectura hemos elegido?
   - ¿Por qué hemos elegido MySQL como SGBD?
   - ¿Por qué hemos elegido AWS para hostear nuestra página web?
+  - Testing
 - Metodolofía de trabajo
   - ¿Cómo hemos organizado las tareas?
   - Sistema de control de versiones
@@ -72,6 +73,10 @@ Hemos elegido InnoDB como motor de nuestra base de datos porque es capaz de mane
 ### ¿Por qué hemos elegido AWS para hostear nuestra página web?
 
 Hemos elegido `Amazon Web Services (AWS)` para hostear nuestra página web porque AWS es una plataforma de nube que ofrece alta disponibilidad, escalabilidad y seguridad. AWS nos permite escalar los recursos de nuestro servidor según sea necesario, lo que nos permite manejar picos de tráfico y garantizar que nuestra página web esté siempre disponible para los usuarios. Además, AWS también nos brinda opciones de seguridad y cumplimiento para garantizar que los datos de nuestros clientes estén protegidos.
+
+### Testing
+
+Hemos utilizado `JUnit` para crear y ejecutar diferentes tipos de tests para garantizar que la página web funcione correctamente en diferentes escenarios y condiciones. La utilización de diferentes tipos de pruebas nos ha permitido validar el código en diferentes niveles y asegurarnos de que el software cumpla con los requisitos y expectativas del usuario.
 
 ## Metodología de trabajo
 
