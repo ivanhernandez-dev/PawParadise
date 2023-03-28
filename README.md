@@ -14,6 +14,7 @@
   - ¿Por qué hemos elegido AWS para hostear nuestra página web?
 - Metodolofía de trabajo
   - ¿Cómo hemos organizado las tareas?
+  - Sistema de control de versiones
 
 ## Idea de marca
 
@@ -77,3 +78,7 @@ Hemos elegido `Amazon Web Services (AWS)` para hostear nuestra página web porqu
 ### ¿Cómo hemos organizado las tareas?
 
 Para organizar nuestras tareas hemos usado un tablero de `Trello`. Trello es una herramienta en línea que ayuda a los equipos a organizar y colaborar en proyectos de manera visual y eficiente. Permite crear listas de tareas y tarjetas, agregar fechas límite y etiquetas, comentar en tarjetas y adjuntar archivos. Es flexible y personalizable para adaptarse a las necesidades del equipo y proyecto.
+
+### Sistema de control de versiones
+
+Para el control de versiones hemos usado `Git` y `Github`. Git es un sistema de control de versiones para rastrear y gestionar cambios en el código fuente de un proyecto de software. Github es una plataforma en línea para compartir y colaborar en proyectos utilizando Git. Las ventajas que ofrecen son: control de versiones, colaboración en equipo, backup y recuperación, ramificación y trabajo en nuevas características o solución de problemas sin afectar el código fuente principal.
