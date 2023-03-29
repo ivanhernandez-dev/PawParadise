@@ -27,5 +27,15 @@ public class StaticProductRepository implements ProductRepository{
         }
         return null;  
     }
+
+    @Override
+    public Product findByCategoryId(int categoryId) {
+        for (Product product : this.products) {
+            if (product.getCategoryId() == categoryId ) {
+                return product;
+            }  
+        }
+        return null; 
+    }
     
 }
