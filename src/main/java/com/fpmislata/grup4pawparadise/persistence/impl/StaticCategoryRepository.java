@@ -9,7 +9,7 @@ public class StaticCategoryRepository implements CategoryRepository{
 
     List<Category> categories= List.of(
         new Category(1, "Ropa"),
-        new Category(2, "Correas y collares"),
+        new Category(2, "Paseo"),
         new Category(3, "Viaje"),
         new Category(4, "Complementos")
     );
