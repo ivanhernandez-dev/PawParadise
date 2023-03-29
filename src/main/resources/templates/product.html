@@ -8,10 +8,11 @@
     <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/books.css}"> -->
 </head>
 <body>
-    <ul class="productsList">
-        <a th:each="product : ${products}" th:href="@{${'/productos/' + product.id}}">
-            <li th:text="|${product.name}|">Sin producto</li>
-        </a>     
+   
+    <ul>
+        <li><a th:text="${products.name}"> </a></li>
+        <li><a th:text="${products.description}"> </a></li> 
+        <li><a th:text="${products.price}"> </a></li> 
     </ul>
 
 </body>

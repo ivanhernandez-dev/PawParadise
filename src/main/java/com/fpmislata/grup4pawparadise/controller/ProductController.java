@@ -11,7 +11,7 @@ import com.fpmislata.grup4pawparadise.business.service.ProductService;
 import com.fpmislata.grup4pawparadise.business.service.impl.ProductServiceImpl;
 
 @Controller
-@RequestMapping("/productos")
+//@RequestMapping("/productos")
 public class ProductController {
     
     private ProductService productService = new ProductServiceImpl();
@@ -22,9 +22,9 @@ public class ProductController {
         return "products";
     }
 
-    @GetMapping("/{categoryId/id}")
+    @GetMapping("/productos/{id}")
     public String findById(@PathVariable("id") int id, Model model){
-        model.addAttribute("product", this.productService.findById(id));
+        model.addAttribute("products", this.productService.findById(id));
         return "product";
     }
 

@@ -9,7 +9,7 @@
 </head>
 <body>
     <ul class="categoriesList">
-        <a th:each="category : ${categories}" th:href="@{${'/productos/' + category.id}}">
+        <a th:each="category : ${categories}" th:href="${category.id}">
             <li th:text="|${category.name}|">Sin producto</li>
         </a>     
     </ul>
