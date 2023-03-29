@@ -9,16 +9,16 @@ import com.fpmislata.grup4pawparadise.persistence.impl.StaticCategoryRepository;
 
 public class CategoryServiceImpl implements CategoryService{
 
-    private CategoryRepository repository = new StaticCategoryRepository();
+    private CategoryRepository categoryRepository = new StaticCategoryRepository();
 
     @Override
     public List<Category> getAll() {
-        return this.repository.getAll();
+        return this.categoryRepository.getAll();
     }
 
     @Override
     public Category findById(int id) {
-        return this.repository.findById(id);
+        return this.categoryRepository.findById(id);
     }
     
 }
