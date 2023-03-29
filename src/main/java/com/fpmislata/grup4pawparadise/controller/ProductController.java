@@ -19,8 +19,8 @@ public class ProductController {
     @GetMapping("/{categoryId}")
     public String findByCategoryId(@PathVariable("categoryId") int categoryId, Model model){
         model.addAttribute("products", this.productService.findByCategoryId(categoryId));
-        return "categories";
+        return "products";
     }
 
-    
+
 }
