@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product findByCategoryId(int categoryId) {
+    public List<Product> findByCategoryId(int categoryId) {
         return this.productRepository.findByCategoryId(categoryId);
     }
     

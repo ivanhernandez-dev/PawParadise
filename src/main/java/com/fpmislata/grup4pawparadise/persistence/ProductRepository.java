@@ -8,5 +8,5 @@ public interface ProductRepository {
     
     public List<Product> getAll();
     public Product findById(int id);
-    public Product findByCategoryId(int categoryId);
+    public List<Product> findByCategoryId(int categoryId);
 }
