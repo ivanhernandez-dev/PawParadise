@@ -18,15 +18,5 @@ public class StaticCategoryRepository implements CategoryRepository{
     public List<Category> getAll() {
         return this.categories;
     }
-
-    @Override
-    public Category findById(int id) {
-        for (Category category: this.categories) {
-            if(category.getId() == id){
-                return category;
-            }
-        }
-        return null;
-    }
     
 }

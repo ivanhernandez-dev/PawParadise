@@ -25,8 +25,7 @@ public class StaticProductRepository implements ProductRepository{
         new Product(14, 4, "Cama portátil", "35.00", 5, "Cama la mar de enrollada."),
         new Product(15, 4, "Pack portátil de juguetes", "16.50", 5, "Pack de juguetes recogido en un práctico saco."),
         new Product(16, 4, "Piscina desmontable", "45.00", 5, "Piscina con la que tu mascota disfrutará todo el verano.")
-
-      );
+    );
 
     @Override
     public List<Product> getAll() {

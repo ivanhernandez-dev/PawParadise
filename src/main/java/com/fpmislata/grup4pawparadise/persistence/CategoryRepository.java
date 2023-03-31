@@ -7,5 +7,4 @@ import com.fpmislata.grup4pawparadise.business.entity.Category;
 public interface CategoryRepository {
     
     public List<Category> getAll();
-    public Category findById(int id);
 }
