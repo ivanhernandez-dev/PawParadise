@@ -22,8 +22,15 @@ public class ProductController {
 
     @GetMapping("/productos/{id}")
     public String findById(@PathVariable("id") int id, Model model){
-        model.addAttribute("products", this.productService.findById(id));
-        return "product";
+
+        try {
+            model.addAttribute("products", this.productService.findById(id));
+            return "product";
+        } catch (Exception e) {
+            return "error";
+        }
+        
+        
     }
 
 

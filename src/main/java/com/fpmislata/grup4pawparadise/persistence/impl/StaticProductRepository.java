@@ -33,13 +33,13 @@ public class StaticProductRepository implements ProductRepository{
     }
 
     @Override
-    public Product findById(int id) {
+    public Product findById(int id) throws Exception{
         for (Product product : this.products) {
             if (product.getId() == id ) {
                 return product;
             }  
         }
-        return null;  
+        throw new Exception("Producto no encontrado.");  
     }
 
     @Override

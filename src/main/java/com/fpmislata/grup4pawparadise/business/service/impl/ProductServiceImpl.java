@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product findById(int id) {
+    public Product findById(int id) throws Exception {
         return this.productRepository.findById(id);
     }
 
