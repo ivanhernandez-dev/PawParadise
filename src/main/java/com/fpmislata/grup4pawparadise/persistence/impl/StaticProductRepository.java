@@ -27,15 +27,8 @@ public class StaticProductRepository implements ProductRepository{
 
     @Override
     public List<Product> findByCategoryId(int categoryId) {
-
         List<Product> products = new ArrayList<>();
 
-        for (Product product : this.products) {
-            if (product.getCategoryId() == categoryId ) {
-                products.add(product);
-            }  
-        }
-        return products; 
+        return products;
     }
-    
 }
