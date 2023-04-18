@@ -1,13 +1,16 @@
 package com.fpmislata.grup4pawparadise.business.entity;
 
+import java.util.List;
+
 public class Category {
-    
     int id;
     String name;
+    List<Product> products;
     
-    public Category(int id, String name) {
+    public Category(int id, String name, List<Product> products) {
         this.id = id;
         this.name = name;
+        this.products = products;
     }
 
     public int getId() {
@@ -17,5 +20,4 @@ public class Category {
     public String getName() {
         return name;
     }
-
 }
