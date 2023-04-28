@@ -63,4 +63,17 @@ public class ProductServiceImplTest {
         Product actualProduct = productService.findById(id, language);
         assertEquals(productList.get(0), actualProduct, "The products should be equal");
     }
+
+    @DisplayName("Test findByCategoryIdWithSuccessors(int)")
+    @Test
+    void findByCategoryIdWithSuccessorsTest() {
+        int categoryId = 1;
+        String language = "es";
+
+        when(categoryRepository.getSuccessorsByParentId(categoryId, language)).thenReturn(categories);
+        when(productRepository.findByCategoryIds(List.of(1, 1, 4), language)).thenReturn(expectedProducts);
+
+        List<Product> actualProducts = productService.findByCategoryIdWithSuccessors(categoryId, language);
+        assertEquals(expectedProducts, actualProducts, "The lists should be equal");
+    }
 }
