@@ -5,7 +5,6 @@ import java.util.List;
 import com.fpmislata.grup4pawparadise.business.entity.Product;
 import com.fpmislata.grup4pawparadise.business.service.ProductService;
 import com.fpmislata.grup4pawparadise.persistence.ProductRepository;
-import com.fpmislata.grup4pawparadise.persistence.impl.StaticProductRepository;
 
 public class ProductServiceImpl implements ProductService{
 
