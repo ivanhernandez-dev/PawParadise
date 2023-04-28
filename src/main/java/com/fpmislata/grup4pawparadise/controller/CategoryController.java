@@ -19,7 +19,6 @@ public class CategoryController {
     @GetMapping("/{language}/categorias/{categoryId}")
     public String findByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model, @PathVariable String language){
         try {
-            System.out.println(this.productService.findByCategoryIdWithSuccessors(categoryId, language));
             model.addAttribute("categories", this.categoryService.getChildrenByParentId(categoryId, language));
             model.addAttribute("products", this.productService.findByCategoryIdWithSuccessors(categoryId, language));
             model.addAttribute("language", language);

@@ -21,7 +21,6 @@ public class MainController {
         model.addAttribute("allCategories", this.categoryService.getAll(language));
         model.addAttribute("categories", this.categoryService.getChildrenByParentId(null, language));
         model.addAttribute("language", language);
-        this.categoryService.getAll(language).forEach(System.out::println);
         return "index";
     }
 
