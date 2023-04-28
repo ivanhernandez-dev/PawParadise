@@ -46,4 +46,14 @@ public class CategoryServiceImplTest {
         expectedCategories.add(category1);
         expectedCategories.add(category2);
     }
+
+    @DisplayName("Test get all categories")
+    @Test
+    public void testGetAll() {
+        when(categoryRepository.getAll("en")).thenReturn(expectedCategories);
+
+        List<Category> actual = categoryService.getAll("en");
+
+        assertSame(expectedCategories, actual);
+    }
 }
