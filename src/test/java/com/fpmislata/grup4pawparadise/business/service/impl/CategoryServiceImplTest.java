@@ -56,4 +56,14 @@ public class CategoryServiceImplTest {
 
         assertSame(expectedCategories, actual);
     }
+
+    @DisplayName("Test get children by parent id")
+    @Test
+    public void testGetChildrenByParentId() {
+        when(categoryRepository.getChildrenByParentId(1, "en")).thenReturn(expectedCategories.get(0).getCategories());
+
+        List<Category> actual = categoryService.getChildrenByParentId(1, "en");
+
+        assertSame(expectedCategories.get(0).getCategories(), actual);
+    }
 }
