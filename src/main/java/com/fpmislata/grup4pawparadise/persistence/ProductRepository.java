@@ -1,12 +1,13 @@
 package com.fpmislata.grup4pawparadise.persistence;
 
+import com.fpmislata.grup4pawparadise.business.entity.Product;
+import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
+
 import java.util.List;
 
-import com.fpmislata.grup4pawparadise.business.entity.Product;
-
 public interface ProductRepository {
-    
-    public List<Product> getAll();
-    public Product findById(int id) throws Exception;
-    public List<Product> findByCategoryId(int categoryId);
+
+    List<Product> getAll(String language);
+    Product findById(int id, String language) throws ResourceNotFoundException;
+    List<Product> findByCategoryIds(List<Integer> categoryIds, String language);
 }
