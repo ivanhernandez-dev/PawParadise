@@ -1,32 +1,36 @@
 package com.fpmislata.grup4pawparadise.business.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
-    int id;
-    String name;
-    List<Category> categories;
-    List<Product> products;
-    
-    public Category(int id, String name, List<Product> products) {
-        this.id = id;
-        this.name = name;
-        this.products = products;
-    }
 
-    public Category(int id, String name, List<Category> categories, List<Product> products) {
-        this.id = id;
-        this.name = name;
-        this.categories = categories;
-        this.products = products;
-    }
+    private final int id;
+    private String name;
+    private List<Category> categories;
+    private String image;
+
+    private final static String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
 
     public Category(int id, String name) {
         this.id = id;
         this.name = name;
-        this.categories = new ArrayList<>();
-        this.products = new ArrayList<>();
+    }
+
+    public Category(int id, String name, List<Category> categories) {
+        this(id, name);
+        this.categories = categories;
+    }
+
+    public Category(int id, String name, String image) {
+        this(id, name);
+        this.image = image;
+    }
+
+    public String getImage() {
+        if (image == null || image.isEmpty()) {
+            return DEFAULT_IMAGE_URL;
+        }
+        return image;
     }
 
     public int getId() {
@@ -35,5 +39,23 @@ public class Category {
 
     public String getName() {
         return name;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", categories=" + categories +
+                ", image='" + image + '\'' +
+                '}';
     }
 }
