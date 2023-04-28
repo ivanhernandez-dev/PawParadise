@@ -44,4 +44,13 @@ public class ProductServiceImplTest {
         this.expectedProducts = List.of(new Product(1, "Comida para perros", "10", 100, "Comida de alta calidad para perros"));
         this.categories = List.of(new Category(1, "Category 1"), new Category(4, "Category 4"));
     }
+
+    @DisplayName("Test getAll(String)")
+    @Test
+    public void getAllTest() {
+        String language = "es";
+        when(productRepository.getAll(language)).thenReturn(productList);
+        List<Product> actualProducts = productService.getAll(language);
+        assertEquals(productList, actualProducts, "The lists should be equal");
+    }
 }
