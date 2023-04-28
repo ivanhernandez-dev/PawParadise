@@ -53,4 +53,14 @@ public class ProductServiceImplTest {
         List<Product> actualProducts = productService.getAll(language);
         assertEquals(productList, actualProducts, "The lists should be equal");
     }
+
+    @DisplayName("Test findById(int, String)")
+    @Test
+    public void findByIdTest() throws ResourceNotFoundException {
+        int id = 1;
+        String language = "es";
+        when(productRepository.findById(id, language)).thenReturn(productList.get(0));
+        Product actualProduct = productService.findById(id, language);
+        assertEquals(productList.get(0), actualProduct, "The products should be equal");
+    }
 }
