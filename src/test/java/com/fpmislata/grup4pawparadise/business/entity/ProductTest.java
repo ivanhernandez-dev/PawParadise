@@ -60,6 +60,20 @@ class ProductTest {
             assertEquals(0, product.getStock(), "Product stock should be 0");
             assertEquals(CUSTOM_IMAGE_URL, product.getImage(), "Product image should be the custom image");
         }
+
+        @DisplayName("Test constructor with id, name, price, stock, description, HTML description and image")
+        @Test
+        public void testConstructorWithIdNamePriceStockDescriptionHTMLImage() {
+            product = new Product(1, "Product 1", "Product description", "<b>Product description</b>", "10.50", 5, CUSTOM_IMAGE_URL);
+
+            assertEquals(1, product.getId(), "Product id should be 1");
+            assertEquals("Product 1", product.getName(), "Product name should be 'Product 1'");
+            assertEquals("Product description", product.getDescription(), "Product description should be 'Product description'");
+            assertEquals("<b>Product description</b>", product.getDescriptionHTML(), "Product HTML description should be '<b>Product description</b>'");
+            assertEquals(new BigDecimal("10.50"), product.getPrice(), "Product price should be 10.50");
+            assertEquals(5, product.getStock(), "Product stock should be 5");
+            assertEquals(CUSTOM_IMAGE_URL, product.getImage(), "Product image should be the custom image");
+        }
     }
 
     @DisplayName("Test getters")
@@ -67,7 +81,7 @@ class ProductTest {
     class TestGetters {
         @BeforeEach
         public void setUp() {
-            product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", CUSTOM_IMAGE_URL);
+            product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", null);
         }
 
         @DisplayName("Test getId")
