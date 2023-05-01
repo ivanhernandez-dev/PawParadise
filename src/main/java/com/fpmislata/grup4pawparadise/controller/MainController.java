@@ -15,9 +15,6 @@ public class MainController {
 
     @GetMapping("/{language}")
     public String getAll(Model model, @PathVariable(required = false) String language) {
-        if (language == null || language.isEmpty()) {
-            language = DEFAULT_LANGUAGE;
-        }
         model.addAttribute("allCategories", this.categoryService.getAll(language));
         model.addAttribute("categories", this.categoryService.getChildrenByParentId(null, language));
         model.addAttribute("language", language);
