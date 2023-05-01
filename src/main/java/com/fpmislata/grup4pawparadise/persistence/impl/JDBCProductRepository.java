@@ -45,9 +45,10 @@ public class JDBCProductRepository implements ProductRepository {
     private Product createProductFromResultSet(ResultSet resultSet) throws SQLException {
         return new Product(resultSet.getInt("id_product"),
                 resultSet.getString("name_product"),
-                resultSet.getString("price"),
                 resultSet.getString("description_text"),
                 resultSet.getString("description_html"),
+                resultSet.getString("price"),
+                resultSet.getInt("stock"),
                 resultSet.getString("img_product"));
     }
 
