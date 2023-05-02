@@ -20,32 +20,6 @@ class CategoryTest {
     @DisplayName("Test constructors")
     @Nested
     class TestConstructors {
-        @DisplayName("Test constructor with id and name")
-        @Test
-        public void testConstructorWithIdAndName() {
-            category = new Category(1, "Category 1");
-
-            assertEquals(1, category.getId(), "Category id should be 1");
-            assertEquals("Category 1", category.getName(), "Category name should be 'Category 1'");
-            assertNull(category.getCategories(), "Category subcategories should be null");
-            assertEquals(DEFAULT_IMAGE_URL, category.getImage(), "Category image should be the default image");
-        }
-
-        @DisplayName("Test constructor with id, name and categories")
-        @Test
-        public void testConstructorWithIdNameAndCategories() {
-            List<Category> subcategories = new ArrayList<>();
-            subcategories.add(new Category(2, "Subcategory 1"));
-            subcategories.add(new Category(3, "Subcategory 2"));
-
-            category = new Category(1, "Category 1", subcategories);
-
-            assertEquals(1, category.getId(), "Category id should be 1");
-            assertEquals("Category 1", category.getName(), "Category name should be 'Category 1'");
-            assertEquals(subcategories, category.getCategories(), "Category subcategories should be the same");
-            assertEquals(DEFAULT_IMAGE_URL, category.getImage(), "Category image should be the default image");
-        }
-
         @DisplayName("Test constructor with id, name and image")
         @Test
         public void testConstructorWithIdNameAndImage() {
@@ -62,7 +36,7 @@ class CategoryTest {
     class TestGettersAndSetters {
         @BeforeEach
         public void setUp() {
-            category = new Category(1, "Category 1");
+            category = new Category(1, "Category 1", null);
         }
 
         @DisplayName("Test getId")
@@ -87,8 +61,8 @@ class CategoryTest {
         @Test
         public void testGetCategoriesWithSubcategories() {
             List<Category> subcategories = new ArrayList<>();
-            subcategories.add(new Category(2, "Subcategory 1"));
-            subcategories.add(new Category(3, "Subcategory 2"));
+            subcategories.add(new Category(2, "Subcategory 1", null));
+            subcategories.add(new Category(3, "Subcategory 2", null));
             category.setCategories(subcategories);
 
             assertEquals(subcategories, category.getCategories(), "Category subcategories should be the same");
@@ -111,8 +85,8 @@ class CategoryTest {
         @Test
         public void testSetCategories() {
             List<Category> subcategories = new ArrayList<>();
-            subcategories.add(new Category(2, "Subcategory 1"));
-            subcategories.add(new Category(3, "Subcategory 2"));
+            subcategories.add(new Category(2, "Subcategory 1", null));
+            subcategories.add(new Category(3, "Subcategory 2", null));
             category.setCategories(subcategories);
 
             assertEquals(subcategories, category.getCategories(), "Category subcategories should be the same");
@@ -122,7 +96,7 @@ class CategoryTest {
     @DisplayName("Test toString")
     @Test
     public void testToString() {
-        category = new Category(1, "Category 1");
+        category = new Category(1, "Category 1", null);
         assertEquals("Category{id=1, name='Category 1', categories=null, image='null'}", category.toString(), "Category toString should be 'Category{id=1, name='Category 1', categories=null, image='null'}'");
     }
 }
