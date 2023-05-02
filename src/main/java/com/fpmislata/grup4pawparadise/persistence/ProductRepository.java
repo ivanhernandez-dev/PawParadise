@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface ProductRepository {
 
-    List<Product> getAll(String language);
     Product findById(int id, String language) throws ResourceNotFoundException;
     List<Product> findByCategoryIds(List<Integer> categoryIds, String language);
 }
