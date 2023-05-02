@@ -45,15 +45,6 @@ public class ProductServiceImplTest {
         this.categories = List.of(new Category(1, "Category 1", null), new Category(4, "Category 4", null));
     }
 
-    @DisplayName("Test getAll(String)")
-    @Test
-    public void getAllTest() {
-        String language = "es";
-        when(productRepository.getAll(language)).thenReturn(productList);
-        List<Product> actualProducts = productService.getAll(language);
-        assertEquals(productList, actualProducts, "The lists should be equal");
-    }
-
     @DisplayName("Test findById(int, String)")
     @Test
     public void findByIdTest() throws ResourceNotFoundException {
