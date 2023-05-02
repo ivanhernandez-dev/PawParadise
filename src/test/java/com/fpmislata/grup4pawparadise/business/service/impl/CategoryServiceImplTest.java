@@ -34,14 +34,15 @@ public class CategoryServiceImplTest {
     public void setup() {
         expectedCategories = new ArrayList<>();
 
-        Category subcategory1 = new Category(2, "Subcategory 1");
-        Category subcategory2 = new Category(3, "Subcategory 2");
+        Category subcategory1 = new Category(2, "Subcategory 1", CUSTOM_IMAGE_URL);
+        Category subcategory2 = new Category(3, "Subcategory 2", CUSTOM_IMAGE_URL);
         List<Category> subcategories = new ArrayList<>();
         subcategories.add(subcategory1);
         subcategories.add(subcategory2);
 
-        Category category1 = new Category(1, "Category 1", subcategories);
-        Category category2 = new Category(4, "Category 2");
+        Category category1 = new Category(1, "Category 1", null);
+        Category category2 = new Category(4, "Category 2", null);
+        category1.setCategories(subcategories);
 
         expectedCategories.add(category1);
         expectedCategories.add(category2);
