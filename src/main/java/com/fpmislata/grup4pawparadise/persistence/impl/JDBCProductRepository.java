@@ -14,8 +14,6 @@ import java.util.List;
 
 public class JDBCProductRepository implements ProductRepository {
 
-    private static final String SELECT_ALL_PRODUCTS = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
-            "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE pl.language_type = ?";
     private static final String SELECT_PRODUCT_BY_ID = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
             "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE p.id_product = ? AND pl.language_type = ?";
     private static final String SELECT_PRODUCTS_BY_CATEGORIES = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
