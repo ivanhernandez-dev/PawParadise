@@ -8,7 +8,6 @@ import java.util.List;
 public interface CategoryRepository {
     
     List<Category> getAll(String language);
-    Category getById(int id, String language) throws ResourceNotFoundException;
     List<Category> getChildrenByParentId(Integer parentId, String language);
     List<Category> getSuccessorsByParentId(Integer parentId, String language);
 }
