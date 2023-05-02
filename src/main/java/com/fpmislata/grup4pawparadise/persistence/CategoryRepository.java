@@ -1,7 +1,6 @@
 package com.fpmislata.grup4pawparadise.persistence;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
-import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 
 import java.util.List;
 
