@@ -37,11 +37,11 @@ public class ProductServiceImplTest {
     @BeforeEach
     void setup() {
         this.productList = List.of(
-                new Product(1, "Product 1", "10.00", 50, "Description 1"),
-                new Product(2, "Product 2", "20.00", 20, "Description 2"),
-                new Product(3, "Product 3", "30.00", 10, "Description 3")
+                new Product(1, "Product 1", "Description 1", "<b>Description 1</b>", "10.00", 30, "https://example.com/image.jpg"),
+                new Product(2, "Product 2", "Description 2", "<b>Description 2</b>", "20.00", 20, "https://example.com/image.jpg"),
+                new Product(3, "Product 3", "Description 3", "<b>Description 3</b>", "30.00", 10, "https://example.com/image.jpg")
         );
-        this.expectedProducts = List.of(new Product(1, "Comida para perros", "10", 100, "Comida de alta calidad para perros"));
+        this.expectedProducts = List.of(new Product(1, "Comida para perros", "Comida de alta calidad para perros", "<b>Comida de alta calidad para perros</b>", "10", 100, "https://example.com/image.jpg"));
         this.categories = List.of(new Category(1, "Category 1"), new Category(4, "Category 4"));
     }
 
