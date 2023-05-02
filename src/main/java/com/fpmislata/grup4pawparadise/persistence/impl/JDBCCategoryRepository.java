@@ -2,7 +2,6 @@ package com.fpmislata.grup4pawparadise.persistence.impl;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
 import com.fpmislata.grup4pawparadise.database.JDBCUtil;
-import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.CategoryRepository;
 
 import java.sql.Connection;
