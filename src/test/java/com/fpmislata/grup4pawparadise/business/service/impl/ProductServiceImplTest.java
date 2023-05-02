@@ -42,7 +42,7 @@ public class ProductServiceImplTest {
                 new Product(3, "Product 3", "Description 3", "<b>Description 3</b>", "30.00", 10, "https://example.com/image.jpg")
         );
         this.expectedProducts = List.of(new Product(1, "Comida para perros", "Comida de alta calidad para perros", "<b>Comida de alta calidad para perros</b>", "10", 100, "https://example.com/image.jpg"));
-        this.categories = List.of(new Category(1, "Category 1"), new Category(4, "Category 4"));
+        this.categories = List.of(new Category(1, "Category 1", null), new Category(4, "Category 4", null));
     }
 
     @DisplayName("Test getAll(String)")
