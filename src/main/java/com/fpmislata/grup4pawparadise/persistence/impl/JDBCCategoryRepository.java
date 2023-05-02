@@ -23,10 +23,7 @@ public class JDBCCategoryRepository implements CategoryRepository {
     private static final String SELECT_CHILDREN_WHERE_NULL_PARENT_BY_LANGUAGE = "SELECT c.*, cl.name_category FROM category c " +
             "JOIN category_language cl ON c.id_category = cl.id_category WHERE c.id_parent IS NULL AND cl.language_type = ? " +
             "ORDER BY c.id_category";
-    private static final String SELECT_CATEGORY_BY_ID_AND_LANGUAGE = "SELECT c.*, cl.name_category FROM category c " +
-            "JOIN category_language cl ON c.id_category = cl.id_category WHERE c.id_category = ? AND cl.language_type = ?";
 
-    private static final String CATEGORY_NOT_FOUND_MESSAGE = "Category not found with id: ";
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
     @Override
@@ -68,18 +65,6 @@ public class JDBCCategoryRepository implements CategoryRepository {
         }
         List<Object> params = List.of(parentId, language);
         return executeQuery(SELECT_CHILDREN_BY_PARENT_ID_AND_LANGUAGE, params);
-    }
-
-    @Override
-    public Category getById(int id, String language) throws ResourceNotFoundException {
-        List<Object> params = List.of(id, language);
-        List<Category> categories = executeQuery(SELECT_CATEGORY_BY_ID_AND_LANGUAGE, params);
-
-        if (!categories.isEmpty()) {
-            return categories.get(0);
-        } else {
-            throw new ResourceNotFoundException(CATEGORY_NOT_FOUND_MESSAGE + id);
-        }
     }
 
     private List<Category> executeQuery(String query, List<Object> params) {
