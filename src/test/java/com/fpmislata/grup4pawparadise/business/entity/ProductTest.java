@@ -19,48 +19,6 @@ class ProductTest {
     @DisplayName("Test constructors")
     @Nested
     class TestConstructors {
-        @DisplayName("Test constructor with id and name")
-        @Test
-        public void testConstructorWithIdAndName() {
-            product = new Product(1, "Product 1");
-
-            assertEquals(1, product.getId(), "Product id should be 1");
-            assertEquals("Product 1", product.getName(), "Product name should be 'Product 1'");
-            assertNull(product.getDescription(), "Product description should be null");
-            assertNull(product.getDescriptionHTML(), "Product HTML description should be null");
-            assertNull(product.getPrice(), "Product price should be null");
-            assertEquals(0, product.getStock(), "Product stock should be 0");
-            assertEquals(DEFAULT_IMAGE_URL, product.getImage(), "Product image should be the default image");
-        }
-
-        @DisplayName("Test constructor with id, name, price, stock and description")
-        @Test
-        public void testConstructorWithIdNamePriceStockAndDescription() {
-            product = new Product(1, "Product 1", "10.50", 5, "Product description");
-
-            assertEquals(1, product.getId(), "Product id should be 1");
-            assertEquals("Product 1", product.getName(), "Product name should be 'Product 1'");
-            assertEquals("Product description", product.getDescription(), "Product description should be 'Product description'");
-            assertNull(product.getDescriptionHTML(), "Product HTML description should be null");
-            assertEquals(new BigDecimal("10.50"), product.getPrice(), "Product price should be 10.50");
-            assertEquals(5, product.getStock(), "Product stock should be 5");
-            assertEquals(DEFAULT_IMAGE_URL, product.getImage(), "Product image should be the default image");
-        }
-
-        @DisplayName("Test constructor with id, name, price, description, HTML description and image")
-        @Test
-        public void testConstructorWithIdNamePriceDescriptionHTMLImage() {
-            product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", CUSTOM_IMAGE_URL);
-
-            assertEquals(1, product.getId(), "Product id should be 1");
-            assertEquals("Product 1", product.getName(), "Product name should be 'Product 1'");
-            assertEquals("Product description", product.getDescription(), "Product description should be 'Product description'");
-            assertEquals("<b>Product description</b>", product.getDescriptionHTML(), "Product HTML description should be '<b>Product description</b>'");
-            assertEquals(new BigDecimal("10.50"), product.getPrice(), "Product price should be 10.50");
-            assertEquals(0, product.getStock(), "Product stock should be 0");
-            assertEquals(CUSTOM_IMAGE_URL, product.getImage(), "Product image should be the custom image");
-        }
-
         @DisplayName("Test constructor with id, name, price, stock, description, HTML description and image")
         @Test
         public void testConstructorWithIdNamePriceStockDescriptionHTMLImage() {
@@ -81,7 +39,7 @@ class ProductTest {
     class TestGetters {
         @BeforeEach
         public void setUp() {
-            product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", null);
+            product = new Product(1, "Product 1", "Product description", "<b>Product description</b>", "10.50", 0, null);
         }
 
         @DisplayName("Test getId")
@@ -129,7 +87,7 @@ class ProductTest {
         @DisplayName("Test getImage with custom image")
         @Test
         public void testGetImageWithCustomImage() {
-            product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", CUSTOM_IMAGE_URL);
+            product = new Product(1, "Product 1", "Product description", "<b>Product description</b>", "10.50", 5, CUSTOM_IMAGE_URL);
             assertEquals(CUSTOM_IMAGE_URL, product.getImage(), "Product image should be the custom image");
         }
     }
@@ -137,7 +95,7 @@ class ProductTest {
     @DisplayName("Test toString")
     @Test
     public void testToString() {
-        product = new Product(1, "Product 1", "10.50", "Product description", "<b>Product description</b>", CUSTOM_IMAGE_URL);
+        product = new Product(1, "Product 1", "Product description", "<b>Product description</b>", "10.50", 0, CUSTOM_IMAGE_URL);
         String expected = "Product{id=1, name='Product 1', description='Product description', descriptionHTML='<b>Product description</b>', price=10.50, stock=0, image='" + CUSTOM_IMAGE_URL + "'}";
         assertEquals(expected, product.toString(), "Product toString should return the correct string");
     }
