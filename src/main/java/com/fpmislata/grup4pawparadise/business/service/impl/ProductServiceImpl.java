@@ -18,12 +18,12 @@ public class ProductServiceImpl implements ProductService{
     private CategoryRepository categoryRepository = new JDBCCategoryRepository();
 
     @Override
-    public Product findById(int id, String language) throws ResourceNotFoundException {
-        return this.productRepository.findById(id, language);
+    public Product getById(int id, String language) throws ResourceNotFoundException {
+        return this.productRepository.getById(id, language);
     }
 
     @Override
-    public List<Product> findByCategoryIdWithSuccessors(int categoryId, String language) {
+    public List<Product> getByCategoryIdWithSuccessors(int categoryId, String language) {
         List<Category> categories = this.categoryRepository.getSuccessorsByParentId(categoryId, language);
 
         List<Integer> categoryIds = new ArrayList<>();
@@ -32,6 +32,6 @@ public class ProductServiceImpl implements ProductService{
             categoryIds.add(category.getId());
         }
 
-        return this.productRepository.findByCategoryIds(categoryIds, language);
+        return this.productRepository.getByCategoryIds(categoryIds, language);
     }
 }

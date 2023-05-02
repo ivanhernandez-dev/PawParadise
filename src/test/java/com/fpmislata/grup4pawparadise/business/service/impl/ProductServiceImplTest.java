@@ -45,26 +45,26 @@ public class ProductServiceImplTest {
         this.categories = List.of(new Category(1, "Category 1", null), new Category(4, "Category 4", null));
     }
 
-    @DisplayName("Test findById(int, String)")
+    @DisplayName("Test getById(int, String)")
     @Test
-    public void findByIdTest() throws ResourceNotFoundException {
+    public void getByIdTest() throws ResourceNotFoundException {
         int id = 1;
         String language = "es";
-        when(productRepository.findById(id, language)).thenReturn(productList.get(0));
-        Product actualProduct = productService.findById(id, language);
+        when(productRepository.getById(id, language)).thenReturn(productList.get(0));
+        Product actualProduct = productService.getById(id, language);
         assertEquals(productList.get(0), actualProduct, "The products should be equal");
     }
 
-    @DisplayName("Test findByCategoryIdWithSuccessors(int)")
+    @DisplayName("Test getByCategoryIdWithSuccessors(int)")
     @Test
-    void findByCategoryIdWithSuccessorsTest() {
+    void getByCategoryIdWithSuccessorsTest() {
         int categoryId = 1;
         String language = "es";
 
         when(categoryRepository.getSuccessorsByParentId(categoryId, language)).thenReturn(categories);
-        when(productRepository.findByCategoryIds(List.of(1, 1, 4), language)).thenReturn(expectedProducts);
+        when(productRepository.getByCategoryIds(List.of(1, 1, 4), language)).thenReturn(expectedProducts);
 
-        List<Product> actualProducts = productService.findByCategoryIdWithSuccessors(categoryId, language);
+        List<Product> actualProducts = productService.getByCategoryIdWithSuccessors(categoryId, language);
         assertEquals(expectedProducts, actualProducts, "The lists should be equal");
     }
 }

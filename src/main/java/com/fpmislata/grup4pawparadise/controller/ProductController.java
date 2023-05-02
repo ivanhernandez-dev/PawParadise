@@ -13,9 +13,9 @@ public class ProductController {
     
     private ProductService productService = new ProductServiceImpl();
     @GetMapping("/{language}/productos/{productId}")
-    public String findById(@PathVariable("productId") int productId, Model model, @PathVariable String language){
+    public String getById(@PathVariable("productId") int productId, Model model, @PathVariable String language){
         try {
-            model.addAttribute("products", this.productService.findById(productId, language));
+            model.addAttribute("products", this.productService.getById(productId, language));
             model.addAttribute("language", language);
             return "product";
         } catch (Exception e) {

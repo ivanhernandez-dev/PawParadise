@@ -25,7 +25,6 @@ public class CategoryServiceImplTest {
     @InjectMocks
     private CategoryServiceImpl categoryService;
 
-    private static final String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
     private static final String CUSTOM_IMAGE_URL = "https://example.com/custom_image.jpg";
 
     private List<Category> expectedCategories;

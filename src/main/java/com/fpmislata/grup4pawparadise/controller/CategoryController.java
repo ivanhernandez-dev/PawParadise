@@ -17,10 +17,10 @@ public class CategoryController {
     private ProductService productService = new ProductServiceImpl();
 
     @GetMapping("/{language}/categorias/{categoryId}")
-    public String findByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model, @PathVariable String language){
+    public String getByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model, @PathVariable String language){
         try {
             model.addAttribute("categories", this.categoryService.getChildrenByParentId(categoryId, language));
-            model.addAttribute("products", this.productService.findByCategoryIdWithSuccessors(categoryId, language));
+            model.addAttribute("products", this.productService.getByCategoryIdWithSuccessors(categoryId, language));
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();
