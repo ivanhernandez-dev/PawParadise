@@ -25,12 +25,6 @@ public class JDBCProductRepository implements ProductRepository {
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
     @Override
-    public List<Product> getAll(String language) {
-        List<Object> params = List.of(language);
-        return executeQuery(SELECT_ALL_PRODUCTS, params);
-    }
-
-    @Override
     public Product findById(int id, String language) throws ResourceNotFoundException {
         List<Object> params = List.of(id, language);
         List<Product> products = executeQuery(SELECT_PRODUCT_BY_ID, params);
