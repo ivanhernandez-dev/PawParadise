@@ -18,11 +18,6 @@ public class ProductServiceImpl implements ProductService{
     private CategoryRepository categoryRepository = new JDBCCategoryRepository();
 
     @Override
-    public List<Product> getAll(String language) {
-        return this.productRepository.getAll(language);
-    }
-
-    @Override
     public Product findById(int id, String language) throws ResourceNotFoundException {
         return this.productRepository.findById(id, language);
     }
