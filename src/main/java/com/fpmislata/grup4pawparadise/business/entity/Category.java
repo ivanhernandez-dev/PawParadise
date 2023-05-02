@@ -11,18 +11,9 @@ public class Category {
 
     private final static String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
 
-    public Category(int id, String name) {
+    public Category(int id, String name, String image) {
         this.id = id;
         this.name = name;
-    }
-
-    public Category(int id, String name, List<Category> categories) {
-        this(id, name);
-        this.categories = categories;
-    }
-
-    public Category(int id, String name, String image) {
-        this(id, name);
         this.image = image;
     }
 
