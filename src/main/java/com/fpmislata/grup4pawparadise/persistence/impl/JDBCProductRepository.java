@@ -46,14 +46,16 @@ public class JDBCProductRepository implements ProductRepository {
 
     private List<Product> executeQuery(String query, List<Object> params) {
         List<Product> products = new ArrayList<>();
-
-        try (Connection connection = JDBCUtil.open();
-             ResultSet resultSet = JDBCUtil.select(connection, query, params)) {
+        Connection connection = JDBCUtil.open();
+        ResultSet resultSet = JDBCUtil.select(connection, query, params);
+        try {
             while (resultSet.next()) {
                 products.add(createProductFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             throw new RuntimeException(SQL_EXCEPTION_MESSAGE + e.getMessage(), e);
+        } finally {
+            JDBCUtil.close(connection);
         }
 
         return products;
