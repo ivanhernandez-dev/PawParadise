@@ -30,8 +30,9 @@ public class JDBCCategoryRepository implements CategoryRepository {
         List<Object> params = List.of(language);
         List<Category> categories = new ArrayList<>();
         Map<Integer, Category> categoryMap = new HashMap<>();
-        try (Connection connection = JDBCUtil.open();
-            ResultSet resultSet = JDBCUtil.select(connection, SELECT_ALL_CATEGORIES_BY_LANGUAGE, params)) {
+        Connection connection = JDBCUtil.open();
+        ResultSet resultSet = JDBCUtil.select(connection, SELECT_ALL_CATEGORIES_BY_LANGUAGE, params);
+        try {
             while (resultSet.next()) {
                 Category category = createCategoryFromResultSet(resultSet);
                 categoryMap.put(category.getId(), category);
@@ -52,6 +53,8 @@ public class JDBCCategoryRepository implements CategoryRepository {
             }
         } catch (SQLException e) {
             throw new RuntimeException(SQL_EXCEPTION_MESSAGE + e.getMessage(), e);
+        } finally {
+            JDBCUtil.close(connection);
         }
         return categories;
     }
@@ -68,15 +71,16 @@ public class JDBCCategoryRepository implements CategoryRepository {
 
     private List<Category> executeQuery(String query, List<Object> params) {
         List<Category> categories = new ArrayList<>();
-
-        try (Connection connection = JDBCUtil.open();
-             ResultSet resultSet = JDBCUtil.select(connection, query, params)) {
-
+        Connection connection = JDBCUtil.open();
+        ResultSet resultSet = JDBCUtil.select(connection, query, params);
+        try {
             while (resultSet.next()) {
                 categories.add(createCategoryFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             throw new RuntimeException(SQL_EXCEPTION_MESSAGE + e.getMessage(), e);
+        } finally {
+            JDBCUtil.close(connection);
         }
 
         return categories;
