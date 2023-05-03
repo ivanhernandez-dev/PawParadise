@@ -1,10 +1,12 @@
 package com.fpmislata.grup4pawparadise.persistence;
 
-import java.util.List;
-
 import com.fpmislata.grup4pawparadise.business.entity.Category;
+
+import java.util.List;
 
 public interface CategoryRepository {
     
-    public List<Category> getAll();
+    List<Category> getAll(String language);
+    List<Category> getChildrenByParentId(Integer parentId, String language);
+    List<Category> getSuccessorsByParentId(Integer parentId, String language);
 }
