@@ -15,9 +15,14 @@ public class MainController {
 
     @GetMapping("/{language}")
     public String getAll(Model model, @PathVariable(required = false) String language) {
-        model.addAttribute("allCategories", this.categoryService.getAll(language));
-        model.addAttribute("categories", this.categoryService.getChildrenByParentId(null, language));
-        model.addAttribute("language", language);
+        try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
+            model.addAttribute("categories", this.categoryService.getChildrenByParentId(null, language));
+            model.addAttribute("language", language);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
         return "index";
     }
 

@@ -17,9 +17,10 @@ public class ProductController {
         try {
             model.addAttribute("products", this.productService.getById(productId, language));
             model.addAttribute("language", language);
-            return "product";
         } catch (Exception e) {
+            e.printStackTrace();
             return "error";
         }
+        return "product";
     }
 }
