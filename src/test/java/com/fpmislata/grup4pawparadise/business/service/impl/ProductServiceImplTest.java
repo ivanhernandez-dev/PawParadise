@@ -14,8 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,9 +29,9 @@ public class ProductServiceImplTest {
     @InjectMocks
     private ProductServiceImpl productService;
 
-    @DisplayName("Test getById(int, String)")
+    @DisplayName("Test getById(int, String) with existing product")
     @Test
-    public void getByIdTest() throws ResourceNotFoundException {
+    public void getByIdTestShouldReturnProduct() throws ResourceNotFoundException {
         Product expectedProduct = new Product(1, "Product 1", "Description 1",
                 "<b>Description 1</b>", "10.00", 30, "https://example.com/image.jpg");
         int id = 1;
@@ -43,6 +42,17 @@ public class ProductServiceImplTest {
         Product actualProduct = productService.getById(id, language);
 
         assertEquals(expectedProduct, actualProduct, "The products should be equal");
+    }
+
+    @DisplayName("Test getById(int, String) with non-existing product")
+    @Test
+    public void getByIdTestShouldThrowResourceNotFoundException() throws ResourceNotFoundException {
+        int id = -1;
+        String language = "es";
+
+        when(productRepository.getById(-1, language)).thenThrow(ResourceNotFoundException.class);
+
+        assertThrows(ResourceNotFoundException.class, () -> productService.getById(id, language));
     }
 
     @DisplayName("Test getByCategoryIdWithSuccessors(int)")
