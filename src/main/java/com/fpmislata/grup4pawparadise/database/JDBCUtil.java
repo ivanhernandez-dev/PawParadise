@@ -12,8 +12,8 @@ public class JDBCUtil {
         try {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/pawparadise",
-                    "root",
-                    "root"
+                    "Alma",
+                    "Alma"
             );
             return connection;
         } catch (SQLException e) {
