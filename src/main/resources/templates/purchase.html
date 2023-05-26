@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<ul>
+    <li><a th:text="'purchase.id=' + ${purchase.id}"> </a></li>
+    <li><a th:text="'purchase.date=' + ${purchase.date}"> </a></li>
+    <li><a th:text="'purchase.status=' + ${purchase.status}"> </a></li>
+    <li><a th:text="'purchase.idUser=' + ${purchase.idUser}"> </a></li>
+</ul>
+<hr>
+<ul class="productsList">
+    <th:block th:each="purchaseLine : ${purchase.purchaseLineList}">
+        <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
+            <li th:text="'product.id=' + ${purchaseLine.product.id}">Sin producto</li>
+            <li th:text="'product.name=' + ${purchaseLine.product.name}">Sin producto</li>
+            <li th:text="'product.price=' + ${purchaseLine.product.price}">Sin producto</li>
+            <li>
+                <input type="number" name="quantity" th:value="${purchaseLine.quantity}" />
+            </li>
+            <p></p>
+            <li th:text="'total=' + ${purchaseLine.totalPrice}">Sin producto</li>
+            <p></p>
+            <button type="submit" name="productId" th:value="${purchaseLine.product.id}">Guardar cambios</button>
+        </form>
+        <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="delete">
+            <button type="submit">Eliminar</button>
+        </form>
+        <hr>
+    </th:block>
+    <p></p>
+    <p></p>
+    <li th:text="'total=' + ${purchase.totalPrice}">Sin producto</li>
+</ul>
+
+<form th:action="@{${'/' + language + '/carrito'}}" method="post" th:method="patch">
+    <button type="submit">Tramitar pedido</button>
+</form>
+
+</body>
+</html>
