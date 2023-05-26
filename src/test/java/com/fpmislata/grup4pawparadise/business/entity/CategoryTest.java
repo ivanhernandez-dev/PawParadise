@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class CategoryTest {
 
     private Category category;
-    private final static String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
+    private final static String DEFAULT_IMAGE_URL = "/img/default.jpg";
     private final static String CUSTOM_IMAGE_URL = "https://example.com/image.jpg";
 
     @DisplayName("Test constructors")
