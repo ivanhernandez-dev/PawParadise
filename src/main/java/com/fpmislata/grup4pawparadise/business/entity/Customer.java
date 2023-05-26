@@ -1,6 +1,7 @@
 package com.fpmislata.grup4pawparadise.business.entity;
 
 public class Customer {
+
     public final int id;
     public String name;
     public String surname;

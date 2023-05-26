@@ -9,7 +9,7 @@ public class Category {
     private List<Category> categories;
     private String image;
 
-    private final static String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
+    private final static String DEFAULT_IMAGE_URL = "/img/default.jpg";
 
     public Category(int id, String name, String image) {
         this.id = id;
