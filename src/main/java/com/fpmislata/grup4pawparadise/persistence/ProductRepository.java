@@ -9,4 +9,5 @@ public interface ProductRepository {
 
     Product getById(int id, String language) throws ResourceNotFoundException;
     List<Product> getByCategoryIds(List<Integer> categoryIds, String language);
+    List<Product> getByName(String name, String language);
 }
