@@ -4,20 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script th:src="@{/js/categoryTree.js}"></script>
     <title>Document</title>
-    <script  th:inline="javascript">
-        var allCategories = /*[[${allCategories}]]*/ 'no categories';
-        var language = /*[[${language}]]*/ 'no language';
-    </script>
+    <link th:rel="stylesheet" th:href="@{/css/estiloBarraNavegación.css}">
+    <link th:rel="stylesheet" th:href="@{/css/slider.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloHome.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloMenu.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
 </head>
-<body onload="getCategoryTree(allCategories, language)"></body>
-    <div id="allCategories"></div>
-    <ul class="categoriesList">
-        <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}">
-            <li th:text="|${category.name}|">Sin producto</li>
-        </a>     
-    </ul>
+<body>
+    <header th:replace="~{base/common :: principal}"></header>
+    <section>
+        <div class="slider">
+            <input type="radio" name="position" checked />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+    
+            <main id="carousel">
+                <div class="item"><img class="logoSlider" th:src="@{/img/logo2.png}"></div>
+                <div class="item"><img th:src="@{/img/imgSlider1.png}" ></div>
+                <div class="item"><img th:src="@{/img/imgSlider3.png}" ></div>
+                <div class="item"><img th:src="@{/img/imgSlider4.jpg}" ></div>
+                <div class="item"><img class="logoSlider" th:src="@{/img/logo2.png}"></div>
+            </main>
+        </div>
+        <div class="imgFondo1">
+    
+        </div>
+        <h1>
+            ROPA Y ACCESORIOS PARA PERROS
+        </h1>
+        <div class="container">
+            <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">
+                <img th:src="${category.image}" alt="">
+                <h2 th:text="${category.name}"></h2>
+            </a>
+        </div>
+        <div id="mainSlogan">
+            <div id="slogan">
+                <h3>En <span>PawParadise</span> vendemos artículos para que la vida de tu mascota sea un <span>paraiso</span></h3>
+            </div>
+        </div>
+    </section>
+    <div class="imgFondo1">
 
+    </div>
+    <footer th:replace="~{base/common :: footer}"></footer>
 </body>
 </html>
