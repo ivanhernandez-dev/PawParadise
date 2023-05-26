@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<header id="principal" th:fragment="principal">
+    <nav>
+        <div class="nav1">
+            <a th:href="@{${'/' + language}}"><img id="logo" th:src="@{/img/icon/logo.png}"></a>
+        </div>
+        <div class="nav2">
+            <img class="imgSearch" th:src="@{/img/icon/search.png}" alt="">
+            <form th:action="@{${'/' + language + '/productos/buscar'}}" method="get">
+                <input class="search" type="search" name="nombre" placeholder="">
+                <input type="submit" hidden="">
+            </form>
+        </div>
+        <div class="nav1">
+            <a href="../html/login.html"><img class="imgUser" th:src="@{/img/icon/user.png}" alt=""></a>
+            <a href="../html/shoppingCar.html"><img class="imgShoppingCart" th:src="@{/img/icon/shoppingCart.png}" alt=""></a>
+            <div class="menu">
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <i class="fa fa-bars" id="btn"></i>
+                    <i class="fa fa-times" id="cancel"></i>
+                    <div class="sidebar">
+                        <header>
+                            CATEGORIAS
+                        </header>
+                        <ul>
+                            <li><a href="../html/ropa.html">ROPA</a></li>
+                            <li><a href="">PASEO</a></li>
+                            <li><a href="">VIAJES</a></li>
+                            <li><a href="">COMPLEMENTOS</a></li>
+                        </ul>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </nav>
+</header>
+<footer th:fragment="footer">
+    <div class="footer">
+        <span class="footerText1">Contacto</span>
+        <div id="footer1">
+            <img class="imgFooter" th:src="@{/img/icon/phone.png}"><p class="footerText">  666 666 666</p>
+        </div>
+        <div id="footer1">
+            <img class="imgFooter" th:src="@{/img/icon/email.png}"><p class="footerText"><p class="footerText">  info@pawparadise.com</p>
+        </div>
+    </div>
+    <div id="centro">
+        <a class="footerText1" th:href="@{/aboutUs.html}"><span>Quienes somos</span></a>
+    </div>
+    <div class="footer">
+        <span class="footerText1">Síguenos</span><br>
+        <img class="imgFooter" th:src="@{/img/icon/instagram.png}">
+        <img class="imgFooter" th:src="@{/img/icon/facebook.png}">
+    </div>
+</footer>
+</body>
+</html>
