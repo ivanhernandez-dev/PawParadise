@@ -1,0 +1,94 @@
+
+#container-uno {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    height: 50%;
+    margin-top: 80px;
+}
+.bloque-uno {
+    width: 40%;
+    text-align: center;
+}
+.bloque-dos {
+    width: 60%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+#marco {
+    padding: 10px;
+    background-color: #ECECEC;
+    border-radius: 13px;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+#img-prod {
+    width: 100%;
+}
+h1 {
+    color: #464646;
+    font-family: 'Carter One';
+}
+p {
+    color: #464646;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px 15px 15px 15px;
+}
+#position {
+    display: flex;
+}
+#position-dos {
+    display: inline;
+}
+#negrita {
+    font-weight: bold;
+}
+#cantidad {
+    border-radius: 13px;
+    background-color: #ECECEC;
+    border: none;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+#numero {
+    border-radius: 13px;
+    background-color: #ECECEC;
+    border: none;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+.cant {
+    width: 40px;
+}
+#precio {
+    color: #FF5959;
+}
+#precio-position {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+#añadir {
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+    border-radius: 13px;
+    background-color: #FF5959;
+    width: 215px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#container-dos {
+    margin: 10px;
+    height: 30%;
+    background-color: #ECECEC;
+    border-radius: 13px;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+    padding: 50px;
+}
+h2 {
+    color: #464646;
+    font-family: 'Carter One';
+}
+li {
+    color: #464646;
+    font-family: 'Open Sans', sans-serif;
+}
+

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.imgFondo1{
+    background-image: url(../img/imgFondo.jpg);
+    background-attachment: fixed;
+    height: 400px;
+    width: 100%;
+}
+section{
+    margin-top: 70px;
+}
+
+h1{
+    color: #464646;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    padding: 15px;
+}
+.category {
+    background-color: #ECECEC;
+    width: 300px;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+.category:hover {
+    transform: scale(1.1);
+}
+.container{
+    z-index: 2;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.category img{
+    width: 100%;
+}
+h2 {
+    color: #464646;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin: 5px;
+}
+#mainSlogan{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+#slogan{
+    background-color: #ECECEC;
+    width: 800px;
+    margin: 30px;
+}
+h3{
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px; 
+}
+span{
+    font-weight: bolder;
+}
