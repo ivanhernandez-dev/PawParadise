@@ -6,8 +6,6 @@ import java.util.List;
 public class JDBCUtil {
 
     public static Connection open(){
-        System.out.println("Connecting to database...");
-
         Connection connection;
         try {
             connection = DriverManager.getConnection(
@@ -23,11 +21,7 @@ public class JDBCUtil {
 
     public static void close(Connection connection) {
         try {
-            System.out.println("Closing database connection...");
-
             connection.close();
-
-            System.out.println("Connection status: " + connection.isValid(0));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
