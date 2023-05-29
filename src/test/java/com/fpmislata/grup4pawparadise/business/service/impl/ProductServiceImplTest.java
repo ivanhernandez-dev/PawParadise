@@ -89,8 +89,11 @@ public class ProductServiceImplTest {
 
         assertAll(
                 () -> verify(productRepository,
-                        description("The method getByCategoryIds should be called with parameters 1, 2, 3"))
+                        description("The method getByCategoryIds should be called with parameters 1, 2, 3 and language es"))
                         .getByCategoryIds(List.of(1, 2, 3), language),
+                () -> verify(categoryRepository,
+                        description("The method getSuccessorsByParentId should be called with parameter 1 and language es"))
+                        .getSuccessorsByParentId(categoryId, language),
                 () -> assertEquals(expectedProducts, actualProducts, "The lists should be equal")
         );
     }
