@@ -38,6 +38,6 @@ public class PurchaseController {
             e.printStackTrace();
             return "error";
         }
-        return "purchase";
+        return "shoppingCart";
     }
 }
