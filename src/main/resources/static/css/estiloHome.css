@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 .imgFondo1{
-    background-image: url(../img/imgFondo.jpg);
+    background-image: url('../img/imgFondo.jpg');
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 400px;
     width: 100%;
 }
