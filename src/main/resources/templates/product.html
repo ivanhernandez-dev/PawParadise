@@ -9,9 +9,16 @@
 <body>
    
     <ul>
-        <li><a th:text="${products.name}"> </a></li>
-        <li><a th:text="${products.description}"> </a></li> 
-        <li><a th:text="${products.price}"> </a></li> 
+        <li><a th:text="${product.name}"> </a></li>
+        <li><a th:text="${product.description}"> </a></li>
+        <li>
+            <ul>
+                <li th:each="productFeature : ${product.productFeatures}">
+                    <a th:text="${productFeature.description}"> </a>
+                </li>
+            </ul>
+        </li>
+        <li><a th:text="${product.price}"> </a></li>
     </ul>
 
 </body>

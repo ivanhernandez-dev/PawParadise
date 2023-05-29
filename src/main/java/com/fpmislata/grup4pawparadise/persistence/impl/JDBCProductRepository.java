@@ -3,6 +3,7 @@ package com.fpmislata.grup4pawparadise.persistence.impl;
 import com.fpmislata.grup4pawparadise.business.entity.Product;
 import com.fpmislata.grup4pawparadise.database.JDBCUtil;
 import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
+import com.fpmislata.grup4pawparadise.persistence.ProductFeatureRepository;
 import com.fpmislata.grup4pawparadise.persistence.ProductRepository;
 
 import java.sql.Connection;
@@ -24,10 +25,12 @@ public class JDBCProductRepository implements ProductRepository {
     private static final String PRODUCT_NOT_FOUND_MESSAGE = "Product not found with id: ";
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
+    private ProductFeatureRepository featureRepository = new JDBCProductFeatureRepositoryImpl();
+
     @Override
     public Product getById(int id, String language) throws ResourceNotFoundException {
         List<Object> params = List.of(id, language);
-        List<Product> products = executeQuery(SELECT_PRODUCT_BY_ID, params);
+        List<Product> products = executeQuery(SELECT_PRODUCT_BY_ID, params, language);
 
         if (!products.isEmpty()) {
             return products.get(0);
@@ -36,23 +39,23 @@ public class JDBCProductRepository implements ProductRepository {
         }
     }
 
-    private Product createProductFromResultSet(ResultSet resultSet) throws SQLException {
+    private Product createProductFromResultSet(ResultSet resultSet, String language) throws SQLException {
         return new Product(resultSet.getInt("id_product"),
                 resultSet.getString("name_product"),
                 resultSet.getString("description_text"),
-                resultSet.getString("description_html"),
+                featureRepository.getByProductIdAndLanguage(resultSet.getInt("id_product"), language),
                 resultSet.getString("price"),
                 resultSet.getInt("stock"),
                 resultSet.getString("img_product"));
     }
 
-    private List<Product> executeQuery(String query, List<Object> params) {
+    private List<Product> executeQuery(String query, List<Object> params, String language) {
         List<Product> products = new ArrayList<>();
         Connection connection = JDBCUtil.open();
         ResultSet resultSet = JDBCUtil.select(connection, query, params);
         try {
             while (resultSet.next()) {
-                products.add(createProductFromResultSet(resultSet));
+                products.add(createProductFromResultSet(resultSet, language));
             }
         } catch (SQLException e) {
             throw new RuntimeException(SQL_EXCEPTION_MESSAGE + e.getMessage(), e);
@@ -75,12 +78,12 @@ public class JDBCProductRepository implements ProductRepository {
         List<Object> params = new ArrayList<>(categoryIds);
         params.add(language);
 
-        return executeQuery(query, params);
+        return executeQuery(query, params, language);
     }
 
     @Override
     public List<Product> getByName(String name, String language) {
         List<Object> params = List.of( '%'+ name + '%', language);
-        return executeQuery(SELECT_PRODUCT_BY_NAME, params);
+        return executeQuery(SELECT_PRODUCT_BY_NAME, params, language);
     }
 }

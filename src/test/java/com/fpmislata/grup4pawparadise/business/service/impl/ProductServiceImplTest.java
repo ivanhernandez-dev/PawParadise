@@ -2,9 +2,11 @@ package com.fpmislata.grup4pawparadise.business.service.impl;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
 import com.fpmislata.grup4pawparadise.business.entity.Product;
+import com.fpmislata.grup4pawparadise.business.entity.ProductFeature;
 import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.CategoryRepository;
 import com.fpmislata.grup4pawparadise.persistence.ProductRepository;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,11 +31,18 @@ public class ProductServiceImplTest {
     @InjectMocks
     private ProductServiceImpl productService;
 
+    private static List<ProductFeature> productFeatures;
+
+    @BeforeAll
+    public static void setUp() {
+        productFeatures = List.of(new ProductFeature(1, "One"), new ProductFeature(2, "Two"));
+    }
+
     @DisplayName("Test getById(int, String) with existing product")
     @Test
     public void getByIdTestShouldReturnProduct() throws ResourceNotFoundException {
         Product expectedProduct = new Product(1, "Product 1", "Description 1",
-                "<b>Description 1</b>", "10.00", 30, "https://example.com/image.jpg");
+                productFeatures, "10.00", 30, "https://example.com/image.jpg");
         int id = 1;
         String language = "es";
 
@@ -59,11 +68,11 @@ public class ProductServiceImplTest {
     @Test
     void getByCategoryIdWithSuccessorsTest() {
         List<Product> expectedProducts = List.of(
-                new Product(1, "Product 1", "Description 1", "<b>Description 1</b>",
+                new Product(1, "Product 1", "Description 1", productFeatures,
                         "10.00", 30, "https://example.com/image.jpg"),
-                new Product(2, "Product 2", "Description 2", "<b>Description 2</b>",
+                new Product(2, "Product 2", "Description 2", productFeatures,
                         "20.00", 20, "https://example.com/image.jpg"),
-                new Product(3, "Product 3", "Description 3", "<b>Description 3</b>",
+                new Product(3, "Product 3", "Description 3", productFeatures,
                         "30.00", 10, "https://example.com/image.jpg")
         );
         List<Category> expectedCategories = List.of(new Category(2, "Category 2", null),
