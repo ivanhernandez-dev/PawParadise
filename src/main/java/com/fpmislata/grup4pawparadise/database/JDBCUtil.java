@@ -1,9 +1,25 @@
 package com.fpmislata.grup4pawparadise.database;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.sql.*;
 import java.util.List;
+import javax.sql.DataSource;
 
 public class JDBCUtil {
+
+    private static DataSource datasource;
+    public static DataSource getDataSource(){
+        if(datasource == null){
+            DriverManagerDataSource dataSource = new DriverManagerDataSource();
+            dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+            dataSource.setUrl("jdbc:mysql://localhost:3306/pawparadise");
+            dataSource.setUsername("Alma");
+            dataSource.setPassword("Alma");
+            datasource = dataSource;
+        }
+        return datasource;
+    }
 
     public static Connection open(){
         Connection connection;
