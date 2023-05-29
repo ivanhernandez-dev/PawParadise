@@ -6,7 +6,9 @@
 <header id="principal" th:fragment="principal">
     <nav>
         <div class="nav1">
-            <a th:href="@{${'/' + language}}"><img id="logo" th:src="@{/img/icon/logo.png}"></a>
+            <a th:href="@{${'/' + language}}">
+                <img id="logo" th:src="@{/img/icon/logo.png}">
+            </a>
         </div>
         <div class="nav2">
             <img class="imgSearch" th:src="@{/img/icon/search.png}" alt="">
@@ -16,8 +18,8 @@
             </form>
         </div>
         <div class="nav1">
-            <a href="../html/login.html"><img class="imgUser" th:src="@{/img/icon/user.png}" alt=""></a>
-            <a href="../html/shoppingCar.html"><img class="imgShoppingCart" th:src="@{/img/icon/shoppingCart.png}" alt=""></a>
+            <a th:href="@{${'/' + language + '/login'}}"><img class="imgUser" th:src="@{/img/icon/user.png}" alt=""></a>
+            <a th:href="@{${'/' + language + '/carrito'}}"><img class="imgShoppingCart" th:src="@{/img/icon/shoppingCart.png}" alt=""></a>
             <div class="menu">
                 <input type="checkbox" id="check">
                 <label for="check">
@@ -50,7 +52,7 @@
         </div>
     </div>
     <div id="centro">
-        <a class="footerText1" th:href="@{/aboutUs.html}"><span>Quienes somos</span></a>
+        <a class="footerText1" th:href="@{${'/' + language + '/about-us'}}"><span>Quienes somos</span></a>
     </div>
     <div class="footer">
         <span class="footerText1">Síguenos</span><br>
