@@ -62,4 +62,47 @@ class PurchaseLineServiceImplTest {
         verify(jdbcPurchaseLineRepository, description("The method insert should be called with parameters idPurchase="
                 + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity)).insert(idPurchase, idProduct, quantity);
     }
+
+    @DisplayName("Test update(int, int, int) with invalid quantity when quantity is less than one")
+    @Test
+    void updateTestShouldThrowIllegalArgumentException_whenQuantityIsLessThanOne() {
+        int idPurchase = 1;
+        int idProduct = 1;
+        int quantity = 0;
+
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class,
+                        () -> purchaseLineService.update(idPurchase, idProduct, quantity),
+                        "The method should throw an IllegalArgumentException."),
+                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity)
+        );
+    }
+
+    @DisplayName("Test update(int, int, int) with invalid quantity when quantity is greater than fifteen")
+    @Test
+    void updateTestShouldThrowIllegalArgumentException_whenQuantityIsGreaterThanFifteen() {
+        int idPurchase = 1;
+        int idProduct = 1;
+        int quantity = 16;
+
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class,
+                        () -> purchaseLineService.update(idPurchase, idProduct, quantity),
+                        "The method should throw an IllegalArgumentException."),
+                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity)
+        );
+    }
+
+    @DisplayName("Test update(int, int, int) with valid quantity")
+    @Test
+    void updateTestShouldCallUpdate_whenQuantityIsValid() {
+        int idPurchase = 1;
+        int idProduct = 1;
+        int quantity = 1;
+
+        purchaseLineService.update(idPurchase, idProduct, quantity);
+
+        verify(jdbcPurchaseLineRepository, description("The method update should be called with parameters idPurchase="
+                + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity)).update(idPurchase, idProduct, quantity);
+    }
 }
