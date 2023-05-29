@@ -72,4 +72,23 @@ class PurchaseServiceImplTest {
                         .getByUserIdWhereStatusActive(idCustomer, language)
         );
     }
+
+    @DisplayName("Test updatePurchaseStatus(int, int, int)")
+    @Test
+    void updatePurchaseStatus() {
+        int idPurchase = 1;
+        int status = 1;
+        int idCustomer = 1;
+
+        purchaseService.updatePurchaseStatus(idPurchase, status, idCustomer);
+
+        assertAll(
+                () -> verify(purchaseRepository, description("The method updatePurchaseStatus should be called " +
+                        "with parameters idPurchase=" + idPurchase + ", status=" + status + " and idCustomer=" + idCustomer))
+                        .updatePurchaseStatus(idPurchase, idCustomer),
+                () -> verify(purchaseRepository, description("The method insertWithStatusActive should be called " +
+                        "with parameters idCustomer=" + idCustomer))
+                        .insertWithStatusActive(idCustomer)
+        );
+    }
 }
