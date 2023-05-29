@@ -30,4 +30,37 @@ public class MainController {
     public String redirectToDefaultLanguage() {
         return "redirect:/" + DEFAULT_LANGUAGE;
     }
+
+    @GetMapping("/{language}/about-us")
+    public String aboutUs(Model model, @PathVariable String language) {
+        try {
+            model.addAttribute("language", language);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+        return "aboutUs";
+    }
+
+    @GetMapping("/{language}/login")
+    public String login(Model model, @PathVariable String language) {
+        try {
+            model.addAttribute("language", language);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+        return "login";
+    }
+
+    @GetMapping("/{language}/register")
+    public String register(Model model, @PathVariable String language) {
+        try {
+            model.addAttribute("language", language);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+        return "register";
+    }
 }
