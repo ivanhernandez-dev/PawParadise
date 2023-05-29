@@ -12,10 +12,10 @@ public class JDBCUtil {
     public static DataSource getDataSource(){
         if(datasource == null){
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
-            dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://localhost:3306/pawparadise");
-            dataSource.setUsername("Alma");
-            dataSource.setPassword("Alma");
+            dataSource.setUsername("root");
+            dataSource.setPassword("root");
             datasource = dataSource;
         }
         return datasource;
@@ -26,8 +26,8 @@ public class JDBCUtil {
         try {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/pawparadise",
-                    "Alma",
-                    "Alma"
+                    "root",
+                    "root"
             );
             return connection;
         } catch (SQLException e) {
