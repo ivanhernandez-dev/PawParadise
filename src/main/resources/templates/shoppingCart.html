@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:rel="stylesheet" th:href="@{/css/estiloShoppingCar.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloBarraNavegación.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloMenu.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header th:replace="~{base/common :: principal}"></header>
+    <section>
+        <div class="container1">
+            <div class="container1-1">
+                <h1>Mi carrito</h1>
+            </div>
+            <div th:each="purchaseLine : ${purchase.purchaseLineList}" class="container1-2">
+                <div class="imgProducto">
+                    <img class="imgProducto" th:src="${purchaseLine.product.image}">
+                </div>
+                <div class="producto">
+                    <div>
+                        <div class="precio">
+                            <span th:text="${purchaseLine.product.price} + '€'"></span>
+                            <br>
+                            <span th:text="${purchaseLine.product.name}"></span>
+                        </div>
+                        <div class="cantidad">
+                            <span>Cantidad:</span>
+                            <div class="buttons">
+                                <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
+                                    <button class="btn" type="button" id="cantidad">-</button>
+                                    <input name="quantity" class="cant" id="numero" type="text" style="text-align: center;" th:value="${purchaseLine.quantity}">
+                                    <button class="btn" type="button" id="cantidad">+</button>
+                                    <button type="submit" hidden=""></button>
+                                </form>
+                                <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="delete">
+                                    <button class="btn" type="submit" id="cantidad">X</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="container2-1">
+                <h1>Total</h1>
+            </div>
+            <div class="container2-2">
+                <div class="subtotal">
+                    <div class="subtotal1-1">
+                        <span>Subtotal</span><br>
+                        <div id="price-products-total">
+                            <p th:each="purchaseLine : ${purchase.purchaseLineList}" th:text="${purchaseLine.product.name} + ' - ' + ${purchaseLine.quantity} + ' - ' + ${purchaseLine.totalPrice} + '€'">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="total1-1">
+                        <span>Total</span>
+                    </div>
+                    <div class="total1-2 precio">
+                        <span th:text="${purchase.totalPrice} + '€'"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container2-3">
+                <form th:action="@{${'/' + language + '/carrito'}}" method="post" th:method="patch">
+                    <button type="submit" id="btnPagar" onclick=""><p>Pagar</p></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer th:replace="~{base/common :: footer}"></footer>
+</body>
+</html>
