@@ -13,8 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class CategoryServiceImplTest {
@@ -50,20 +51,34 @@ public class CategoryServiceImplTest {
     @DisplayName("Test get all categories")
     @Test
     public void testGetAll() {
-        when(categoryRepository.getAll("en")).thenReturn(expectedCategories);
+        String language = "en";
 
-        List<Category> actual = categoryService.getAll("en");
+        when(categoryRepository.getAll(language)).thenReturn(expectedCategories);
 
-        assertSame(expectedCategories, actual, "The categories should be the same");
+        List<Category> actual = categoryService.getAll(language);
+
+        assertAll(
+                () -> assertSame(expectedCategories, actual, "The categories should be the same"),
+                () -> verify(categoryRepository, description("The method getAll should be called with parameter language=" + language))
+                        .getAll(language)
+        );
     }
 
     @DisplayName("Test get children by parent id")
     @Test
     public void testGetChildrenByParentId() {
-        when(categoryRepository.getChildrenByParentId(1, "en")).thenReturn(expectedCategories.get(0).getCategories());
+        String language = "en";
+        int parentId = 1;
 
-        List<Category> actual = categoryService.getChildrenByParentId(1, "en");
+        when(categoryRepository.getChildrenByParentId(parentId, language)).thenReturn(expectedCategories.get(0).getCategories());
 
-        assertSame(expectedCategories.get(0).getCategories(), actual, "The categories should be the same");
+        List<Category> actual = categoryService.getChildrenByParentId(parentId, language);
+
+        assertAll(
+                () -> verify(categoryRepository, description("The method getChildrenByParentId should be called with " +
+                        "parameters parentId=" + parentId + " and language=" + language))
+                        .getChildrenByParentId(parentId, language),
+                () -> assertSame(expectedCategories.get(0).getCategories(), actual, "The categories should be the same")
+        );
     }
 }
