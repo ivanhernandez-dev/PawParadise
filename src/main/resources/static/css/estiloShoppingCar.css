@@ -36,12 +36,13 @@ span{
     height: 250px;
     width: 350px;
     margin-right: 65px;
+    object-fit: cover;
 }
 .precio{
     font-size: 30px;
 }
 .cantidad{
-    margin-top: 160px;
+    margin-top: 120px;
 }
 #cantidad {
     width: 25px;
@@ -86,7 +87,6 @@ span{
     border-bottom: 1px solid #464646;
     width: 300px;
     padding: 50px;
-    height: 280px;
     background-color: #ECECEC;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
@@ -95,9 +95,7 @@ span{
     flex-flow: row wrap;
     justify-content: space-between;
 }
-.total{
-    margin-top: 200px;
-}
+
 .container2-3{
     width: 300px;
     padding: 50px;
@@ -129,4 +127,16 @@ h1{
 #btnPagar{
     font-family: 'carter one';
     color: white;
+}
+
+#price-products-total{
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
