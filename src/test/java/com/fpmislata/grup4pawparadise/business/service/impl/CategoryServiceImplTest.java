@@ -54,7 +54,7 @@ public class CategoryServiceImplTest {
 
         List<Category> actual = categoryService.getAll("en");
 
-        assertSame(expectedCategories, actual);
+        assertSame(expectedCategories, actual, "The categories should be the same");
     }
 
     @DisplayName("Test get children by parent id")
@@ -64,6 +64,6 @@ public class CategoryServiceImplTest {
 
         List<Category> actual = categoryService.getChildrenByParentId(1, "en");
 
-        assertSame(expectedCategories.get(0).getCategories(), actual);
+        assertSame(expectedCategories.get(0).getCategories(), actual, "The categories should be the same");
     }
 }
