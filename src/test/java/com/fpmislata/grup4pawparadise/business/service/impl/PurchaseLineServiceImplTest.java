@@ -105,4 +105,16 @@ class PurchaseLineServiceImplTest {
         verify(jdbcPurchaseLineRepository, description("The method update should be called with parameters idPurchase="
                 + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity)).update(idPurchase, idProduct, quantity);
     }
+
+    @DisplayName("Test delete(int, int)")
+    @Test
+    void delete() {
+        int idPurchase = 1;
+        int idProduct = 1;
+
+        purchaseLineService.delete(idPurchase, idProduct);
+
+        verify(jdbcPurchaseLineRepository, description("The method delete should be called with parameters idPurchase="
+                + idPurchase + "and idProduct=" + idProduct)).delete(idPurchase, idProduct);
+    }
 }
