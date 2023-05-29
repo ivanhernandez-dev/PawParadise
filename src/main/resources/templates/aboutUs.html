@@ -5,25 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/css/estiloBarraNavegación.css">
-    <link rel="stylesheet" type="text/css" href="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/css/estiloAboutUs.css">
+    <link th:rel="stylesheet" th:href="@{/css/estiloBarraNavegación.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloAboutUs.css}">
+    <link th:rel="stylesheet" th:href="@{/css/estiloMenu.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav1">
-                <a href="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/html/home.html"><img id="logo" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/logo.png"></a>
-            </div>
-            <div class="nav2">
-                <img class="imgSearch" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/search.png" alt=""><input class="search" type="search" placeholder="">
-            </div>
-            <div class="nav1">
-                <a href="../html/login.html"><img class="imgUser" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/user.png" alt=""></a><a href="../html/shoppingCar.html"><img class="imgShoppingCart" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/shoppingcart.png" alt=""></a>
-            </div>
-        </nav>
-    </header>
-    <div class="aboutUs">
-        <img class="imgAboutUs" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/img/imgAboutUs.jpg">
+<header th:replace="~{base/common :: principal}"></header>
+
+<div class="aboutUs">
+        <img class="imgAboutUs" th:src="@{/img/imgAboutUs.jpg}">
     </div>
     <section>
         <h1>
@@ -49,24 +41,7 @@
             Así que, si quieres que tu perro sea el más elegante y cómodo de la ciudad, ¡ven a visitarnos! ¡Te aseguramos que no te arrepentirás!
         </p>
     </section>
-    <footer>
-        <div class="footer">
-            <p class="footerText1">Contacto</p> 
-            <div id="footer1">
-                <img class="imgFooter" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/phone.png"><span class="footerText">  666 666 666</span>
-            </div>
-            <div id="footer1">
-                <img class="imgFooter" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/email.png"><span class="footerText">  info@pawparadise.com</span>
-            </div>
-        </div>
-        <div id="centro"> 
-            <a class="footerText" href="../html/aboutUs.html">Quienes somos</a>
-        </div>
-        <div class="footer">         
-            <p class="footerText1">Síguenos</p>
-            <img class="imgFooter" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/instagram.png">
-            <img class="imgFooter" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/facebook.png">
-        </div>
-    </footer>
+<footer th:replace="~{base/common :: footer}"></footer>
+
 </body>
 </html>
