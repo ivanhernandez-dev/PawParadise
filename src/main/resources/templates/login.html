@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/css/login.css">
+    <link th:rel="stylesheet" th:href="@{/css/login.css}">
     <title>Login</title>
 </head>
 <body>
     <section id="logo">
-        <a href="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/html/home.html"><img id="img-logo" src="../../../../../../Downloads/PAW%20PARADISE-20230523T172557Z-nuevo001/PAW%20PARADISE/iconos/logo.png" ></a>
+        <a th:href="@{${'/' + language}}">
+            <img id="img-logo" th:src="@{/img/icon/logo.png}">
+        </a>
     </section>
     <section id="container">
         <div id="cont">
             <div id="registrarse">
-                <a href="register.html"><h1>Registrarse</h1></a>
+                <a th:href="@{${'/' + language + '/register'}}"><h1>Registrarse</h1></a>
             </div>
             <div id="login">
                 <h1>Acceder</h1>
