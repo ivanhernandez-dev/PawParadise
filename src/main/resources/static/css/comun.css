@@ -14,12 +14,12 @@ nav{
     flex-direction: row;
     justify-content: space-between;
 }
-.nav1{
+.flex-nav{
     display: flex;
     align-items: center;
     flex-direction: row;
 }
-.nav2{
+.navigation-search-container{
     background-color:#9ACDC6;
     width: auto;
     height: 45px;

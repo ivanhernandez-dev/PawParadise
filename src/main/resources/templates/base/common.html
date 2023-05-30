@@ -5,19 +5,19 @@
 <body>
 <header id="principal" th:fragment="principal">
     <nav>
-        <div class="nav1">
+        <div class="flex-nav">
             <a th:href="@{${'/' + language}}">
                 <img id="logo" th:src="@{/img/icon/logo.png}">
             </a>
         </div>
-        <div class="nav2">
+        <div class="navigation-search-container">
             <img class="imgSearch" th:src="@{/img/icon/search.png}" alt="">
             <form th:action="@{${'/' + language + '/productos/buscar'}}" method="get">
                 <input class="search" type="search" name="nombre" placeholder="">
                 <input type="submit" hidden="">
             </form>
         </div>
-        <div class="nav1">
+        <div class="flex-nav">
             <a th:href="@{${'/' + language + '/login'}}"><img class="imgUser" th:src="@{/img/icon/user.png}" alt=""></a>
             <a th:href="@{${'/' + language + '/carrito'}}"><img class="imgShoppingCart" th:src="@{/img/icon/shoppingCart.png}" alt=""></a>
             <div class="menu">
