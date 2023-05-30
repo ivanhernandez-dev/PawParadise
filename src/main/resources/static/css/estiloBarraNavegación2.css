@@ -91,7 +91,7 @@ footer{
     margin-left: 70px;
     margin-right: 70px;
 }
-#footer1{
+#footer-info{
     display: flex;
     align-items: center;
     flex-direction: row;

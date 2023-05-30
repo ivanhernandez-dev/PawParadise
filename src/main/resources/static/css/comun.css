@@ -79,7 +79,7 @@ footer{
     margin-right: 70px;
     margin-bottom: 20px;
 }
-#footer1{
+#footer-info{
     display: flex;
     align-items: center;
     flex-direction: row;
