@@ -19,13 +19,14 @@ body{
     transition: all .5s;
 }
 
-#sidebar header{
+#sidebar #categories-title{
     font-size: 18px;
     color: #464646;
     text-align: center;
     line-height: 70px;
     background-color: #9ACDC6;
     user-select: none;
+    display: block;
 }
 
 #sidebar ul a{
