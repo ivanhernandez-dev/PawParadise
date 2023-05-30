@@ -55,7 +55,7 @@ nav{
     padding: 10px;
     margin-right: 10px;
 }
-.search{
+#search-input{
     height: 30px;
     background-color: #9ACDC6;
     border: 0cm;
