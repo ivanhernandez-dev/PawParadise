@@ -39,12 +39,12 @@ nav{
     width: 20px;
     padding-left: 7px;
 }
-.imgUser{
+#img-user{
     width: 30px;
     margin-left: 0px;
     padding: 10px;
 }
-.imgUser:hover, .imgShoppingCart:hover{
+#img-user:hover, .imgShoppingCart:hover{
     padding: 17px 10px 17px 10px;
     background-color: #FF5959;
     border-radius: 5px;
