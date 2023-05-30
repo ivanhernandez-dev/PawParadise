@@ -11,7 +11,7 @@
             </a>
         </div>
         <div class="navigation-search-container">
-            <img class="imgSearch" th:src="@{/img/icon/search.png}" alt="">
+            <img id="img-search" th:src="@{/img/icon/search.png}" alt="">
             <form th:action="@{${'/' + language + '/productos/buscar'}}" method="get">
                 <input class="search" type="search" name="nombre" placeholder="">
                 <input type="submit" hidden="">
