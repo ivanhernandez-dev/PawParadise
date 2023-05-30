@@ -63,16 +63,21 @@ label #open-button, label #close-button{
 
 label #open-button{
     right: 125px;
-    top: 15px;
+    top: 13px;
     font-size: 30px;
     color: black;
     padding: 6px 12px;
     transition: all .5s;
 }
+@media screen and (max-width: 800px) {
+    #open-button, #close-button {
+        margin-right: -12px;
+    }
+}
 
 label #close-button{
     right: -230px; 
-    top: 17px;
+    top: 13px;
     font-size: 30px;
     color: #FF5959;
     padding: 4px 9px;
