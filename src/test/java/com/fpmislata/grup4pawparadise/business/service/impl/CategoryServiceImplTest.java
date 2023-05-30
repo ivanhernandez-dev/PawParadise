@@ -48,7 +48,7 @@ public class CategoryServiceImplTest {
         expectedCategories.add(category2);
     }
 
-    @DisplayName("Test get all categories")
+    @DisplayName("Test getAll")
     @Test
     public void testGetAll() {
         String language = "en";
@@ -64,7 +64,7 @@ public class CategoryServiceImplTest {
         );
     }
 
-    @DisplayName("Test get children by parent id")
+    @DisplayName("Test getChildrenByParentId(int, String)")
     @Test
     public void testGetChildrenByParentId() {
         String language = "en";
