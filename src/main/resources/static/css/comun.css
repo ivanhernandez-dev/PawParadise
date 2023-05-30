@@ -70,7 +70,7 @@ footer{
     flex-direction: row;
     justify-content: space-between;
 }
-.imgFooter{
+.footer-icon{
     width: 20px;
     margin-right: 5px;
 }
