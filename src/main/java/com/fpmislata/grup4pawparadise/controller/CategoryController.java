@@ -19,6 +19,7 @@ public class CategoryController {
     @GetMapping("/{language}/categorias/{categoryId}")
     public String getByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model, @PathVariable String language){
         try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("categories", this.categoryService.getChildrenByParentId(categoryId, language));
             model.addAttribute("products", this.productService.getByCategoryIdWithSuccessors(categoryId, language));
             model.addAttribute("language", language);

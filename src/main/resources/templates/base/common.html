@@ -30,10 +30,9 @@
                             CATEGORIAS
                         </span>
                         <ul>
-                            <li><a href="../html/ropa.html">ROPA</a></li>
-                            <li><a href="">PASEO</a></li>
-                            <li><a href="">VIAJES</a></li>
-                            <li><a href="">COMPLEMENTOS</a></li>
+                            <li th:each="category : ${allCategories}">
+                                <a th:text="${category.name}" th:href="@{${'/' + language + '/categorias/' + category.id}}"></a>
+                            </li>
                         </ul>
                     </div>
                 </label>

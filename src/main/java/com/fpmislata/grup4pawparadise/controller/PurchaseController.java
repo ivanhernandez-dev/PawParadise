@@ -1,6 +1,8 @@
 package com.fpmislata.grup4pawparadise.controller;
 
+import com.fpmislata.grup4pawparadise.business.service.CategoryService;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseService;
+import com.fpmislata.grup4pawparadise.business.service.impl.CategoryServiceImpl;
 import com.fpmislata.grup4pawparadise.business.service.impl.PurchaseServiceImpl;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PurchaseController {
 
     private PurchaseService purchaseService = new PurchaseServiceImpl();
+    private CategoryService categoryService = new CategoryServiceImpl();
     private static final int USER_ID = 1;
 
     @PatchMapping("")
@@ -32,6 +35,7 @@ public class PurchaseController {
     @GetMapping("")
     public String getByUserIdWhereStatusActive(@PathVariable String language, Model model) {
         try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("purchase", purchaseService.getByUserIdWhereStatusActive(USER_ID, language));
             model.addAttribute("language", language);
         } catch (Exception e) {

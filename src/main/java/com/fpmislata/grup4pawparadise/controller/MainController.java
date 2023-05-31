@@ -34,6 +34,7 @@ public class MainController {
     @GetMapping("/{language}/about-us")
     public String aboutUs(Model model, @PathVariable String language) {
         try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,6 +46,7 @@ public class MainController {
     @GetMapping("/{language}/login")
     public String login(Model model, @PathVariable String language) {
         try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,6 +58,7 @@ public class MainController {
     @GetMapping("/{language}/register")
     public String register(Model model, @PathVariable String language) {
         try {
+            model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();
