@@ -19,8 +19,8 @@
     </section>
     <h2>PRODUCTOS</h2>
     <section>
-        <th:block th:each="product : ${products}">
-            <th:block th:each="n : ${#numbers.sequence(1, 8)}">
+        <th:block th:each="n : ${#numbers.sequence(1, 8)}">
+            <th:block th:each="product : ${products}">
                 <a class="product" th:href="@{${'/' + language + '/productos/' + product.id}}">
                     <img class="img-product-category" th:src="${product.image}" alt="">
                     <h3 th:text="${product.name}"></h3>
