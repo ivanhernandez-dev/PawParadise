@@ -15,11 +15,11 @@ import java.util.List;
 
 public class JDBCProductRepository implements ProductRepository {
 
-    private static final String SELECT_PRODUCT_BY_ID = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
+    private static final String SELECT_PRODUCT_BY_ID = "SELECT p.*, pl.name_product, pl.description_text " +
             "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE p.id_product = ? AND pl.language_type = ?";
-    private static final String SELECT_PRODUCTS_BY_CATEGORIES = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
+    private static final String SELECT_PRODUCTS_BY_CATEGORIES = "SELECT p.*, pl.name_product, pl.description_text " +
             "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE id_category IN (%s) AND pl.language_type = ?";
-    private static final String SELECT_PRODUCT_BY_NAME = "SELECT p.*, pl.name_product, pl.description_text, pl.description_html " +
+    private static final String SELECT_PRODUCT_BY_NAME = "SELECT p.*, pl.name_product, pl.description_text " +
             "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE pl.name_product LIKE ? AND pl.language_type = ?";
 
     private static final String PRODUCT_NOT_FOUND_MESSAGE = "Product not found with id: ";
