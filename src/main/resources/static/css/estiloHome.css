@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-.imgFondo1{
+.background-img-1{
     background-image: url('../img/imgFondo.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@ h1{
 .category:hover {
     transform: scale(1.1);
 }
-.container{
+.category-container{
     z-index: 2;
     display: flex;
     flex-flow: row wrap;
@@ -44,12 +44,12 @@ h2 {
     text-align: center;
     margin: 5px;
 }
-#mainSlogan{
+#slogan-container-ext{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
-#slogan{
+#slogan-container-int{
     background-color: #ECECEC;
     width: 800px;
     margin: 30px;
