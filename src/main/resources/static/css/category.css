@@ -7,7 +7,7 @@ h1 {
     font-family: 'Carter One';
     margin-top: 100px;
 }
-.subtitulo {
+h2 {
     color: #464646;;
     padding-left: 125px;
     font-family: 'Open Sans', sans-serif;
@@ -30,7 +30,7 @@ section{
     flex-flow: row wrap;
     justify-content: center;
 }
-.img-producto{
+.img-product-category{
     width: 100%;
 }
 h3 {
@@ -58,7 +58,7 @@ h3 {
 	transform: scale(1.1);
     background-color: #9ACDC6;
 }
-.titulo-categoria{
+.title-category{
     color: #464646;
     text-align: center;
     font-family: 'Carter One';
