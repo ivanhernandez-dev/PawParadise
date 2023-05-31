@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:text="${product.name}"> </a></li>
+    <li><a th:text="${product.description}"> </a></li>
+    <li>
+        <ul>
+            <li th:each="productFeature : ${product.productFeatures}">
+                <a th:text="${productFeature.description}"> </a>
+            </li>
+        </ul>
+    </li>
+    <li><a th:text="${product.price}"> </a></li>
+</ul>
+<form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
+    <label for="quantity">Cantidad</label>
+    <input type="number" name="quantity" id="quantity" min="1" max="10" value="1">
+    <input type="submit" value="Añadir al carrito">
+</form>
+</body>
+</html>

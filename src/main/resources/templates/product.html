@@ -2,28 +2,133 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/css/producto.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estiloBarraNavegación.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/css/estiloMenu2.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Producto</title>
 </head>
 <body>
+    <header id="principal">
+        <nav> 
+            <div class="nav1">
+                <a href="../html/home.html"><img id="logo" src="../iconos/logo.png"></a>
+            </div>
+            <div class="nav2">
+                <img class="imgSearch" src="../iconos/search.png" alt=""><input class="search" type="search" placeholder="">
+            </div>
+            <div class="nav1">
+                <a href="../html/login.html"><img class="imgUser" src="../iconos/user.png" alt=""></a>
+                <a href="../html/shoppingCar.html"><img class="imgShoppingCart" src="../iconos/shoppingcart.png" alt=""></a>
+                <div class="menu">
+                    <input type="checkbox" id="check">
+                    <label for="check">
+                        <i class="fa fa-bars" id="btn"></i>
+                        <i class="fa fa-times" id="cancel"></i>
+                        <div class="sidebar">
+                            <header>
+                                CATEGORIAS
+                            </header>
+                            <ul>
+                                <li><a href="../html/ropa.html">ROPA</a></li>
+                                <li><a href="">PASEO</a></li>
+                                <li><a href="">VIAJES</a></li>
+                                <li><a href="">COMPLEMENTOS</a></li>
+                            </ul>
+                        </div>    
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="container-uno">
+        <div class="bloque-uno">
+            <div id="marco">
+                <img id="img-prod" src="../img/chubasquero amarillo.png">
+            </div>
+        </div>
+        <div class="bloque-dos">
+            <div>
+                <h1 th:text="${products.name}"></h1>
+                <p th:text="${products.description}"></p>
+            </div>
+            <div>
+                <div >
+                    <div id="position-dos">
+                        <div>
+                            <p id="negrita">Cantidad:</p>
+                        </div>
+                        <div>
+                            <script language="javascript"> 
+                                var i = 1; 
+                                function contadormas(){ 
+                                    i = i + 1; 
+                                    var cant = document.getElementById("numero"); 
+                                    cant.value = i;
+                                    if(cant.value == 1){
+                                            i=1;
+                                    }
+                                }
+                                function contadormenos(){ 
+                                    if(i>=2){
+                                        i = i - 1; 
+                                        var cant = document.getElementById("numero"); 
+                                        cant.value = i;
+                                        if(cant.value == 1){
+                                            i=1;
+                                        }
+                                    }
+                                }
+                            </script>
+                            <button class="btn" type="button" id="cantidad" onclick="javascript: contadormenos()">-</button>
+                            <input class="cant" id="numero" type="text" style="text-align: center;" value="1">
+                            <button class="btn" type="button" id="cantidad" onclick="javascript: contadormas()">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="precio-position">
+                    <h1 id="precio" th:text="${products.price} + '€'"></h1>
+                </div>
+            </div>
+            <div id="añadir">
+                <h1>Añadir</h1>
+            </div>
+        </div>
+    </div>
+    <div id="container-dos">
+        <h2>Descripción:</h2>
 
-<ul>
-    <li><a th:text="${product.name}"> </a></li>
-    <li><a th:text="${product.description}"> </a></li>
-    <li>
         <ul>
-            <li th:each="productFeature : ${product.productFeatures}">
-                <a th:text="${productFeature.description}"> </a>
-            </li>
+            <li>Protege el cuerpo entero de humedad, suciedad y frío en temperaturas muy bajas</li>
+            <li>Especialmente recomendable para perros de pelo corto</li>
+            <li>Impermeable y protegido contra el viento pero de membrana transpirable</li>
+            <li>Con forro suave de felpa y acolchado (poliéster)</li>
+            <li>Costuras selladas y cremallera impermeable</li> 
+            <li>Puede combinarse con arnés</li>
+            <li>Ajuste perfecto por las inserciones elásticas, cordones y cinta de cierre</li>
+            <li>Color: amarillo</li>
         </ul>
-    </li>
-    <li><a th:text="${product.price}"> </a></li>
-</ul>
-<form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
-    <label for="quantity">Cantidad</label>
-    <input type="number" name="quantity" id="quantity" min="1" max="10" value="1">
-    <input type="submit" value="Añadir al carrito">
-</form>
+    </div>
+    <footer>
+        <div class="footer">
+            <span class="footerText1">Contacto</span> 
+            <div id="footer1">
+                <img class="imgFooter" src="../iconos/phone.png"><p class="footerText">  666 666 666</p>
+            </div>
+            <div id="footer1">
+                <img class="imgFooter" src="../iconos/email.png"><p class="footerText">  info@pawparadise.com</p>
+            </div>
+        </div>
+        <div id="centro">
+            <a class="footerText1" href="../html/aboutUs.html"><span>Quienes somos</span></a>
+        </div>
+        <div class="footer">         
+            <span class="footerText1">Síguenos</span><br>
+            <img class="imgFooter" src="../iconos/instagram.png">
+            <img class="imgFooter" src="../iconos/facebook.png">
+        </div>
+    </footer>
 </body>
 </html>
