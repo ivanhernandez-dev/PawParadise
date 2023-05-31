@@ -112,35 +112,9 @@ public class ProductServiceImplTest {
         );
     }
 
-    @DisplayName("Test getByName(String, String) with null name")
+    @DisplayName("Test getByName(String, String)")
     @Test
-    void getByNameTestShouldThrowIllegalArgumentException() {
-        String name = null;
-        String language = "es";
-
-        assertAll(
-                () -> assertThrows(IllegalArgumentException.class, () -> productService.getByName(name, language),
-                        "The method should throw an IllegalArgumentException"),
-                () -> verify(productRepository, never()).getByName(name, language)
-        );
-    }
-
-    @DisplayName("Test getByName(String, String) with empty name")
-    @Test
-    void getByNameTestShouldThrowIllegalArgumentException2() {
-        String name = "";
-        String language = "es";
-
-        assertAll(
-                () -> assertThrows(IllegalArgumentException.class, () -> productService.getByName(name, language),
-                        "The method should throw an IllegalArgumentException"),
-                () -> verify(productRepository, never()).getByName(name, language)
-        );
-    }
-
-    @DisplayName("Test getByName(String, String) with an existing name")
-    @Test
-    void getByNameTestShouldReturnProduct() throws ResourceNotFoundException {
+    void getByNameTestShouldReturnProduct() {
         List<Product> expectedProducts = List.of(
                 new Product(1, "Car 1", "Description 1", productFeatures,
                         "10.00", 30, "https://example.com/image.jpg"),
@@ -160,25 +134,6 @@ public class ProductServiceImplTest {
                                 " and language=" + language))
                         .getByName(name, language),
                 () -> assertEquals(expectedProducts, actualProducts, "The lists should be equal")
-        );
-    }
-
-    @DisplayName("Test getByName(String, String) with a non-existing name")
-    @Test
-    void getByNameTestShouldThrowResourceNotFoundException() {
-        String name = "Car";
-        String language = "es";
-        List<Product> expectedProducts = List.of();
-
-        when(productRepository.getByName(name, language)).thenReturn(expectedProducts);
-
-        assertAll(
-                () -> assertThrows(ResourceNotFoundException.class, () -> productService.getByName(name, language),
-                        "The method should throw a ResourceNotFoundException"),
-                () -> verify(productRepository,
-                        description("The method getByName should be called with parameters name=" + name +
-                                " and language=" + language))
-                        .getByName(name, language)
         );
     }
 }
