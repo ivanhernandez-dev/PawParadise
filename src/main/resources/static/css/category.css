@@ -12,7 +12,7 @@ h2 {
     padding-left: 125px;
     font-family: 'Open Sans', sans-serif;
 }
-.producto {
+.product {
     background-color: #ECECEC; 
     width: 250px;
     margin: 31px;
@@ -21,7 +21,7 @@ h2 {
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     z-index: 1;
 }
-.producto:hover {
+.product:hover {
 	transform: scale(1.1);
     background-color: #9ACDC6;
 }
@@ -39,7 +39,7 @@ h3 {
     text-align: left;
     margin: 5px;
 }
-.precio {
+.product-price {
     text-align: left;
     font-family: 'Carter One';
     color: #FF5959;

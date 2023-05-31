@@ -22,9 +22,9 @@
                 <div class="imgProducto">
                     <img class="imgProducto" th:src="${purchaseLine.product.image}">
                 </div>
-                <div class="producto">
+                <div class="product">
                     <div>
-                        <div class="precio">
+                        <div class="product-price">
                             <span th:text="${purchaseLine.product.price} + '€'"></span>
                             <br>
                             <span th:text="${purchaseLine.product.name}"></span>
@@ -65,7 +65,7 @@
                     <div class="total1-1">
                         <span>Total</span>
                     </div>
-                    <div class="total1-2 precio">
+                    <div class="total1-2 product-price">
                         <span th:text="${purchase.totalPrice} + '€'"></span>
                     </div>
                 </div>
