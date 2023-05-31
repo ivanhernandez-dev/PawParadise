@@ -3,6 +3,11 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <body>
+<th:block th:fragment="additional-head">
+    <link th:rel="stylesheet" th:href="@{/css/nav.css}">
+    <link th:rel="stylesheet" th:href="@{/css/aside.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</th:block>
 <header th:fragment="header">
     <nav>
         <div class="flex-nav">
