@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-#categoria {
+h1 {
     color: #464646;
     text-align: center;
     font-family: 'Carter One';
@@ -45,7 +45,7 @@ h3 {
     color: #FF5959;
     margin: 5px;
 }
-.categoria {
+.category {
     background-color: #ECECEC;
     width: 250px;
     margin: 31px;
@@ -54,7 +54,7 @@ h3 {
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     z-index: 1;
 }
-.categoria:hover {
+.category:hover {
 	transform: scale(1.1);
     background-color: #9ACDC6;
 }

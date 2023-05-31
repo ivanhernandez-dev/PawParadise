@@ -10,9 +10,9 @@
 </head>
 <body>
 <header th:replace="~{base/common :: principal}"></header>
-<h1 id="categoria">ROPA</h1>
+<h1>ROPA</h1>
     <section>
-        <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="categoria">
+        <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">
             <img class="img-producto" th:src="${category.image}" alt="">
             <h3 class="titulo-categoria" th:text="${category.name}"></h3>
         </a>
