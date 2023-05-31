@@ -18,6 +18,7 @@ nav{
     align-items: center;
     flex-direction: row;
     margin-left: 5px;
+    padding-left: 45px;
 }
 .navigation-search-container{
     background-color:#9ACDC6;
@@ -29,7 +30,7 @@ nav{
     flex-direction: row;
     margin-top: 15px;
     border-radius: 5px;
-    
+
 }
 #logo{
     width: 250px;
