@@ -40,7 +40,7 @@ public class MainController {
             e.printStackTrace();
             return "error";
         }
-        return "aboutUs";
+        return "about-us";
     }
 
     @GetMapping("/{language}/login")
