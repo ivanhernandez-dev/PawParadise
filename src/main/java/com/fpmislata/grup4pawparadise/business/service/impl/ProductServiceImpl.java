@@ -36,16 +36,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> getByName(String name, String language) throws ResourceNotFoundException {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
-
-        List<Product> products = this.productRepository.getByName(name, language);
-        if (products.isEmpty()) {
-            throw new ResourceNotFoundException("No products found with name " + name + " in language " + language + ".");
-        }
-
-        return products;
+    public List<Product> getByName(String name, String language) {
+        return this.productRepository.getByName(name, language);
     }
 }

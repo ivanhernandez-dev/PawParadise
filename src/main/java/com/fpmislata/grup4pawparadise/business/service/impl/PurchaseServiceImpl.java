@@ -11,7 +11,6 @@ import com.fpmislata.grup4pawparadise.persistence.impl.JDBCPurchaseLineRepositor
 public class PurchaseServiceImpl implements PurchaseService {
 
     private PurchaseRepository purchaseRepository = new JDBCPurchaseRepository();
-    private PurchaseLineRepository shoppingRepository = new JDBCPurchaseLineRepository();
 
     @Override
     public Purchase getByUserIdWhereStatusActive(int idCustomer, String language) throws ResourceNotFoundException {
