@@ -1,6 +1,6 @@
 /*Navigation bar style*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-#principal{
+header{
     width: 100%;
     position: fixed;
     top:0px;
@@ -117,11 +117,6 @@ footer{
     display: flex;
     align-items: center;
     flex-direction: row;
-}
-.footerText{
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    color: #D9D9D9;
 }
 .footer-text{
     font-family: 'Open Sans', sans-serif;
