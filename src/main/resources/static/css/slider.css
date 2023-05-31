@@ -25,6 +25,11 @@ img{
     width: 600px;
     border-radius: 10px;
 }
+@media screen and (max-width: 800px) {
+    img {
+        width: 400px;
+    }
+}
 .logo-slider{
     width: 200px;
 }

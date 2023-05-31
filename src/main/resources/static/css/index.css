@@ -20,11 +20,16 @@ h1{
 }
 .category {
     background-color: #ECECEC;
-    width: 300px;
-    margin: 30px;
+    width: 17%;
+    margin: 20px;
     padding: 10px;
     border-radius: 13px;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+@media screen and (max-width: 800px) {
+    .category {
+        min-width: 250px;
+    }
 }
 .category:hover {
     transform: scale(1.1);
