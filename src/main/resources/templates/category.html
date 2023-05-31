@@ -9,7 +9,7 @@
     <title>Ropa</title>
 </head>
 <body>
-<header th:replace="~{base/common :: principal}"></header>
+<header th:replace="~{base/common :: header}"></header>
 <h1>ROPA</h1>
     <section>
         <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">

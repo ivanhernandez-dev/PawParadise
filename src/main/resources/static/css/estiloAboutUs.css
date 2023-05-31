@@ -1,11 +1,11 @@
-.aboutUs{
+#img-about-us-container{
     background-color: #ECECEC;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     border-radius: 0 0 13px 13px;
 }
-.imgAboutUs{
+#img-about-us{
     margin-top: 70px;
     padding: 17px;
     width: 98%;
