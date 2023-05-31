@@ -14,13 +14,13 @@
 <body>
     <header th:replace="~{base/common :: header}"></header>
     <section>
-        <div class="container1">
-            <div class="container1-1">
+        <div class="left-block">
+            <div id="title-container">
                 <h1>Mi carrito</h1>
             </div>
-            <div th:each="purchaseLine : ${purchase.purchaseLineList}" class="container1-2">
-                <div class="imgProducto">
-                    <img class="imgProducto" th:src="${purchaseLine.product.image}">
+            <div th:each="purchaseLine : ${purchase.purchaseLineList}" class="product-container">
+                <div class="product-img">
+                    <img class="product-img" th:src="${purchaseLine.product.image}">
                 </div>
                 <div class="product">
                     <div>
@@ -33,13 +33,13 @@
                             <span>Cantidad:</span>
                             <div class="buttons">
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
-                                    <button class="btn" type="button" id="cantidad">-</button>
+                                    <button class="product-button" type="button">-</button>
                                     <input name="quantity" class="cant" id="numero" type="text" style="text-align: center;" th:value="${purchaseLine.quantity}">
-                                    <button class="btn" type="button" id="cantidad">+</button>
+                                    <button class="product-button" type="button">+</button>
                                     <button type="submit" hidden=""></button>
                                 </form>
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="delete">
-                                    <button class="btn" type="submit" id="cantidad">X</button>
+                                    <button class="product-button" type="submit">X</button>
                                 </form>
                             </div>
                         </div>
@@ -47,13 +47,13 @@
                 </div>
             </div>
         </div>
-        <div class="container2">
-            <div class="container2-1">
+        <div class="right-block">
+            <div class="total-title-container">
                 <h1>Total</h1>
             </div>
-            <div class="container2-2">
-                <div class="subtotal">
-                    <div class="subtotal1-1">
+            <div class="totals-container">
+                <div class="subtotal-container-ext">
+                    <div class="subtotal-container-int">
                         <span>Subtotal</span><br>
                         <div id="price-products-total">
                             <p th:each="purchaseLine : ${purchase.purchaseLineList}" th:text="${purchaseLine.product.name} + ' - ' + ${purchaseLine.quantity} + ' - ' + ${purchaseLine.totalPrice} + '€'">
@@ -61,22 +61,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="total">
-                    <div class="total1-1">
+                <div class="total-container">
+                    <div>
                         <span>Total</span>
                     </div>
-                    <div class="total1-2 product-price">
+                    <div class="product-price">
                         <span th:text="${purchase.totalPrice} + '€'"></span>
                     </div>
                 </div>
             </div>
-            <div class="container2-3">
+            <div class="pay-button-container">
                 <form th:action="@{${'/' + language + '/carrito'}}" method="post" th:method="patch">
-                    <button type="submit" id="btnPagar" onclick=""><p>Pagar</p></button>
+                    <button type="submit" id="pay-button" onclick=""><p>Pagar</p></button>
                 </form>
             </div>
         </div>
-    </section>
-    <footer th:replace="~{base/common :: footer}"></footer>
+</section>
+<footer th:replace="~{base/common :: footer}"></footer>
 </body>
 </html>

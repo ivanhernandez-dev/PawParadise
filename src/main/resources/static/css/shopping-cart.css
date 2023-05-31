@@ -9,7 +9,7 @@ section{
 span{
     font-family: 'Open Sans', sans-serif;
 }
-.container1-1{
+#title-container{
     text-align: center;
     margin: 30px;
     border-radius: 10px;
@@ -19,7 +19,7 @@ span{
     background-color: #ECECEC;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-.container1-2{
+.product-container{
     text-align: center;
     margin: 30px;
     border-radius: 10px;
@@ -32,7 +32,7 @@ span{
     justify-content: left;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-.imgProducto{
+.product-img{
     height: 250px;
     width: 350px;
     margin-right: 65px;
@@ -44,7 +44,7 @@ span{
 .cantidad{
     margin-top: 120px;
 }
-#cantidad {
+.product-button {
     width: 25px;
     height: 25px;
     border-radius: 25px;
@@ -72,9 +72,8 @@ span{
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     font-family: 'carter one';
 }
-.container2-1{
+.total-title-container{
     text-align: center;
-    margin-top: 30px;
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid #666666;
     width: 300px;
@@ -83,20 +82,24 @@ span{
     background-color: #ECECEC;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-.container2-2{
+.totals-container{
     border-bottom: 1px solid #464646;
     width: 300px;
     padding: 50px;
     background-color: #ECECEC;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-.subtotal, .total{
+.subtotal-container-ext, .total-container{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
+.right-block{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
-.container2-3{
+.pay-button-container{
     width: 300px;
     padding: 50px;
     height: 40px;
@@ -108,7 +111,7 @@ span{
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     
 }
-#btnPagar{
+#pay-button{
     width: 250px;
     height: 55px;
     background-color: #FF5959;
@@ -124,7 +127,7 @@ h1, h2{
 h1{
     font-family: 'carter one';
 }
-#btnPagar{
+#pay-button{
     font-family: 'carter one';
     color: white;
 }
