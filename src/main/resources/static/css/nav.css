@@ -91,6 +91,9 @@ body{
     background-color: #E6E5E5;
     margin: 0px;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Footer style */
@@ -102,7 +105,7 @@ footer{
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 10px;
-
+    margin-top: auto;
 }
 .footer-icon{
     width: 20px;
@@ -118,11 +121,6 @@ footer{
     display: flex;
     align-items: center;
     flex-direction: row;
-}
-.footerText{
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    color: #D9D9D9;
 }
 .footer-text{
     font-family: 'Open Sans', sans-serif;
