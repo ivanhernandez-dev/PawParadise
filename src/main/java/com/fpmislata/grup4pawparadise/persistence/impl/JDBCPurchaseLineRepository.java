@@ -16,11 +16,11 @@ public class JDBCPurchaseLineRepository implements PurchaseLineRepository {
 
     private ProductRepository productRepository = new JDBCProductRepository();
 
-    private static final String SELECT_PURCHASE_LINES_BY_PURCHASE_ID = "SELECT * FROM shopping_cart WHERE id_purchase = ?";
-    private static final String DELETE_PURCHASE_LINE = "DELETE FROM shopping_cart WHERE id_purchase = ? AND id_product = ?";
-    private static final String INSERT_PURCHASE_LINE = "INSERT INTO shopping_cart (id_purchase, id_product, quantity)" +
+    private static final String SELECT_PURCHASE_LINES_BY_PURCHASE_ID = "SELECT * FROM purchase_line WHERE id_purchase = ?";
+    private static final String DELETE_PURCHASE_LINE = "DELETE FROM purchase_line WHERE id_purchase = ? AND id_product = ?";
+    private static final String INSERT_PURCHASE_LINE = "INSERT INTO purchase_line (id_purchase, id_product, quantity)" +
             " VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE quantity = quantity + ?";
-    private static final String UPDATE_PURCHASE_LINE = "UPDATE shopping_cart SET quantity = ? WHERE id_purchase = ? " +
+    private static final String UPDATE_PURCHASE_LINE = "UPDATE purchase_line SET quantity = ? WHERE id_purchase = ? " +
             "AND id_product = ?";
 
     @Override
