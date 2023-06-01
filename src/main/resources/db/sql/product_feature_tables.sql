@@ -1,5 +1,4 @@
-create schema pawparadise;
-use pawparadise;
+SET MODE MYSQL;
 
 create table category (
 id_category int unsigned auto_increment not null,
