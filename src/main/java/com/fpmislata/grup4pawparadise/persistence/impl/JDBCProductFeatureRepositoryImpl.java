@@ -6,12 +6,7 @@ import com.fpmislata.grup4pawparadise.persistence.ProductFeatureRepository;
 import com.fpmislata.grup4pawparadise.persistence.mapper.JDBCProductFeatureRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCProductFeatureRepositoryImpl implements ProductFeatureRepository {
