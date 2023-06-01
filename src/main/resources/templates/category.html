@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <th:block th:replace="base/common :: additional-head"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/category.css}">
-    <title>Ropa</title>
+    <title th:text="${actualCategoryName}"></title>
 </head>
 <body>
 <header th:replace="~{base/common :: header}"></header>
-<h1>ROPA</h1>
+<h1 th:text="${actualCategoryName}">ROPA</h1>
     <section>
         <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">
             <img class="img-product-category" th:src="${category.image}" alt="">
