@@ -26,7 +26,7 @@
                             <br>
                             <span th:text="${purchaseLine.product.name}"></span>
                         </div>
-                        <div class="cantidad">
+                        <div class="quantity">
                             <span>Cantidad:</span>
                             <div class="buttons">
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
