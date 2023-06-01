@@ -7,6 +7,8 @@
     <title>Document</title>
     <link th:rel="stylesheet" th:href="@{/css/shopping-cart.css}">
     <th:block th:replace="base/common :: additional-head"></th:block>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/3caf9d472f.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -30,13 +32,11 @@
                             <span>Cantidad:</span>
                             <div class="buttons">
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
-                                    <button class="product-button" type="button">-</button>
-                                    <input name="quantity" class="cant" id="numero" type="text" style="text-align: center;" th:value="${purchaseLine.quantity}">
-                                    <button class="product-button" type="button">+</button>
-                                    <button type="submit" hidden=""></button>
+                                    <input name="quantity" class="quantity-value" type="number" th:value="${purchaseLine.quantity}" min="1" max="15">
+                                    <button type="submit" class="product-button fa-solid fa-check"></button>
                                 </form>
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="delete">
-                                    <button class="product-button" type="submit">X</button>
+                                    <button  class="delete-product-button product-button fa-solid fa-trash" type="submit"></button>
                                 </form>
                             </div>
                         </div>
