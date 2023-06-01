@@ -14,45 +14,38 @@
 
 <body>
     <header th:replace="~{base/common :: header}"></header>
-    <div id="container-uno">
-        <div class="bloque-uno">
-            <div id="marco">
+    <div id="container-main">
+        <div class="block-img">
+            <div id="frame">
                 <img id="img-prod" th:src="${product.image}" alt="">
             </div>
         </div>
-        <div class="bloque-dos">
+        <div class="block-description-price">
             <div>
                 <h1 th:text="${product.name}"></h1>
-                <p id="descripcion" th:text="${product.description}"></p>
+                <p id="description" th:text="${product.description}"></p>
             </div>
-            <div id="position-dos">
+            <div id="position-price-form">
                 <div>
                     <form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
-                        <label for="quantity" id="negrita">Cantidad:</label>
+                        <label for="quantity" id="bold">Cantidad:</label>
                         <br>
-                        <input type="number" name="quantity" id="cantidad" min="1" max="10" value="1">
-                    </form>
-                </div>
-                <div id="precio-position">
-                    <span id="precio" th:text="${product.price} + '€'"></span>
-                </div>
-
-                <div>
-                    <form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
-                        <input type="submit" id="añadir" value="Añadir">
+                        <input type="number" name="quantity" id="quantity" min="1" max="10" value="1">
+                        <div id="position-price">
+                            <span id="price" th:text="${product.price} + '€'"></span>
+                        </div>
+                        <input type="submit" id="add" value="Añadir">
                     </form>
                 </div>
             </div>
-
-
         </div>
 
     </div>
-    <div id="container-dos">
-        <h2 id="caracteristicas-titulo">Descripción:</h2>
+    <div id="container-features">
+        <h2 id="features-title">Descripción:</h2>
 
         <ul>
-            <li id="caracteristicas" th:each="productFeature : ${product.productFeatures}">
+            <li id="features" th:each="productFeature : ${product.productFeatures}">
                 <span th:text="${productFeature.description}"> </span>
             </li>
         </ul>

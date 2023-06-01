@@ -2,7 +2,7 @@ body {
     color: #464646;
     font-family: 'Open Sans', sans-serif;
 }
-#container-uno {
+#container-main {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -12,7 +12,7 @@ body {
     margin-top: 80px;
     justify-content: space-around;
 }
-.bloque-uno {
+.block-img {
     width: 380px;
     text-align: center;
     margin-left: 10px;
@@ -20,7 +20,7 @@ body {
     margin-top: 10px;
     
 }
-.bloque-dos {
+.block-description-price {
     width: 65%;
     text-align: center;
     margin-right: auto;
@@ -28,7 +28,7 @@ body {
     margin-top: 10px;
    
 }
-#marco {
+#frame {
     padding: 10px;
     background-color: #ECECEC;
     border-radius: 13px;
@@ -37,26 +37,13 @@ body {
 #img-prod {
     width: 360px;
 }
-#nombreProducto {
-    color: #464646;
-    font-family: 'Carter One';
-    margin: 20px;
-}
-#descripcionProducto {
-    color: #464646;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0px 15px 15px 15px;
-}
-#position {
-    display: flex;
-}
-#position-dos {
+#position-price-form{
     display: inline;
 }
-#negrita {
+#bold {
     font-weight: bold;
 }
-#cantidad {
+#quantity {
     width: 60px;
     height: 30px;
     border-radius: 10px;
@@ -67,27 +54,20 @@ body {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#numero {
-    border-radius: 13px;
-    background-color: #ECECEC;
-    border: none;
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-}
-
-#precio {
+#price {
     color: #FF5959;
     font-family: 'Carter One';
     font-size: 30px;
     font-weight: bold;
    
 }
-#precio-position {
+#position-price {
     margin-left: auto;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
-#añadir {
+#add {
     width: 250px;
     height: 40px;
     background-color: #FF5959;
@@ -99,7 +79,7 @@ body {
     margin: 25px;
     color: #464646;
 }
-#container-dos {
+#container-features {
     margin: 20px;
     height: 30%;
     background-color: #ECECEC;
@@ -107,16 +87,13 @@ body {
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     padding: 50px;
 }
-#caracteristicas {
+#features {
     list-style: disc;
 }
-#descripcion{
+#description{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-#caracteristicas-titulo{
+#features-title {
     margin-bottom: 15px;
 }
-
-
-
