@@ -21,8 +21,6 @@ public class JDBCProductFeatureRepositoryImpl implements ProductFeatureRepositor
     private static final String SELECT_FEATURES_WHERE_ID_PRODUCT_AND_LANGUAGE = "SELECT * FROM product_feature WHERE " +
             "id_product = ? AND language_type = ? ORDER BY index_product_feature ASC";
 
-    private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
-
     public JDBCProductFeatureRepositoryImpl() {
         this.jdbcTemplate = new JdbcTemplate(JDBCUtil.getDataSource());
     }
