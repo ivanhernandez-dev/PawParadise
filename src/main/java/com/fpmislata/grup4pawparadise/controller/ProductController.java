@@ -49,6 +49,7 @@ public class ProductController {
             String name = httpServletRequest.getParameter("nombre");
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("products", this.productService.getByName(name, language));
+            model.addAttribute("actualCategoryName", name);
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();

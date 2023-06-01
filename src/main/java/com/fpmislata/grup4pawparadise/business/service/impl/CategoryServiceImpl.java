@@ -2,6 +2,7 @@ package com.fpmislata.grup4pawparadise.business.service.impl;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
 import com.fpmislata.grup4pawparadise.business.service.CategoryService;
+import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.CategoryRepository;
 import com.fpmislata.grup4pawparadise.persistence.impl.JDBCCategoryRepository;
 
@@ -19,5 +20,10 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public List<Category> getChildrenByParentId(Integer parentId, String language) {
         return this.categoryRepository.getChildrenByParentId(parentId, language);
+    }
+
+    @Override
+    public Category getById(Integer id, String language) throws ResourceNotFoundException {
+        return this.categoryRepository.getById(id, language);
     }
 }

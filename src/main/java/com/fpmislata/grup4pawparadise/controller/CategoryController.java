@@ -22,6 +22,7 @@ public class CategoryController {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("categories", this.categoryService.getChildrenByParentId(categoryId, language));
             model.addAttribute("products", this.productService.getByCategoryIdWithSuccessors(categoryId, language));
+            model.addAttribute("actualCategoryName", this.categoryService.getById(categoryId, language).getName());
             model.addAttribute("language", language);
         } catch (Exception e) {
             e.printStackTrace();

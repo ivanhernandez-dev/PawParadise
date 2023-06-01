@@ -2,6 +2,7 @@ package com.fpmislata.grup4pawparadise.persistence.impl;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
 import com.fpmislata.grup4pawparadise.database.JDBCUtil;
+import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.CategoryRepository;
 
 import java.sql.Connection;
@@ -22,6 +23,9 @@ public class JDBCCategoryRepository implements CategoryRepository {
     private static final String SELECT_CHILDREN_WHERE_NULL_PARENT_BY_LANGUAGE = "SELECT c.*, cl.name_category FROM category c " +
             "JOIN category_language cl ON c.id_category = cl.id_category WHERE c.id_parent IS NULL AND cl.language_type = ? " +
             "ORDER BY c.id_category";
+    private static final String SELECT_BY_ID_AND_LANGUAGE = "SELECT c.*, cl.name_category FROM category c JOIN " +
+            "category_language cl ON c.id_category = cl.id_category WHERE c.id_category = ? AND cl.language_type = ?";
+    private static final String CATEGORY_NOT_FOUND_MESSAGE = "Category not found with id: ";
 
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
@@ -103,6 +107,24 @@ public class JDBCCategoryRepository implements CategoryRepository {
         for (Category child : children) {
             successors.add(child);
             addSuccessorsRecursively(child.getId(), language, successors);
+        }
+    }
+
+    @Override
+    public Category getById(int id, String language) throws ResourceNotFoundException {
+        List<Object> params = List.of(id, language);
+        Connection connection = JDBCUtil.open();
+        ResultSet resultSet = JDBCUtil.select(connection, SELECT_BY_ID_AND_LANGUAGE, params);
+        try {
+            if (resultSet.next()) {
+                return createCategoryFromResultSet(resultSet);
+            } else {
+                throw new ResourceNotFoundException(CATEGORY_NOT_FOUND_MESSAGE + id);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(SQL_EXCEPTION_MESSAGE + e.getMessage(), e);
+        } finally {
+            JDBCUtil.close(connection);
         }
     }
 }
