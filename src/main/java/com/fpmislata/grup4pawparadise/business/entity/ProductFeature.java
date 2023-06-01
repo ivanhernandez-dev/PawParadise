@@ -1,5 +1,7 @@
 package com.fpmislata.grup4pawparadise.business.entity;
 
+import java.util.Objects;
+
 public class ProductFeature {
 
     private int index;
@@ -24,5 +26,13 @@ public class ProductFeature {
                 "index=" + index +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductFeature that = (ProductFeature) o;
+        return index == that.index && Objects.equals(description, that.description);
     }
 }
