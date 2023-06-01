@@ -14,8 +14,8 @@ public class JDBCUtil {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("com.mysql.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://localhost:3306/pawparadise");
-            dataSource.setUsername("root");
-            dataSource.setPassword("root");
+            dataSource.setUsername("Alma");
+            dataSource.setPassword("Alma");
             datasource = dataSource;
         }
         return datasource;
@@ -26,8 +26,8 @@ public class JDBCUtil {
         try {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/pawparadise",
-                    "root",
-                    "root"
+                    "Alma",
+                    "Alma"
             );
             return connection;
         } catch (SQLException e) {
