@@ -1,21 +1,32 @@
-
+body {
+    color: #464646;
+    font-family: 'Open Sans', sans-serif;
+}
 #container-uno {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 10px;
     height: 50%;
     margin-top: 80px;
+    justify-content: space-around;
 }
 .bloque-uno {
-    width: 40%;
+    width: 380px;
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    
 }
 .bloque-dos {
-    width: 60%;
+    width: 65%;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
+   
 }
 #marco {
     padding: 10px;
@@ -24,13 +35,14 @@
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
 #img-prod {
-    width: 100%;
+    width: 360px;
 }
-h1 {
+#nombreProducto {
     color: #464646;
     font-family: 'Carter One';
+    margin: 20px;
 }
-p {
+#descripcionProducto {
     color: #464646;
     font-family: 'Open Sans', sans-serif;
     padding: 0px 15px 15px 15px;
@@ -45,10 +57,15 @@ p {
     font-weight: bold;
 }
 #cantidad {
-    border-radius: 13px;
-    background-color: #ECECEC;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
     border: none;
+    text-align: center;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 #numero {
     border-radius: 13px;
@@ -56,39 +73,50 @@ p {
     border: none;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-.cant {
-    width: 40px;
-}
+
 #precio {
     color: #FF5959;
+    font-family: 'Carter One';
+    font-size: 30px;
+    font-weight: bold;
+   
 }
 #precio-position {
     margin-left: auto;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 #añadir {
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-    border-radius: 13px;
+    width: 250px;
+    height: 40px;
     background-color: #FF5959;
-    width: 215px;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 13px;
+    border: none;
+    font-family: 'Carter One';
+    font-size: 30px;
+    font-weight: bold;
+    margin: 25px;
+    color: #464646;
 }
 #container-dos {
-    margin: 10px;
+    margin: 20px;
     height: 30%;
     background-color: #ECECEC;
     border-radius: 13px;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     padding: 50px;
 }
-h2 {
-    color: #464646;
-    font-family: 'Carter One';
+#caracteristicas {
+    list-style: disc;
 }
-li {
-    color: #464646;
-    font-family: 'Open Sans', sans-serif;
+#descripcion{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+#caracteristicas-titulo{
+    margin-bottom: 15px;
+}
+
+
 
