@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,37 +9,49 @@
     <th:block th:replace="base/common :: additional-head"></th:block>
     <link th:rel="stylesheet" th:href="@{/css/about-us.css}">
 </head>
-<body>
-<header th:replace="~{base/common :: header}"></header>
 
-<div id="img-about-us-container">
+<body>
+    <header th:replace="~{base/common :: header}"></header>
+
+    <div id="img-about-us-container">
         <img id="img-about-us" th:src="@{/img/imgAboutUs.jpg}">
     </div>
-    <section>
-        <h1>
+    <section id="container-text-about-us">
+        <h1 id="title-about-us">
             ¿Quiénes somos?
         </h1>
         <p>
-            ¡Bienvenido al mundo de los caninos a la moda! Somos una tienda de ropa para perros donde podrás encontrar los mejores atuendos para tus peludos amigos. Pero, ¿quiénes somos nosotros? ¡Déjanos presentarnos!
+            ¡Bienvenido al mundo de los caninos a la moda! Somos una tienda de ropa para perros donde podrás encontrar
+            los mejores atuendos para tus peludos amigos. Pero, ¿quiénes somos nosotros? ¡Déjanos presentarnos!
         </p>
 
         <p>
-            Somos un grupo de amantes de los perros, ¡y de la moda! Nos encanta vestir a nuestros amigos peludos con la ropa más moderna y chic, y nos dimos cuenta de que había una gran necesidad de una tienda especializada en ropa para perros. Así que, decidimos unir fuerzas y crear esta tienda para que todos los perros puedan vestir a la moda.
+            Somos un grupo de amantes de los perros, ¡y de la moda! Nos encanta vestir a nuestros amigos peludos con la
+            ropa más moderna y chic, y nos dimos cuenta de que había una gran necesidad de una tienda especializada en
+            ropa para perros. Así que, decidimos unir fuerzas y crear esta tienda para que todos los perros puedan
+            vestir a la moda.
         </p>
 
         <p>
-            En nuestra tienda, encontrarás todo lo que necesitas para hacer que tu perro sea el más fashion de la cuadra. Tenemos ropa de todos los estilos, desde chuvasqueros molones hasta sudaderas cómodas y divertidas. También tenemos accesorios para complementar su atuendo, como cascos, gafas de sol y collares con diamantes (porque todos sabemos que nuestros perros merecen lo mejor).
+            En nuestra tienda, encontrarás todo lo que necesitas para hacer que tu perro sea el más fashion de la
+            cuadra. Tenemos ropa de todos los estilos, desde chuvasqueros molones hasta sudaderas cómodas y divertidas.
+            También tenemos accesorios para complementar su atuendo, como cascos, gafas de sol y collares con diamantes
+            (porque todos sabemos que nuestros perros merecen lo mejor).
         </p>
 
         <p>
-            Además, no solo nos preocupamos por el estilo de nuestros amigos caninos, también nos preocupamos por su comodidad. Todos nuestros productos están hechos con materiales de alta calidad y son cómodos de llevar para que tu perro pueda moverse libremente.
+            Además, no solo nos preocupamos por el estilo de nuestros amigos caninos, también nos preocupamos por su
+            comodidad. Todos nuestros productos están hechos con materiales de alta calidad y son cómodos de llevar para
+            que tu perro pueda moverse libremente.
         </p>
 
         <p>
-            Así que, si quieres que tu perro sea el más elegante y cómodo de la ciudad, ¡ven a visitarnos! ¡Te aseguramos que no te arrepentirás!
+            Así que, si quieres que tu perro sea el más elegante y cómodo de la ciudad, ¡ven a visitarnos! ¡Te
+            aseguramos que no te arrepentirás!
         </p>
     </section>
-<footer th:replace="~{base/common :: footer}"></footer>
+    <footer th:replace="~{base/common :: footer}"></footer>
 
 </body>
+
 </html>
