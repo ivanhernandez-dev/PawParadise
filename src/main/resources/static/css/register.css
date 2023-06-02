@@ -4,66 +4,58 @@
 body {
     background-color: #e6e5e5;
 }
-#img-logo {
-    width: 32%;
+section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 #container {
     background-color: #F8F8F8;
-    margin: 40px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    width: 40%;
+    min-width: 240px;
     border-radius: 25px;
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-    height: 820px;
+    box-shadow: 2px 2px 4px 4px rgba(20, 20, 20, 0.3);
 }
 #cont {
     display: flex;
     flex-flow: row wrap;
 }
-#logo {
+
+.btn-register-login {
+    background-color: #F8F8F8;
+    border: none;
     text-align: center;
-    margin-top: 35px;
-}
-#registrarse {
-    text-align: center;
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-    border-radius: 25px 0px 25px 25px;
+    box-shadow: 2px 2px 0px 0 rgba(20, 20, 20, 0.3);
+    border-radius: 25px 25px 25px 25px;
     width: 50%;
-    height: 75px;
+    height: 45px;
+    font-family: 'Carter One';
+}
+#activo{
     background-color: #66B6AB;
-    font-family: 'Carter One';
-}
-#login {
-    text-align: center;
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-    border-radius: 0px 25px 25px 25px;
-    width: 50%;
-    height: 75px;
-    font-family: 'Carter One';
 }
 h1 {
     color: #464646;
 }
-form {
-    margin-top: 50px;
-    position: relative;
-}
-input {
+.input-register-login {
     border-radius: 13px;
     border-color: #b0b0b0;
-    width: 210px;
-    margin-bottom: 40px;
-    margin-top: 10px;
-    height: 40px;
+    width: 170px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    height: 30px;
 }
 .required {
     color: #464646;
     font-family: 'Open Sans', sans-serif;
 }
 #btn-acceder {
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+    box-shadow: 2px 2px 4px 4px rgba(20, 20, 20, 0.3);
     border-radius: 13px;
-    width: 215px;
+    width: 170px;
+    margin-bottom: 40px;
     background-color: #FF5959;
     color: #ECECEC;
     font-family: 'Carter One';
@@ -75,8 +67,18 @@ a {
     text-decoration: none;
 }
 .bloque {
+    margin-top: 50px;
     width: 215px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+#form-register-login{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 50%;
+    margin-right: 50%;
 }
 

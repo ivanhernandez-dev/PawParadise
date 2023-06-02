@@ -5,13 +5,9 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     height: 400px;
-    width: 100%;
 }
-section{
-    margin-top: 70px;
-}
-
 h1{
     color: #464646;
     font-family: 'Open Sans', sans-serif;

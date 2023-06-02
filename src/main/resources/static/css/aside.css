@@ -41,8 +41,9 @@ body{
     transition: .4s;
 }
 
-ul li:hover a{
-    padding-left: 50px;
+li:hover {
+    padding-left: 40px;
+    transition: 0.5s;
 }
 
 

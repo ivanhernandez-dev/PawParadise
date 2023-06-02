@@ -8,15 +8,16 @@
 </head>
 <body>
 <header th:replace="~{base/common :: header}"></header>
+<section>
 <h1 th:text="${actualCategoryName}">ROPA</h1>
-    <section>
+    <div class="category-products">
         <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">
             <img class="img-product-category" th:src="${category.image}" alt="">
             <h3 class="title-category" th:text="${category.name}"></h3>
         </a>
-    </section>
+    </div>
     <h2>PRODUCTOS</h2>
-    <section>
+    <div class="category-products">
         <th:block th:each="n : ${#numbers.sequence(1, 8)}">
             <th:block th:each="product : ${products}">
                 <a class="product" th:href="@{${'/' + language + '/productos/' + product.id}}">
@@ -26,7 +27,8 @@
                 </a>
             </th:block>
         </th:block>
-    </section>
+    </div>
+</section>
 <footer th:replace="~{base/common :: footer}"></footer>
 </body>
 </html>
