@@ -5,7 +5,8 @@ h1 {
     color: #464646;
     text-align: center;
     font-family: 'Carter One';
-    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-top: 50px;
 }
 h2 {
     color: #464646;;
@@ -58,7 +59,7 @@ h3 {
     z-index: 1;
 }
 @media screen and (max-width: 800px) {
-    .categoria, .producto {
+    .category, .product {
         min-width: 250px;
     }
 }
