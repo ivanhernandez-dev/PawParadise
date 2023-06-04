@@ -2,30 +2,27 @@
 <html lang="en">
 <head>
     <link th:rel="stylesheet" th:href="@{/css/register.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/aside.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <title>Login</title>
 </head>
 <body>
-    <header th:replace="~{base/common :: principal}"></header>
+    <header th:replace="~{base/common :: header}"></header>
     <section>
-        <div id="container">
-            <div id="cont">
+        <div id="main-container">
+            <div id="buttons-container">
                 <button class="btn-register-login">
                     <a th:href="@{${'/' + language + '/register'}}"><h1>Registrarse</h1></a>
                 </button>
-                <button id="activo" class="btn-register-login" >
+                <button id="active" class="btn-register-login" >
                     <h1>Acceder</h1>
                 </button>
-                <script src=""></script>
             </div>
-            <div class="bloque">
+            <div class="form-container">
                 <form id="form-register-login">
-                    <label class="required" for="correo">EMAIL:</label><br>
-                    <input type="email" class="input-register-login" name="correo" value="" required><br>
-                    <label class="required" for="contraseña">CONTRASEÑA:</label><br>
-                    <input type="contraseña" class="input-register-login" name="contraseña" value="" required>
+                    <label class="required" for="email">EMAIL:</label><br>
+                    <input type="email" class="input-register-login" name="email" id="email" required><br>
+                    <label class="required" for="password">CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password" id="password" required>
                     <input id="btn-acceder" type="submit" value="Acceder">
                 </form>
             </div>

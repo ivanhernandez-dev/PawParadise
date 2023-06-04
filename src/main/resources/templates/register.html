@@ -2,38 +2,35 @@
 <html lang="en">
 <head>
     <link th:rel="stylesheet" th:href="@{/css/register.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/aside.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <title>Register</title>
 </head>
 <body>
-    <header th:replace="~{base/common :: principal}"></header>
+    <header th:replace="~{base/common :: header}"></header>
     <section>
-        <div id="container">
-            <div id="cont">
-                <button id="activo" class="btn-register-login">
+        <div id="main-container">
+            <div id="buttons-container">
+                <button id="active" class="btn-register-login">
                     <h1>Registrarse</h1>
                 </button>
                 <button class="btn-register-login">
                     <a th:href="@{${'/' + language + '/login'}}"><h1>Acceder</h1></a>
                 </button>
             </div>
-            <div class="bloque">
+            <div class="form-container">
                 <form>
-                    <label class="required" for="correo">EMAIL:</label><br>
-                    <input type="email" class="input-register-login" name="correo" value="" required><br>
-                    <label class="required" for="nombre">NOMBRE:</label><br>
-                    <input type="nombre" class="input-register-login" name="nombre" value="" required><br>
-                    <label class="required" for="apellido">APELLIDO:</label><br>
-                    <input type="apellido" class="input-register-login" name="apellido" value="" required><br>
-                    <label class="required" for="contraseña">CONTRASEÑA:</label><br>
-                    <input type="contraseña" class="input-register-login" name="contraseña" value="" required><br>
-                    <label class="required" for="contraseña">REPETIR CONTRASEÑA:</label><br>
-                    <input type="contraseña" class="input-register-login" name="contraseña" value="" required><br>
+                    <label class="required" for="email">EMAIL:</label><br>
+                    <input type="email" class="input-register-login" name="email" value="" required id="email"><br>
+                    <label class="required" for="name">NOMBRE:</label><br>
+                    <input type="text" class="input-register-login" name="name" value="" required id="name"><br>
+                    <label class="required" for="surname">APELLIDO:</label><br>
+                    <input type="text" class="input-register-login" name="surname" value="" required id="surname"><br>
+                    <label class="required" for="password1">CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password1" value="" required id="password1"><br>
+                    <label class="required" for="password2">REPETIR CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password2" value="" required id="password2"><br>
                     <input id="btn-acceder" type="submit" value="Registrarse">
                 </form> 
-            </div>
             </div>
         </div>
     </section>

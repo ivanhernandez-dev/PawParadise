@@ -9,16 +9,16 @@ section{
     flex-flow: row wrap;
     justify-content: center;
 }
-#container {
+#main-container {
     background-color: #F8F8F8;
     margin-bottom: 40px;
     margin-top: 40px;
     width: 40%;
     min-width: 240px;
     border-radius: 25px;
-    box-shadow: 2px 2px 4px 4px rgba(20, 20, 20, 0.3);
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
-#cont {
+#buttons-container {
     display: flex;
     flex-flow: row wrap;
 }
@@ -33,7 +33,7 @@ section{
     height: 45px;
     font-family: 'Carter One';
 }
-#activo{
+#active{
     background-color: #66B6AB;
 }
 h1 {
@@ -66,7 +66,7 @@ h1 {
 a {
     text-decoration: none;
 }
-.bloque {
+.form-container {
     margin-top: 50px;
     width: 215px;
     margin-left: auto;
