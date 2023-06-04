@@ -32,6 +32,9 @@ section{
 }
 .img-product-category{
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 13px;
 }
 h3 {
     color: #464646;

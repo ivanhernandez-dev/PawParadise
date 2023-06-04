@@ -43,7 +43,7 @@ span{
 }
 .product-img{
     height: 250px;
-    width: 350px;
+    width: 250px;
     object-fit: cover;
     align-self: flex-start;
 }
@@ -62,16 +62,6 @@ span{
     border: none;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     margin: 4px;
-}
-.container1-3{
-    text-align: center;
-    margin: 30px;
-    border-radius: 10px;
-    width: 690px;
-    padding: 30px;
-    background-color: #ECECEC;
-    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
-    font-family: 'carter one';
 }
 .total-title-container{
     text-align: center;
