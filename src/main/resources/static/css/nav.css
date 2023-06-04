@@ -68,7 +68,7 @@ nav{
 
 @media screen and (max-width: 800px) {
     #logo {
-        content: url(logo/logo2.png);
+        content: url(../img/logo/logo2.png);
         width: 60px;
     }
 }
