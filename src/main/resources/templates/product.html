@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/css/producto.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/aside.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${product.name}"></title>

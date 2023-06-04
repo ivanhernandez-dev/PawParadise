@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <th:block th:replace="base/common :: additional-head"></th:block>
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <link rel="stylesheet" type="text/css" th:href="@{/css/category.css}">
     <title th:text="${actualCategoryName}"></title>
 </head>
