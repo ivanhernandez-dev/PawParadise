@@ -17,6 +17,7 @@ body{
     height: 100%;
     background-color: #66B6AB;
     transition: all .5s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #sidebar #categories-title{
@@ -41,7 +42,7 @@ body{
     transition: .4s;
 }
 
-li:hover {
+#sidebar li:hover {
     padding-left: 40px;
     transition: 0.5s;
 }
