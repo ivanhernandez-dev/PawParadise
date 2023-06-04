@@ -149,3 +149,7 @@ h1{
 .delete-product-button{
     color: #FF5959;
 }
+.product-price a{
+    text-decoration: none;
+    color: black;
+}
