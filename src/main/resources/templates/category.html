@@ -16,7 +16,7 @@
             <h3 class="title-category" th:text="${category.name}"></h3>
         </a>
     </div>
-    <h2>PRODUCTOS</h2>
+    <h2 th:text="${jsonData.getString('products_text')}">PRODUCTOS</h2>
     <div class="category-products">
         <th:block th:each="n : ${#numbers.sequence(1, 8)}">
             <th:block th:each="product : ${products}">
