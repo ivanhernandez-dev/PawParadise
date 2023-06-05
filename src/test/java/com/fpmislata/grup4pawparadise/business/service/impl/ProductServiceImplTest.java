@@ -51,8 +51,8 @@ public class ProductServiceImplTest {
         Product actualProduct = productService.getById(id, language);
 
         assertAll(
-                () -> assertEquals(expectedProduct, actualProduct,
-                        "The product returned should be equal to the expected product"),
+                () -> assertSame(expectedProduct, actualProduct,
+                        "The product returned should be the same as the expected product"),
                 () -> verify(productRepository, description("The method getById should be called with parameters id=" +
                         id + " and language=" + language))
                         .getById(id, language)
@@ -108,7 +108,7 @@ public class ProductServiceImplTest {
                 () -> verify(categoryRepository,
                         description("The method getSuccessorsByParentId should be called with parameter 1 and language es"))
                         .getSuccessorsByParentId(categoryId, language),
-                () -> assertEquals(expectedProducts, actualProducts, "The lists should be equal")
+                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same")
         );
     }
 
@@ -133,7 +133,7 @@ public class ProductServiceImplTest {
                         description("The method getByName should be called with parameters name=" + name +
                                 " and language=" + language))
                         .getByName(name, language),
-                () -> assertEquals(expectedProducts, actualProducts, "The lists should be equal")
+                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same")
         );
     }
 }
