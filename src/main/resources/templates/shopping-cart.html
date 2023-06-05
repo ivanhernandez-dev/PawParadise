@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title th:text="${jsonData.getString('shoping_cart')}">Document</title>
     <link th:rel="stylesheet" th:href="@{/css/shopping-cart.css}">
     <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -16,7 +16,7 @@
     <section>
         <div class="left-block">
             <div id="title-container">
-                <h1>Mi carrito</h1>
+                <h1 th:text="${jsonData.getString('title_shoping_cart')}">Mi carrito</h1>
             </div>
             <div th:each="purchaseLine : ${purchase.purchaseLineList}" class="product-container">
                 <a th:href="@{${'/' + language + '/producto/' + purchaseLine.product.id}}">
@@ -33,7 +33,7 @@
                             </a>
                         </div>
                         <div class="quantity">
-                            <span>Cantidad:</span>
+                            <span th:text="${jsonData.getString('quantity')}">Cantidad:</span>
                             <div class="buttons">
                                 <form th:action="@{${'/' + language + '/carrito/producto/' + purchaseLine.product.id}}" method="post" th:method="patch">
                                     <input name="quantity" class="quantity-value" type="number" th:value="${purchaseLine.quantity}" min="1" max="15">
@@ -49,12 +49,12 @@
         </div>
         <div class="right-block">
             <div class="total-title-container">
-                <h1>Total</h1>
+                <h1 th:text="${jsonData.getString('total')}">Total</h1>
             </div>
             <div class="totals-container">
                 <div class="subtotal-container-ext">
                     <div class="subtotal-container-int">
-                        <span>Subtotal</span><br>
+                        <span th:text="${jsonData.getString('subtotal')}">Subtotal</span><br>
                         <div id="price-products-total">
                             <p th:each="purchaseLine : ${purchase.purchaseLineList}" th:text="${purchaseLine.product.name} + ' - ' + ${purchaseLine.quantity} + ' - ' + ${purchaseLine.totalPrice} + '€'">
                             </p>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="total-container">
                     <div>
-                        <span>Total</span>
+                        <span th:text="${jsonData.getString('total')}">Total</span>
                     </div>
                     <div class="product-price">
                         <span th:text="${purchase.totalPrice} + '€'"></span>
@@ -72,7 +72,7 @@
             </div>
             <div class="pay-button-container">
                 <form th:action="@{${'/' + language + '/carrito'}}" method="post" th:method="patch">
-                    <button type="submit" id="pay-button" onclick="">Pagar</button>
+                    <button th:text="${jsonData.getString('pay_button')}" type="submit" id="pay-button" onclick="">Pagar</button>
                 </form>
             </div>
         </div>
