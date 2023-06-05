@@ -13,9 +13,9 @@ public class JsonUtil {
         String filePath = null;
 
         if (language.equals("es")) {
-            filePath = "static/json/translate_es.json";
+            filePath = "static/json/translation_es.json";
         } else if (language.equals("en")) {
-            filePath = "static/json/translate_en.json";
+            filePath = "static/json/translation_en.json";
         }
 
         try {
