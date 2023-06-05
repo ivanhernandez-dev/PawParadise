@@ -9,13 +9,18 @@ import javax.sql.DataSource;
 public class JDBCUtil {
 
     private static DataSource datasource;
+    private static String HOST = System.getenv("DBHOST");
+    private static String NAME = System.getenv("DBNAME");
+    private static String USER = System.getenv("DBUSER");
+    private static String PASSWORD = System.getenv("DBPASSWD");
+
     public static DataSource getDataSource(){
         if(datasource == null){
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost:3306/pawparadise");
-            dataSource.setUsername("Alma");
-            dataSource.setPassword("Alma");
+            dataSource.setUrl("jdbc:mysql://" + HOST + ":3306/" + NAME);
+            dataSource.setUsername(USER);
+            dataSource.setPassword(PASSWORD);
             datasource = dataSource;
         }
         return datasource;
@@ -25,9 +30,9 @@ public class JDBCUtil {
         Connection connection;
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/pawparadise",
-                    "Alma",
-                    "Alma"
+                    "jdbc:mysql://" + HOST + ":3306/" + NAME,
+                    USER,
+                    PASSWORD
             );
             return connection;
         } catch (SQLException e) {
