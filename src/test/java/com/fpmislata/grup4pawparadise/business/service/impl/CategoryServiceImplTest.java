@@ -1,6 +1,7 @@
 package com.fpmislata.grup4pawparadise.business.service.impl;
 
 import com.fpmislata.grup4pawparadise.business.entity.Category;
+import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.CategoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,8 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -80,5 +80,33 @@ public class CategoryServiceImplTest {
                         .getChildrenByParentId(parentId, language),
                 () -> assertSame(expectedCategories.get(0).getCategories(), actual, "The categories should be the same")
         );
+    }
+
+    @DisplayName("Test getById(int, String) with existing category")
+    @Test
+    public void testGetById_existingCategory() throws ResourceNotFoundException {
+        int id = 1;
+        String language = "en";
+
+        when(categoryRepository.getById(id, language)).thenReturn(expectedCategories.get(0));
+
+        Category actual = categoryService.getById(id, language);
+
+        assertAll(
+                () -> verify(categoryRepository, description("The method getById should be called with parameters id=" + id + " and language=" + language))
+                        .getById(id, language),
+                () -> assertSame(expectedCategories.get(0), actual, "The categories should be the same")
+        );
+    }
+
+    @DisplayName("Test getById(int, String) with non-existing category")
+    @Test
+    public void testGetById_nonExistingCategory() throws ResourceNotFoundException {
+        int id = -1;
+        String language = "en";
+
+        when(categoryRepository.getById(id, language)).thenThrow(ResourceNotFoundException.class);
+
+        assertThrows(ResourceNotFoundException.class, () -> categoryService.getById(id, language));
     }
 }
