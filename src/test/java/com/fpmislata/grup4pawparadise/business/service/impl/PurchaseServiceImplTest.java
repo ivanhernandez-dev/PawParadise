@@ -48,8 +48,8 @@ class PurchaseServiceImplTest {
         Purchase actualPurchase = purchaseService.getByUserIdWhereStatusActive(idCustomer, language);
 
         assertAll(
-                () -> assertEquals(expectedPurchase, actualPurchase,
-                        "The purchase returned should be equal to the expected purchase"),
+                () -> assertSame(expectedPurchase, actualPurchase,
+                        "The purchase returned should be the same as the expected purchase"),
                 () -> verify(purchaseRepository, description("The method getByUserIdWhereStatusActive should be called " +
                         "with parameters idCustomer=" + idCustomer + " and language=" + language))
                         .getByUserIdWhereStatusActive(idCustomer, language)
