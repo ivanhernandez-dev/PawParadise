@@ -26,13 +26,13 @@
             <div id="position-price-form">
                 <div>
                     <form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
-                        <label for="quantity" id="bold">Cantidad:</label>
+                        <label th:text="${jsonData.getString('quantity')}" for="quantity" id="bold">Cantidad:</label>
                         <br>
                         <input type="number" name="quantity" id="quantity" min="1" max="15" value="1">
                         <div id="position-price">
                             <span id="price" th:text="${product.price} + '€'"></span>
                         </div>
-                        <input type="submit" id="add" value="Añadir">
+                        <input type="submit" id="add" th:value="${jsonData.getString('add_button')}">
                     </form>
                 </div>
             </div>
@@ -40,7 +40,7 @@
 
     </div>
     <div id="container-features">
-        <h2 id="features-title">Descripción:</h2>
+        <h2 th:text="${jsonData.getString('description_text')}" id="features-title">Descripción:</h2>
 
         <ul>
             <li id="features" th:each="productFeature : ${product.productFeatures}">
