@@ -35,9 +35,7 @@
                     <i class="fa fa-bars" id="open-button"></i>
                     <i class="fa fa-times" id="close-button"></i>
                     <div id="sidebar">
-                        <span id="categories-title">
-                            CATEGORIAS
-                        </span>
+                        <span th:text="${jsonData.getString('category_title')}" id="categories-title">CATEGORIAS</span>
                         <ul>
                             <li th:each="category : ${allCategories}">
                                 <a th:text="${category.name}" th:href="@{${'/' + language + '/categorias/' + category.id}}"></a>
@@ -51,19 +49,19 @@
 </header>
 <footer th:fragment="footer">
     <div class="footer-margins">
-        <span class="footer-text">Contacto</span>
+        <span th:text="${jsonData.getString('contact')}" class="footer-text">Contacto</span>
         <div class="footer-info">
-            <img class="footer-icon" th:src="@{/img/icon/phone.png}"><p class="footer-text">  666 666 666</p>
+            <img class="footer-icon" th:src="@{/img/icon/phone.png}"><p th:text="${jsonData.getString('telefon')}" class="footer-text">  666 666 666</p>
         </div>
         <div class="footer-info">
-            <img class="footer-icon" th:src="@{/img/icon/email.png}"><p class="footer-text"><p class="footer-text">  info@pawparadise.com</p>
+            <img class="footer-icon" th:src="@{/img/icon/email.png}"><p class="footer-text"><p th:text="${jsonData.getString('email_dir')}" class="footer-text">  info@pawparadise.com</p>
         </div>
     </div>
     <div class="footer-margins">
-        <a class="footer-text" th:href="@{${'/' + language + '/about-us'}}"><span>Quienes somos</span></a>
+        <a class="footer-text" th:href="@{${'/' + language + '/about-us'}}"><span th:text="${jsonData.getString('about_us')}">Quienes somos</span></a>
     </div>
     <div class="footer-margins">
-        <span class="footer-text">Síguenos</span><br>
+        <span th:text="${jsonData.getString('social_media')}" class="footer-text">Síguenos</span><br>
         <a href="https://www.instagram.com/" target="_blank">
             <img class="footer-icon" th:src="@{/img/icon/instagram.png}">
         </a>
