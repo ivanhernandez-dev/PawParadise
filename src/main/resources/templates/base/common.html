@@ -23,6 +23,10 @@
             </form>
         </div>
         <div class="flex-nav">
+            <ul>
+                <li><a th:href="@{${'/en' + route}}"><img class="img-language" th:src="@{/img/icon/english-flag.png}" ></a></li>
+                <li><a th:href="@{${'/es' + route}}"><img class="img-language" th:src="@{/img/icon/spanish-flag.png}"></a></li>
+            </ul>
             <a th:href="@{${'/' + language + '/login'}}"><img id="img-user" th:src="@{/img/icon/user.png}" alt=""></a>
             <a th:href="@{${'/' + language + '/carrito'}}"><img id="img-shopping-cart" th:src="@{/img/icon/shoppingcart.png}" alt=""></a>
             <div class="menu">

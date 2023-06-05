@@ -38,6 +38,10 @@ nav{
     width: 250px;
     margin-top: 2px;
 }
+.img-language{
+    width: 18px;
+    border-radius: 0 !important;
+}
 #img-search{
     width: 20px;
     padding-left: 7px;
@@ -45,8 +49,7 @@ nav{
 #img-user{
     width: 30px;
     margin-left: 0px;
-    padding: 10px;
-    padding-left: 45px;
+    padding: 10px 10px 10px 65px;
 }
 .img-user:hover, .img-shopping-cart:hover{
     padding: 17px 10px 17px 10px;
@@ -84,7 +87,7 @@ nav{
 
 @media screen and (max-width: 800px) {
     #search-input {
-        width: 35%;
+        width: 90%;
     }
 }
 

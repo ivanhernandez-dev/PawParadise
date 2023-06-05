@@ -64,7 +64,7 @@ label #open-button, label #close-button{
 }
 
 label #open-button{
-    right: 125px;
+    right: 115px;
     top: 13px;
     font-size: 30px;
     color: black;
@@ -73,7 +73,7 @@ label #open-button{
 }
 @media screen and (max-width: 800px) {
     #open-button, #close-button {
-        margin-right: -12px;
+        margin-right: -5px;
     }
 }
 
@@ -97,5 +97,5 @@ label #close-button{
 }
 
 #check:checked + label > #close-button{
-    right: 125px;
+    right: 115px;
 }
