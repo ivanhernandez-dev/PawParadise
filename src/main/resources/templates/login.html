@@ -23,7 +23,7 @@
                     <input type="email" class="input-register-login" name="email" id="email" required><br>
                     <label th:text="${jsonData.getString('password')}" class="required" for="password">CONTRASEÑA:</label><br>
                     <input type="password" class="input-register-login" name="password" id="password" required>
-                    <input id="btn-acceder" type="submit" value="Acceder">
+                    <input id="btn-acceder" type="submit" th:value="${jsonData.getString('login_button')}">
                 </form>
             </div>
         </div>   
