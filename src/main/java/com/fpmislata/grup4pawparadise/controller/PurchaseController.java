@@ -4,7 +4,10 @@ import com.fpmislata.grup4pawparadise.business.service.CategoryService;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseService;
 import com.fpmislata.grup4pawparadise.business.service.impl.CategoryServiceImpl;
 import com.fpmislata.grup4pawparadise.business.service.impl.PurchaseServiceImpl;
+import com.fpmislata.grup4pawparadise.translation.JsonUtil;
+
 import org.springframework.ui.Model;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PurchaseController {
 
+    private JsonUtil jsonUtil = new JsonUtil();
     private PurchaseService purchaseService = new PurchaseServiceImpl();
     private CategoryService categoryService = new CategoryServiceImpl();
     private static final int USER_ID = 1;
@@ -35,6 +39,9 @@ public class PurchaseController {
     @GetMapping("")
     public String getByUserIdWhereStatusActive(@PathVariable String language, Model model) {
         try {
+            JSONObject jsonData = jsonUtil.readJsonData(language);
+
+            model.addAttribute("jsonData", jsonData);
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("purchase", purchaseService.getByUserIdWhereStatusActive(USER_ID, language));
             model.addAttribute("language", language);
