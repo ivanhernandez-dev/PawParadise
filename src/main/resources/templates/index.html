@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title th:text="${jsonData.getString('index')}">Document</title>
     <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <link th:rel="stylesheet" th:href="@{/css/slider.css}">
     <link th:rel="stylesheet" th:href="@{/css/index.css}">
@@ -29,9 +29,7 @@
         <div class="background-img-1">
     
         </div>
-        <h1>
-            ROPA Y ACCESORIOS PARA PERROS
-        </h1>
+        <h1 th:text="${jsonData.getString('main_text')}">ROPA Y ACCESORIOS PARA PERROS</h1>
         <div class="category-container">
             <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}" class="category">
                 <img th:src="${category.image}" alt="">
@@ -40,7 +38,7 @@
         </div>
         <div id="slogan-container-ext">
             <div id="slogan-container-int">
-                <h3>En <span>PawParadise</span> vendemos artículos para que la vida de tu mascota sea un <span>paraiso</span></h3>
+                <h3 th:text="${jsonData.getString('slogan')}">En PawParadise vendemos artículos para que la vida de tu mascota sea un paraiso</h3>
             </div>
         </div>
         <div class="background-img-1">
