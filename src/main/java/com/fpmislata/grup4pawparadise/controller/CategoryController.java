@@ -24,6 +24,7 @@ public class CategoryController {
             model.addAttribute("products", this.productService.getByCategoryIdWithSuccessors(categoryId, language));
             model.addAttribute("actualCategoryName", this.categoryService.getById(categoryId, language).getName());
             model.addAttribute("language", language);
+            model.addAttribute("route", "/categorias/" + categoryId);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";

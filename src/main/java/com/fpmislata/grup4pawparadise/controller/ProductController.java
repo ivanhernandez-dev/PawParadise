@@ -23,24 +23,12 @@ public class ProductController {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("product", this.productService.getById(productId, language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "/productos/" + productId);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
         return "product";
-    }
-
-    @GetMapping("/{language}/productos/buscar/{name}")
-    public String getByName(@PathVariable("name") String name, Model model, @PathVariable String language){
-        try {
-            model.addAttribute("allCategories", this.categoryService.getAll(language));
-            model.addAttribute("products", this.productService.getByName(name, language));
-            model.addAttribute("language", language);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
-        }
-        return "categoryOld";
     }
 
     @GetMapping("/{language}/productos/buscar")
@@ -51,6 +39,7 @@ public class ProductController {
             model.addAttribute("products", this.productService.getByName(name, language));
             model.addAttribute("actualCategoryName", name);
             model.addAttribute("language", language);
+            model.addAttribute("route", "/productos/buscar");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";

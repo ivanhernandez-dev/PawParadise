@@ -19,6 +19,7 @@ public class MainController {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("categories", this.categoryService.getChildrenByParentId(null, language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
@@ -36,6 +37,7 @@ public class MainController {
         try {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "/about-us");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
@@ -48,6 +50,7 @@ public class MainController {
         try {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "/login");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
@@ -60,6 +63,7 @@ public class MainController {
         try {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "/register");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";

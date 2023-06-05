@@ -38,6 +38,7 @@ public class PurchaseController {
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("purchase", purchaseService.getByUserIdWhereStatusActive(USER_ID, language));
             model.addAttribute("language", language);
+            model.addAttribute("route", "/carrito");
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
