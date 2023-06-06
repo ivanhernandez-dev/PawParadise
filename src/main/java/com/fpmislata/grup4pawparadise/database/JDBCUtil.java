@@ -9,13 +9,13 @@ import javax.sql.DataSource;
 public class JDBCUtil {
 
     private static DataSource datasource;
-    private static String HOST = System.getenv("DBHOST");
-    private static String NAME = System.getenv("DBNAME");
-    private static String USER = System.getenv("DBUSER");
-    private static String PASSWORD = System.getenv("DBPASSWD");
+    private static final String HOST = System.getenv("DBHOST");
+    private static final String NAME = System.getenv("DBNAME");
+    private static final String USER = System.getenv("DBUSER");
+    private static final String PASSWORD = System.getenv("DBPASSWD");
 
-    public static DataSource getDataSource(){
-        if(datasource == null){
+    public static DataSource getDataSource() {
+        if (datasource == null) {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("com.mysql.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://" + HOST + ":3306/" + NAME);
@@ -26,14 +26,13 @@ public class JDBCUtil {
         return datasource;
     }
 
-    public static Connection open(){
+    public static Connection open() {
         Connection connection;
         try {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://" + HOST + ":3306/" + NAME,
                     USER,
-                    PASSWORD
-            );
+                    PASSWORD);
             return connection;
         } catch (SQLException e) {
             throw new RuntimeException();
@@ -66,7 +65,6 @@ public class JDBCUtil {
         }
     }
 
-
     public static int update(Connection connection, String sql, List<Object> values) {
         try {
             PreparedStatement preparedStatement = setParameters(connection, sql, values);
@@ -77,13 +75,14 @@ public class JDBCUtil {
         }
     }
 
-    private static PreparedStatement setParameters(Connection connection, String sql, List<Object> values){
+    private static PreparedStatement setParameters(Connection connection, String sql, List<Object> values) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            if(values != null) {
-                for(int i=0;i<values.size();i++) {
-                    Object value=values.get(i);
-                    preparedStatement.setObject(i+1,value);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            if (values != null) {
+                for (int i = 0; i < values.size(); i++) {
+                    Object value = values.get(i);
+                    preparedStatement.setObject(i + 1, value);
                 }
             }
             return preparedStatement;
