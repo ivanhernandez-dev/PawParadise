@@ -9,22 +9,21 @@ import org.springframework.core.io.ClassPathResource;
 public class JsonUtil {
     public JSONObject readJsonData(String language) {
 
-        JSONObject jsonData = null;
-        String filePath = null;
+        JSONObject jsonData;
+        String filePath;
 
-        if (language.equals("es")) {
-            filePath = "static/json/translation_es.json";
-        } else if (language.equals("en")) {
+        if (language.equals("en")) {
             filePath = "static/json/translation_en.json";
+        } else {
+            filePath = "static/json/translation_es.json";
         }
 
         try {
             ClassPathResource staticDataResource = new ClassPathResource(filePath);
             String staticDataString = IOUtils.toString(staticDataResource.getInputStream(), StandardCharsets.UTF_8);
             jsonData = new JSONObject(staticDataString);
-
         } catch (Exception e) {
-
+            throw new RuntimeException(e);
         }
         return jsonData;
     }
