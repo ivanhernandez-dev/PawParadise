@@ -4,9 +4,7 @@ import com.fpmislata.grup4pawparadise.business.entity.Purchase;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseService;
 import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.PurchaseRepository;
-import com.fpmislata.grup4pawparadise.persistence.PurchaseLineRepository;
 import com.fpmislata.grup4pawparadise.persistence.impl.JDBCPurchaseRepository;
-import com.fpmislata.grup4pawparadise.persistence.impl.JDBCPurchaseLineRepository;
 
 public class PurchaseServiceImpl implements PurchaseService {
 
