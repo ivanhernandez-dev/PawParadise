@@ -15,27 +15,20 @@ import java.util.Map;
 
 public class JDBCCategoryRepository implements CategoryRepository {
 
-    private static final String SELECT_ALL_CATEGORIES_BY_LANGUAGE = "SELECT c.*, cl.name_category FROM category c JOIN " +
-            "category_language cl ON c.id_category = cl.id_category WHERE cl.language_type = ? ORDER BY c.id_category";
-    private static final String SELECT_CHILDREN_BY_PARENT_ID_AND_LANGUAGE = "SELECT c.*, cl.name_category FROM category c " +
-            "JOIN category_language cl ON c.id_category = cl.id_category WHERE c.id_parent = ? AND cl.language_type = ? " +
-            "ORDER BY c.id_category";
-    private static final String SELECT_CHILDREN_WHERE_NULL_PARENT_BY_LANGUAGE = "SELECT c.*, cl.name_category FROM category c " +
-            "JOIN category_language cl ON c.id_category = cl.id_category WHERE c.id_parent IS NULL AND cl.language_type = ? " +
-            "ORDER BY c.id_category";
-    private static final String SELECT_BY_ID_AND_LANGUAGE = "SELECT c.*, cl.name_category FROM category c JOIN " +
-            "category_language cl ON c.id_category = cl.id_category WHERE c.id_category = ? AND cl.language_type = ?";
     private static final String CATEGORY_NOT_FOUND_MESSAGE = "Category not found with id: ";
-
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
     @Override
     public List<Category> getAll(String language) {
+        final String SQL = "SELECT c.*, cl.name_category FROM category c JOIN category_language cl ON c.id_category" +
+                " = cl.id_category WHERE cl.language_type = ? ORDER BY c.id_category";
         List<Object> params = List.of(language);
         List<Category> categories = new ArrayList<>();
         Map<Integer, Category> categoryMap = new HashMap<>();
+
         Connection connection = JDBCUtil.open();
-        ResultSet resultSet = JDBCUtil.select(connection, SELECT_ALL_CATEGORIES_BY_LANGUAGE, params);
+        ResultSet resultSet = JDBCUtil.select(connection, SQL, params);
+
         try {
             while (resultSet.next()) {
                 Category category = createCategoryFromResultSet(resultSet);
@@ -49,7 +42,7 @@ public class JDBCCategoryRepository implements CategoryRepository {
                 if (resultSet.getObject("id_parent") != null) {
                     Category category = categoryMap.get(resultSet.getInt("id_category"));
                     Category parentCategory = categoryMap.get(resultSet.getInt("id_parent"));
-                    if (parentCategory.getCategories    () == null) {
+                    if (parentCategory.getCategories() == null) {
                         parentCategory.setCategories(new ArrayList<>());
                     }
                     parentCategory.getCategories().add(category);
@@ -65,18 +58,27 @@ public class JDBCCategoryRepository implements CategoryRepository {
 
     @Override
     public List<Category> getChildrenByParentId(Integer parentId, String language) {
+        String sql = "SELECT c.*, cl.name_category FROM category c JOIN category_language cl ON c.id_category = " +
+                "cl.id_category WHERE c.id_parent IS NULL AND cl.language_type = ? ORDER BY c.id_category";
+
         if (parentId == null) {
             List<Object> params = List.of(language);
-            return executeQuery(SELECT_CHILDREN_WHERE_NULL_PARENT_BY_LANGUAGE, params);
+            return executeQuery(sql, params);
         }
+
+        sql = "SELECT c.*, cl.name_category FROM category c JOIN category_language cl ON c.id_category = cl.id_category" +
+                " WHERE c.id_parent = ? AND cl.language_type = ? ORDER BY c.id_category";
         List<Object> params = List.of(parentId, language);
-        return executeQuery(SELECT_CHILDREN_BY_PARENT_ID_AND_LANGUAGE, params);
+
+        return executeQuery(sql, params);
     }
 
     private List<Category> executeQuery(String query, List<Object> params) {
         List<Category> categories = new ArrayList<>();
+
         Connection connection = JDBCUtil.open();
         ResultSet resultSet = JDBCUtil.select(connection, query, params);
+
         try {
             while (resultSet.next()) {
                 categories.add(createCategoryFromResultSet(resultSet));
@@ -91,7 +93,8 @@ public class JDBCCategoryRepository implements CategoryRepository {
     }
 
     private Category createCategoryFromResultSet(ResultSet resultSet) throws SQLException {
-        return new Category(resultSet.getInt("id_category"), resultSet.getString("name_category"), resultSet.getString("img_category"));
+        return new Category(resultSet.getInt("id_category"), resultSet.getString("name_category"),
+                resultSet.getString("img_category"));
     }
 
     @Override
@@ -112,9 +115,13 @@ public class JDBCCategoryRepository implements CategoryRepository {
 
     @Override
     public Category getById(int id, String language) throws ResourceNotFoundException {
+        final String SQL = "SELECT c.*, cl.name_category FROM category c JOIN category_language cl ON c.id_category" +
+                " = cl.id_category WHERE c.id_category = ? AND cl.language_type = ?";
         List<Object> params = List.of(id, language);
+
         Connection connection = JDBCUtil.open();
-        ResultSet resultSet = JDBCUtil.select(connection, SELECT_BY_ID_AND_LANGUAGE, params);
+        ResultSet resultSet = JDBCUtil.select(connection, SQL, params);
+
         try {
             if (resultSet.next()) {
                 return createCategoryFromResultSet(resultSet);

@@ -15,22 +15,18 @@ import java.util.List;
 
 public class JDBCProductRepository implements ProductRepository {
 
-    private static final String SELECT_PRODUCT_BY_ID = "SELECT p.*, pl.name_product, pl.description_text " +
-            "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE p.id_product = ? AND pl.language_type = ?";
-    private static final String SELECT_PRODUCTS_BY_CATEGORIES = "SELECT p.*, pl.name_product, pl.description_text " +
-            "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE id_category IN (%s) AND pl.language_type = ?";
-    private static final String SELECT_PRODUCT_BY_NAME = "SELECT p.*, pl.name_product, pl.description_text " +
-            "FROM product p JOIN product_language pl ON p.id_product = pl.id_product WHERE pl.name_product LIKE ? AND pl.language_type = ?";
-
     private static final String PRODUCT_NOT_FOUND_MESSAGE = "Product not found with id: ";
     private static final String SQL_EXCEPTION_MESSAGE = "SQL error occurred: ";
 
-    private ProductFeatureRepository featureRepository = new JDBCProductFeatureRepositoryImpl();
+    private final ProductFeatureRepository featureRepository = new JDBCProductFeatureRepositoryImpl();
 
     @Override
     public Product getById(int id, String language) throws ResourceNotFoundException {
         List<Object> params = List.of(id, language);
-        List<Product> products = executeQuery(SELECT_PRODUCT_BY_ID, params, language);
+        final String SQL = "SELECT p.*, pl.name_product, pl.description_text FROM product p JOIN product_language pl " +
+                "ON p.id_product = pl.id_product WHERE p.id_product = ? AND pl.language_type = ?";
+
+        List<Product> products = executeQuery(SQL, params, language);
 
         if (!products.isEmpty()) {
             return products.get(0);
@@ -68,22 +64,27 @@ public class JDBCProductRepository implements ProductRepository {
 
     @Override
     public List<Product> getByCategoryIds(List<Integer> categoryIds, String language) {
+        String sql = "SELECT p.*, pl.name_product, pl.description_text FROM product p JOIN product_language pl ON " +
+                "p.id_product = pl.id_product WHERE id_category IN (%s) AND pl.language_type = ?";
         if (categoryIds == null || categoryIds.isEmpty()) {
             return new ArrayList<>();
         }
 
         String placeholders = String.join(",", Collections.nCopies(categoryIds.size(), "?"));
-        String query = String.format(SELECT_PRODUCTS_BY_CATEGORIES, placeholders);
+        sql = String.format(sql, placeholders);
 
         List<Object> params = new ArrayList<>(categoryIds);
         params.add(language);
 
-        return executeQuery(query, params, language);
+        return executeQuery(sql, params, language);
     }
 
     @Override
     public List<Product> getByName(String name, String language) {
-        List<Object> params = List.of( '%'+ name + '%', language);
-        return executeQuery(SELECT_PRODUCT_BY_NAME, params, language);
+        final String SQL = "SELECT p.*, pl.name_product, pl.description_text FROM product p JOIN product_language pl " +
+                "ON p.id_product = pl.id_product WHERE pl.name_product LIKE ? AND pl.language_type = ?";
+
+        List<Object> params = List.of('%' + name + '%', language);
+        return executeQuery(SQL, params, language);
     }
 }

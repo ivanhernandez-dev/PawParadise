@@ -13,9 +13,6 @@ public class JDBCProductFeatureRepositoryImpl implements ProductFeatureRepositor
 
     private JdbcTemplate jdbcTemplate;
 
-    private static final String SELECT_FEATURES_WHERE_ID_PRODUCT_AND_LANGUAGE = "SELECT * FROM product_feature WHERE " +
-            "id_product = ? AND language_type = ? ORDER BY index_product_feature ASC";
-
     public JDBCProductFeatureRepositoryImpl() {
         this.jdbcTemplate = new JdbcTemplate(JDBCUtil.getDataSource());
     }
@@ -26,11 +23,13 @@ public class JDBCProductFeatureRepositoryImpl implements ProductFeatureRepositor
 
     @Override
     public List<ProductFeature> getByProductIdAndLanguage(int idProduct, String language) {
+        final String SQL = "SELECT * FROM product_feature WHERE id_product = ? AND language_type = ? ORDER BY " +
+                "index_product_feature ASC";
+
         return jdbcTemplate.query(
-                SELECT_FEATURES_WHERE_ID_PRODUCT_AND_LANGUAGE,
+                SQL,
                 new JDBCProductFeatureRowMapper(),
                 idProduct,
-                language
-        );
+                language);
     }
 }

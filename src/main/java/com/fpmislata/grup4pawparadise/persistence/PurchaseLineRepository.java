@@ -8,7 +8,10 @@ import java.util.List;
 public interface PurchaseLineRepository {
 
     void insert(int idPurchase, int idProduct, int quantity);
+
     void update(int idPurchase, int idProduct, int quantity);
+
     void delete(int idPurchase, int productId);
+
     List<PurchaseLine> getByPurchaseId(int idPurchase, String language) throws ResourceNotFoundException;
 }
