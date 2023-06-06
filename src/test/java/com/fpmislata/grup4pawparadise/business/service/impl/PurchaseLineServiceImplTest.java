@@ -31,8 +31,7 @@ class PurchaseLineServiceImplTest {
                 () -> assertThrows(IllegalArgumentException.class,
                         () -> purchaseLineService.insert(idPurchase, idProduct, quantity),
                         "The method should throw an IllegalArgumentException."),
-                () -> verify(jdbcPurchaseLineRepository, never()).insert(idPurchase, idProduct, quantity)
-        );
+                () -> verify(jdbcPurchaseLineRepository, never()).insert(idPurchase, idProduct, quantity));
     }
 
     @DisplayName("Test insert(int, int, int) with invalid quantity when quantity is greater than fifteen")
@@ -46,8 +45,7 @@ class PurchaseLineServiceImplTest {
                 () -> assertThrows(IllegalArgumentException.class,
                         () -> purchaseLineService.insert(idPurchase, idProduct, quantity),
                         "The method should throw an IllegalArgumentException."),
-                () -> verify(jdbcPurchaseLineRepository, never()).insert(idPurchase, idProduct, quantity)
-        );
+                () -> verify(jdbcPurchaseLineRepository, never()).insert(idPurchase, idProduct, quantity));
     }
 
     @DisplayName("Test insert(int, int, int) with valid quantity")
@@ -60,7 +58,8 @@ class PurchaseLineServiceImplTest {
         purchaseLineService.insert(idPurchase, idProduct, quantity);
 
         verify(jdbcPurchaseLineRepository, description("The method insert should be called with parameters idPurchase="
-                + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity)).insert(idPurchase, idProduct, quantity);
+                + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity))
+                .insert(idPurchase, idProduct, quantity);
     }
 
     @DisplayName("Test update(int, int, int) with invalid quantity when quantity is less than one")
@@ -74,8 +73,7 @@ class PurchaseLineServiceImplTest {
                 () -> assertThrows(IllegalArgumentException.class,
                         () -> purchaseLineService.update(idPurchase, idProduct, quantity),
                         "The method should throw an IllegalArgumentException."),
-                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity)
-        );
+                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity));
     }
 
     @DisplayName("Test update(int, int, int) with invalid quantity when quantity is greater than fifteen")
@@ -89,8 +87,7 @@ class PurchaseLineServiceImplTest {
                 () -> assertThrows(IllegalArgumentException.class,
                         () -> purchaseLineService.update(idPurchase, idProduct, quantity),
                         "The method should throw an IllegalArgumentException."),
-                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity)
-        );
+                () -> verify(jdbcPurchaseLineRepository, never()).update(idPurchase, idProduct, quantity));
     }
 
     @DisplayName("Test update(int, int, int) with valid quantity")
@@ -103,7 +100,8 @@ class PurchaseLineServiceImplTest {
         purchaseLineService.update(idPurchase, idProduct, quantity);
 
         verify(jdbcPurchaseLineRepository, description("The method update should be called with parameters idPurchase="
-                + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity)).update(idPurchase, idProduct, quantity);
+                + idPurchase + "and idProduct=" + idProduct + "and quantity=" + quantity))
+                .update(idPurchase, idProduct, quantity);
     }
 
     @DisplayName("Test delete(int, int)")

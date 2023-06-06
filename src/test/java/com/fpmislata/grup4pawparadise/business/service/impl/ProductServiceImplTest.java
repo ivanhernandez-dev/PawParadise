@@ -53,10 +53,10 @@ public class ProductServiceImplTest {
         assertAll(
                 () -> assertSame(expectedProduct, actualProduct,
                         "The product returned should be the same as the expected product"),
-                () -> verify(productRepository, description("The method getById should be called with parameters id=" +
-                        id + " and language=" + language))
-                        .getById(id, language)
-        );
+                () -> verify(productRepository,
+                        description("The method getById should be called with parameters id=" +
+                                id + " and language=" + language))
+                        .getById(id, language));
     }
 
     @DisplayName("Test getById(int, String) with non-existing product")
@@ -68,10 +68,12 @@ public class ProductServiceImplTest {
         when(productRepository.getById(-1, language)).thenThrow(ResourceNotFoundException.class);
 
         assertAll(
-                () -> assertThrows(ResourceNotFoundException.class, () -> productService.getById(id, language),
+                () -> assertThrows(ResourceNotFoundException.class,
+                        () -> productService.getById(id, language),
                         "The method should throw a ResourceNotFoundException"),
-                () -> verify(productRepository, description("The method getById should be called with parameters id=" +
-                        id + " and language=" + language))
+                () -> verify(productRepository,
+                        description("The method getById should be called with parameters id=" +
+                                id + " and language=" + language))
                         .getById(id, language)
 
         );
@@ -86,11 +88,9 @@ public class ProductServiceImplTest {
                 new Product(2, "Product 2", "Description 2", productFeatures,
                         "20.00", 20, "https://example.com/image.jpg"),
                 new Product(3, "Product 3", "Description 3", productFeatures,
-                        "30.00", 10, "https://example.com/image.jpg")
-        );
+                        "30.00", 10, "https://example.com/image.jpg"));
         List<Category> expectedCategories = List.of(new Category(2, "Category 2", null),
                 new Category(3, "Category 3", null));
-
 
         int categoryId = 1;
         String language = "es";
@@ -102,14 +102,15 @@ public class ProductServiceImplTest {
 
         assertAll(
                 () -> verify(productRepository,
-                        description("The method getByCategoryIds should be called with parameters=" + List.of(1, 2, 3) +
+                        description("The method getByCategoryIds should be called with parameters="
+                                + List.of(1, 2, 3) +
                                 " and language=" + language))
                         .getByCategoryIds(List.of(1, 2, 3), language),
                 () -> verify(categoryRepository,
-                        description("The method getSuccessorsByParentId should be called with parameter 1 and language es"))
+                        description(
+                                "The method getSuccessorsByParentId should be called with parameter 1 and language es"))
                         .getSuccessorsByParentId(categoryId, language),
-                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same")
-        );
+                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same"));
     }
 
     @DisplayName("Test getByName(String, String)")
@@ -119,8 +120,7 @@ public class ProductServiceImplTest {
                 new Product(1, "Car 1", "Description 1", productFeatures,
                         "10.00", 30, "https://example.com/image.jpg"),
                 new Product(2, "Car 2", "Description 2", productFeatures,
-                        "20.00", 20, "https://example.com/image.jpg")
-        );
+                        "20.00", 20, "https://example.com/image.jpg"));
         String name = "Car";
         String language = "es";
 
@@ -130,10 +130,10 @@ public class ProductServiceImplTest {
 
         assertAll(
                 () -> verify(productRepository,
-                        description("The method getByName should be called with parameters name=" + name +
+                        description("The method getByName should be called with parameters name="
+                                + name +
                                 " and language=" + language))
                         .getByName(name, language),
-                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same")
-        );
+                () -> assertSame(expectedProducts, actualProducts, "The lists should be the same"));
     }
 }

@@ -31,15 +31,14 @@ class PurchaseServiceImplTest {
     @DisplayName("Test getByUserIdWhereStatusActive(int, String)")
     @Test
     void getByUserIdWhereStatusActive() throws ResourceNotFoundException {
-        Purchase expectedPurchase = new Purchase(1, new Date(), 1,1,
+        Purchase expectedPurchase = new Purchase(1, new Date(), 1, 1,
                 List.of(
                         new PurchaseLine(1, 1,
                                 new Product(1, "Product 1", "Description 1",
                                         List.of(
                                                 new ProductFeature(1, "One"),
                                                 new ProductFeature(2, "Two")),
-                                        "10.00", 30, "https://example.com/image.jpg")
-                                )));
+                                        "10.00", 30, "https://example.com/image.jpg"))));
         int idCustomer = 1;
         String language = "es";
 
@@ -50,10 +49,10 @@ class PurchaseServiceImplTest {
         assertAll(
                 () -> assertSame(expectedPurchase, actualPurchase,
                         "The purchase returned should be the same as the expected purchase"),
-                () -> verify(purchaseRepository, description("The method getByUserIdWhereStatusActive should be called " +
-                        "with parameters idCustomer=" + idCustomer + " and language=" + language))
-                        .getByUserIdWhereStatusActive(idCustomer, language)
-        );
+                () -> verify(purchaseRepository,
+                        description("The method getByUserIdWhereStatusActive should be called " +
+                                "with parameters idCustomer=" + idCustomer + " and language=" + language))
+                        .getByUserIdWhereStatusActive(idCustomer, language));
     }
 
     @DisplayName("Test getByUserIdWhereStatusActive(int, String) when ResourceNotFoundException")
@@ -62,15 +61,17 @@ class PurchaseServiceImplTest {
         int idCustomer = -1;
         String language = "es";
 
-        when(purchaseRepository.getByUserIdWhereStatusActive(idCustomer, language)).thenThrow(ResourceNotFoundException.class);
+        when(purchaseRepository.getByUserIdWhereStatusActive(idCustomer, language))
+                .thenThrow(ResourceNotFoundException.class);
 
         assertAll(
-                () -> assertThrows(ResourceNotFoundException.class, () -> purchaseService.getByUserIdWhereStatusActive(idCustomer, language),
+                () -> assertThrows(ResourceNotFoundException.class,
+                        () -> purchaseService.getByUserIdWhereStatusActive(idCustomer, language),
                         "The method getByUserIdWhereStatusActive should throw a ResourceNotFoundException"),
-                () -> verify(purchaseRepository, description("The method getByUserIdWhereStatusActive should be called " +
-                        "with parameters idCustomer=" + idCustomer + " and language=" + language))
-                        .getByUserIdWhereStatusActive(idCustomer, language)
-        );
+                () -> verify(purchaseRepository,
+                        description("The method getByUserIdWhereStatusActive should be called " +
+                                "with parameters idCustomer=" + idCustomer + " and language=" + language))
+                        .getByUserIdWhereStatusActive(idCustomer, language));
     }
 
     @DisplayName("Test updatePurchaseStatus(int, int, int)")
@@ -84,11 +85,11 @@ class PurchaseServiceImplTest {
 
         assertAll(
                 () -> verify(purchaseRepository, description("The method updatePurchaseStatus should be called " +
-                        "with parameters idPurchase=" + idPurchase + ", status=" + status + " and idCustomer=" + idCustomer))
+                        "with parameters idPurchase=" + idPurchase + ", status=" + status + " and idCustomer="
+                        + idCustomer))
                         .updatePurchaseStatus(idPurchase, idCustomer),
                 () -> verify(purchaseRepository, description("The method insertWithStatusActive should be called " +
                         "with parameters idCustomer=" + idCustomer))
-                        .insertWithStatusActive(idCustomer)
-        );
+                        .insertWithStatusActive(idCustomer));
     }
 }

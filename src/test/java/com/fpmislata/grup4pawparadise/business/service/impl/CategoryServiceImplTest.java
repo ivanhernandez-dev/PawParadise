@@ -59,9 +59,9 @@ public class CategoryServiceImplTest {
 
         assertAll(
                 () -> assertSame(expectedCategories, actual, "The categories should be the same"),
-                () -> verify(categoryRepository, description("The method getAll should be called with parameter language=" + language))
-                        .getAll(language)
-        );
+                () -> verify(categoryRepository,
+                        description("The method getAll should be called with parameter language=" + language))
+                        .getAll(language));
     }
 
     @DisplayName("Test getChildrenByParentId(int, String)")
@@ -70,7 +70,8 @@ public class CategoryServiceImplTest {
         String language = "en";
         int parentId = 1;
 
-        when(categoryRepository.getChildrenByParentId(parentId, language)).thenReturn(expectedCategories.get(0).getCategories());
+        when(categoryRepository.getChildrenByParentId(parentId, language))
+                .thenReturn(expectedCategories.get(0).getCategories());
 
         List<Category> actual = categoryService.getChildrenByParentId(parentId, language);
 
@@ -78,8 +79,8 @@ public class CategoryServiceImplTest {
                 () -> verify(categoryRepository, description("The method getChildrenByParentId should be called with " +
                         "parameters parentId=" + parentId + " and language=" + language))
                         .getChildrenByParentId(parentId, language),
-                () -> assertSame(expectedCategories.get(0).getCategories(), actual, "The categories should be the same")
-        );
+                () -> assertSame(expectedCategories.get(0).getCategories(), actual,
+                        "The categories should be the same"));
     }
 
     @DisplayName("Test getById(int, String) with existing category")
@@ -93,10 +94,11 @@ public class CategoryServiceImplTest {
         Category actual = categoryService.getById(id, language);
 
         assertAll(
-                () -> verify(categoryRepository, description("The method getById should be called with parameters id=" + id + " and language=" + language))
+                () -> verify(categoryRepository,
+                        description("The method getById should be called with parameters id=" + id + " and language="
+                                + language))
                         .getById(id, language),
-                () -> assertSame(expectedCategories.get(0), actual, "The categories should be the same")
-        );
+                () -> assertSame(expectedCategories.get(0), actual, "The categories should be the same"));
     }
 
     @DisplayName("Test getById(int, String) with non-existing category")
