@@ -38,8 +38,7 @@ class JDBCProductFeatureRepositoryImplTest {
                 new ProductFeature(5, "Capucha ajustable y bolsillos funcionales"),
                 new ProductFeature(6, "Disponible en varios colores"),
                 new ProductFeature(7, "Talla: unisex"),
-                new ProductFeature(8, "Tejido transpirable que proporciona una buena ventilación")
-        );
+                new ProductFeature(8, "Tejido transpirable que proporciona una buena ventilación"));
 
         List<ProductFeature> productFeatures = productFeatureRepository.getByProductIdAndLanguage(1, "es");
 
