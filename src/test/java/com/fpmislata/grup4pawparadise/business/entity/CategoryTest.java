@@ -97,6 +97,7 @@ class CategoryTest {
     @Test
     public void testToString() {
         category = new Category(1, "Category 1", null);
-        assertEquals("Category{id=1, name='Category 1', categories=null, image='null'}", category.toString(), "Category toString should be 'Category{id=1, name='Category 1', categories=null, image='null'}'");
+        assertEquals("Category{id=1, name='Category 1', categories=null, image='null'}", category.toString(),
+                "Category toString should be 'Category{id=1, name='Category 1', categories=null, image='null'}'");
     }
 }
