@@ -8,7 +8,7 @@ import com.fpmislata.grup4pawparadise.persistence.impl.JDBCCategoryRepository;
 
 import java.util.List;
 
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     private CategoryRepository categoryRepository = new JDBCCategoryRepository();
 

@@ -12,7 +12,7 @@ import com.fpmislata.grup4pawparadise.persistence.impl.JDBCProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository = new JDBCProductRepository();
     private CategoryRepository categoryRepository = new JDBCCategoryRepository();

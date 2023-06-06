@@ -6,7 +6,7 @@ import com.fpmislata.grup4pawparadise.persistence.impl.JDBCPurchaseLineRepositor
 
 public class PurchaseLineServiceImpl implements PurchaseLineService {
 
-    private PurchaseLineRepository purchaseLineRepository =  new JDBCPurchaseLineRepository();
+    private PurchaseLineRepository purchaseLineRepository = new JDBCPurchaseLineRepository();
 
     @Override
     public void insert(int idPurchase, int idProduct, int quantity) {
