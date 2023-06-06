@@ -8,11 +8,13 @@ h1 {
     margin-bottom: 20px;
     margin-top: 50px;
 }
+
 h2 {
     color: #464646;;
     padding-left: 125px;
     font-family: 'Open Sans', sans-serif;
 }
+
 .product {
     background-color: #ECECEC; 
     width: 17%;
@@ -22,33 +24,39 @@ h2 {
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     z-index: 1;
 }
+
 .product:hover {
 	transform: scale(1.1);
     background-color: #9ACDC6;
 }
+
 .category-products{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
+
 .img-product-category{
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 13px;
 }
+
 h3 {
     color: #464646;
     font-family: 'Open Sans', sans-serif;
     text-align: left;
     margin: 5px;
 }
+
 .product-price {
     text-align: left;
     font-family: 'Carter One';
     color: #FF5959;
     margin: 5px;
 }
+
 .category {
     background-color: #ECECEC;
     width: 17%;
@@ -58,21 +66,25 @@ h3 {
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
     z-index: 1;
 }
+
 @media screen and (max-width: 800px) {
     .category, .product {
         min-width: 250px;
     }
 }
+
 .category:hover {
 	transform: scale(1.1);
     background-color: #9ACDC6;
 }
+
 .title-category{
     color: #464646;
     text-align: center;
     font-family: 'Carter One';
     margin: 5px;
 }
+
 a {
     text-decoration: none;
 }
