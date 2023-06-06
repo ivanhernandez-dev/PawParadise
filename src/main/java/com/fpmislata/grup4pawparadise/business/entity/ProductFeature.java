@@ -30,8 +30,10 @@ public class ProductFeature {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         ProductFeature that = (ProductFeature) o;
         return index == that.index && Objects.equals(description, that.description);
     }

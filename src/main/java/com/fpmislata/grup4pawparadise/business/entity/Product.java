@@ -15,7 +15,8 @@ public class Product {
 
     private final static String DEFAULT_IMAGE_URL = "/img/default.jpg";
 
-    public Product(int id, String name, String description, List<ProductFeature> productFeatures, String price, int stock, String image) {
+    public Product(int id, String name, String description, List<ProductFeature> productFeatures, String price,
+            int stock, String image) {
         this.id = id;
         this.name = name;
         this.description = description;
