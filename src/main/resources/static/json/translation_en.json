@@ -4,6 +4,7 @@
     "signup": "Sign-up",
     "shoping_cart": "Shopping-cart",
     "about_us_title": "About-us",
+    "error_title": "Error",
     "category_title": "CATEGORIES",
     "main_text": "CLOTHING AND ACCESSORIES FOR DOGS",
     "slogan": "At PawParadise we sell accessories to make your pet's life a paradise",
@@ -34,5 +35,6 @@
     "telefon": "666 666 666",
     "email_dir": "info@pawparadise.com",
     "about_us": "About us",
-    "social_media": "Follow us"
+    "social_media": "Follow us",
+    "Error_message": "Something went wrong..."
 }
