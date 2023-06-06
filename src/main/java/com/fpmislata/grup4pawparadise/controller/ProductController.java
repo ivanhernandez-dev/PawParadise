@@ -1,6 +1,5 @@
 package com.fpmislata.grup4pawparadise.controller;
 
-
 import com.fpmislata.grup4pawparadise.business.service.CategoryService;
 import com.fpmislata.grup4pawparadise.business.service.ProductService;
 import com.fpmislata.grup4pawparadise.business.service.impl.CategoryServiceImpl;
@@ -17,13 +16,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ProductController {
-    
-    private JsonUtil jsonUtil = new JsonUtil();
-    private ProductService productService = new ProductServiceImpl();
-    private CategoryService categoryService = new CategoryServiceImpl();
+
+    private final JsonUtil jsonUtil = new JsonUtil();
+    private final ProductService productService = new ProductServiceImpl();
+    private final CategoryService categoryService = new CategoryServiceImpl();
 
     @GetMapping("/{language}/productos/{productId}")
-    public String getById(@PathVariable("productId") int productId, Model model, @PathVariable String language){
+    public String getById(@PathVariable("productId") int productId, Model model, @PathVariable String language) {
         try {
             JSONObject jsonData = jsonUtil.readJsonData(language);
 
@@ -40,11 +39,11 @@ public class ProductController {
     }
 
     @GetMapping("/{language}/productos/buscar")
-    public String getByName(Model model, @PathVariable String language, HttpServletRequest httpServletRequest){
+    public String getByName(Model model, @PathVariable String language, HttpServletRequest httpServletRequest) {
         try {
             JSONObject jsonData = jsonUtil.readJsonData(language);
             String name = httpServletRequest.getParameter("nombre");
-            
+
             model.addAttribute("jsonData", jsonData);
             model.addAttribute("allCategories", this.categoryService.getAll(language));
             model.addAttribute("products", this.productService.getByName(name, language));

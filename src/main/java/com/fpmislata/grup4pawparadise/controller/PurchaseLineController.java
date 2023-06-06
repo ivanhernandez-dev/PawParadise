@@ -1,5 +1,6 @@
 package com.fpmislata.grup4pawparadise.controller;
 
+import com.fpmislata.grup4pawparadise.business.entity.Customer;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseLineService;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseService;
 import com.fpmislata.grup4pawparadise.business.service.impl.PurchaseLineServiceImpl;
@@ -11,26 +12,29 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PurchaseLineController {
 
-    private PurchaseLineService purchaseLineService = new PurchaseLineServiceImpl();
-    private PurchaseService purchaseService = new PurchaseServiceImpl();
+    private final PurchaseLineService purchaseLineService = new PurchaseLineServiceImpl();
+    private final PurchaseService purchaseService = new PurchaseServiceImpl();
 
-    private static final int USER_ID = 1;
+    private static final Customer CUSTOMER = new Customer(1, "Alma", "López", "alma@gmail.com",
+            "alma", "Calle Alta", 1, 1, 46001);
+
     @PostMapping("")
-    public String add(@PathVariable String language, @PathVariable int productId, @RequestParam int quantity){
+    public String add(@PathVariable String language, @PathVariable int productId, @RequestParam int quantity) {
         try {
-            purchaseLineService.insert(purchaseService.getByUserIdWhereStatusActive(USER_ID, language).getId(),
+            purchaseLineService.insert(purchaseService.getByUserIdWhereStatusActive(CUSTOMER.getId(), language).getId(),
                     productId, quantity);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
-        return "redirect:/"+ language + "/productos/" + productId;
+        return "redirect:/" + language + "/productos/" + productId;
     }
 
     @DeleteMapping("")
-    public String delete(@PathVariable String language, @PathVariable int productId){
+    public String delete(@PathVariable String language, @PathVariable int productId) {
         try {
-            purchaseLineService.delete(purchaseService.getByUserIdWhereStatusActive(USER_ID, language).getId(), productId);
+            purchaseLineService.delete(purchaseService.getByUserIdWhereStatusActive(CUSTOMER.getId(), language).getId(),
+                    productId);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
@@ -39,9 +43,10 @@ public class PurchaseLineController {
     }
 
     @PatchMapping("")
-    public String update(@PathVariable String language, @PathVariable int productId, @RequestParam int quantity){
+    public String update(@PathVariable String language, @PathVariable int productId, @RequestParam int quantity) {
         try {
-            purchaseLineService.update(purchaseService.getByUserIdWhereStatusActive(USER_ID, language).getId(), productId, quantity);
+            purchaseLineService.update(purchaseService.getByUserIdWhereStatusActive(CUSTOMER.getId(), language).getId(),
+                    productId, quantity);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";

@@ -1,5 +1,6 @@
 package com.fpmislata.grup4pawparadise.controller;
 
+import com.fpmislata.grup4pawparadise.business.entity.Customer;
 import com.fpmislata.grup4pawparadise.business.service.CategoryService;
 import com.fpmislata.grup4pawparadise.business.service.PurchaseService;
 import com.fpmislata.grup4pawparadise.business.service.impl.CategoryServiceImpl;
@@ -18,17 +19,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PurchaseController {
 
-    private JsonUtil jsonUtil = new JsonUtil();
-    private PurchaseService purchaseService = new PurchaseServiceImpl();
-    private CategoryService categoryService = new CategoryServiceImpl();
-    private static final int USER_ID = 1;
+    private final JsonUtil jsonUtil = new JsonUtil();
+    private final PurchaseService purchaseService = new PurchaseServiceImpl();
+    private final CategoryService categoryService = new CategoryServiceImpl();
+    private static final Customer CUSTOMER = new Customer(1, "Alma", "López", "alma@gmail.com",
+            "alma", "Calle Alta", 1, 1, 46001);
 
     @PatchMapping("")
     public String setStatus(@PathVariable String language) {
         try {
             purchaseService.updatePurchaseStatus(
-                    purchaseService.getByUserIdWhereStatusActive(USER_ID, language).getId(),
-                    1, USER_ID);
+                    purchaseService.getByUserIdWhereStatusActive(CUSTOMER.getId(), language).getId(),
+                    1, CUSTOMER.getId());
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
@@ -43,7 +45,8 @@ public class PurchaseController {
 
             model.addAttribute("jsonData", jsonData);
             model.addAttribute("allCategories", this.categoryService.getAll(language));
-            model.addAttribute("purchase", purchaseService.getByUserIdWhereStatusActive(USER_ID, language));
+            model.addAttribute("purchase", purchaseService.getByUserIdWhereStatusActive(CUSTOMER.getId(),
+                    language));
             model.addAttribute("language", language);
             model.addAttribute("route", "/carrito");
         } catch (Exception e) {

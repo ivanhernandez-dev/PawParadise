@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
-    
-    private JsonUtil jsonUtil = new JsonUtil();
-    private CategoryService categoryService = new CategoryServiceImpl();
-    private final String DEFAULT_LANGUAGE = "es";
+
+    private final JsonUtil jsonUtil = new JsonUtil();
+    private final CategoryService categoryService = new CategoryServiceImpl();
 
     @GetMapping("/{language}")
-    public String getAll(Model model, @PathVariable(required = false) String language) {
+    public String getAll(Model model, @PathVariable String language) {
         try {
             JSONObject jsonData = jsonUtil.readJsonData(language);
 
@@ -36,6 +35,7 @@ public class MainController {
 
     @GetMapping("/")
     public String redirectToDefaultLanguage() {
+        String DEFAULT_LANGUAGE = "es";
         return "redirect:/" + DEFAULT_LANGUAGE;
     }
 

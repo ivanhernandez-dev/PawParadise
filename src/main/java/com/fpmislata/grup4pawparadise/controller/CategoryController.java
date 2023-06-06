@@ -12,16 +12,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @Controller
 public class CategoryController {
-    
-    private JsonUtil jsonUtil = new JsonUtil();
-    private CategoryService categoryService = new CategoryServiceImpl();
-    private ProductService productService = new ProductServiceImpl();
+
+    private final JsonUtil jsonUtil = new JsonUtil();
+    private final CategoryService categoryService = new CategoryServiceImpl();
+    private final ProductService productService = new ProductServiceImpl();
 
     @GetMapping("/{language}/categorias/{categoryId}")
-    public String getByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model, @PathVariable String language){
+    public String getByCategoryIdWithSuccessors(@PathVariable("categoryId") int categoryId, Model model,
+            @PathVariable String language) {
         try {
             JSONObject jsonData = jsonUtil.readJsonData(language);
 
