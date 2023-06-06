@@ -12,7 +12,7 @@
     <header th:replace="~{base/common :: header}"></header>
     <section>
         <img th:src="@{/img/error/dog.png}" alt="error">
-        <span>Something went wrong...</span>
+        <span th:text="${jsonData.getString('main_text')}">Something went wrong...</span>
     </section>
     <footer th:replace="~{base/common :: footer}"></footer>
 </body>
