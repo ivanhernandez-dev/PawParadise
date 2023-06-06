@@ -11,9 +11,8 @@ body {
     flex-flow: row wrap;
     align-items: center;
     flex-wrap: wrap;
-    margin: 10px;
     height: 50%;
-    margin-top: 80px;
+    margin: 80px 10px 10px;
     justify-content: space-around;
 }
 
@@ -87,7 +86,7 @@ body {
     font-size: 30px;
     font-weight: bold;
     margin: 25px;
-    color: #464646;
+    color: white;
 }
 
 #container-features {
