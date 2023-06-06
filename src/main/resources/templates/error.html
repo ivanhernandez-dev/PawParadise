@@ -3,13 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error.css}">
+    <title th:text="Error"></title>
 </head>
 
 <body>
-    Error 404! - Not found
+    <header th:replace="~{base/common :: header}"></header>
+    <section>
+        <img th:src="@{/img/error/dog.png}" alt="error">
+        <span>Something went wrong...</span>
+    </section>
+    <footer th:replace="~{base/common :: footer}"></footer>
 </body>
 
 </html>
