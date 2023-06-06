@@ -1,74 +1,89 @@
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
+
 <body>
-<th:block th:fragment="additional-head">
-    <link th:rel="stylesheet" th:href="@{/css/nav.css}">
-    <link th:rel="stylesheet" th:href="@{/css/aside.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</th:block>
-<header th:fragment="header">
-    <nav>
-        <div class="flex-nav">
-            <a th:href="@{${'/' + language}}">
-                <img id="logo" th:src="@{/img/icon/logo.png}">
-            </a>
-        </div>
-        <div class="navigation-search-container">
-            <img id="img-search" th:src="@{/img/icon/search.png}" alt="">
-            <form th:action="@{${'/' + language + '/productos/buscar'}}" method="get">
-                <input id="search-input" type="search" name="nombre" placeholder="">
-                <input type="submit" hidden="">
-            </form>
-        </div>
-        <div class="flex-nav">
-            <ul>
-                <li><a th:href="@{${'/en' + route}}"><img class="img-language" th:src="@{/img/icon/english-flag.png}" ></a></li>
-                <li><a th:href="@{${'/es' + route}}"><img class="img-language" th:src="@{/img/icon/spanish-flag.png}"></a></li>
-            </ul>
-            <a th:href="@{${'/' + language + '/login'}}"><img id="img-user" th:src="@{/img/icon/user.png}" alt=""></a>
-            <a th:href="@{${'/' + language + '/carrito'}}"><img id="img-shopping-cart" th:src="@{/img/icon/shoppingcart.png}" alt=""></a>
-            <div class="menu">
-                <input type="checkbox" id="check">
-                <label for="check">
-                    <i class="fa fa-bars" id="open-button"></i>
-                    <i class="fa fa-times" id="close-button"></i>
-                    <div id="sidebar">
-                        <span th:text="${jsonData.getString('category_title')}" id="categories-title">CATEGORIAS</span>
-                        <ul>
-                            <li th:each="category : ${allCategories}">
-                                <a th:text="${category.name}" th:href="@{${'/' + language + '/categorias/' + category.id}}"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </label>
+    <th:block th:fragment="additional-head">
+        <link th:rel="stylesheet" th:href="@{/css/nav.css}">
+        <link th:rel="stylesheet" th:href="@{/css/aside.css}">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </th:block>
+    
+    <header th:fragment="header">
+        <nav>
+            <div class="flex-nav">
+                <a th:href="@{${'/' + language}}">
+                    <img id="logo" th:src="@{/img/logo/logo.png}">
+                </a>
+            </div>
+            <div class="navigation-search-container">
+                <img id="img-search" th:src="@{/img/icon/search.png}" alt="">
+                <form th:action="@{${'/' + language + '/productos/buscar'}}" method="get">
+                    <input id="search-input" type="search" name="nombre" placeholder="">
+                    <input type="submit" hidden="">
+                </form>
+            </div>
+            <div class="flex-nav">
+                <ul>
+                    <li><a th:href="@{${'/en' + route}}"><img class="img-language"
+                                th:src="@{/img/icon/english-flag.png}"></a></li>
+                    <li><a th:href="@{${'/es' + route}}"><img class="img-language"
+                                th:src="@{/img/icon/spanish-flag.png}"></a></li>
+                </ul>
+                <a th:href="@{${'/' + language + '/login'}}"><img id="img-user" th:src="@{/img/icon/user.png}"
+                        alt=""></a>
+                <a th:href="@{${'/' + language + '/carrito'}}"><img id="img-shopping-cart"
+                        th:src="@{/img/icon/shoppingcart.png}" alt=""></a>
+                <div class="menu">
+                    <input type="checkbox" id="check">
+                    <label for="check">
+                        <i class="fa fa-bars" id="open-button"></i>
+                        <i class="fa fa-times" id="close-button"></i>
+                        <div id="sidebar">
+                            <span th:text="${jsonData.getString('category_title')}"
+                                id="categories-title">CATEGORIAS</span>
+                            <ul>
+                                <li th:each="category : ${allCategories}">
+                                    <a th:text="${category.name}"
+                                        th:href="@{${'/' + language + '/categorias/' + category.id}}"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <footer th:fragment="footer">
+        <div class="footer-margins">
+            <span th:text="${jsonData.getString('contact')}" class="footer-text">Contacto</span>
+            <div class="footer-info">
+                <img class="footer-icon" th:src="@{/img/icon/phone.png}">
+                <p th:text="${jsonData.getString('telefon')}" class="footer-text"> 666 666 666</p>
+            </div>
+            <div class="footer-info">
+                <img class="footer-icon" th:src="@{/img/icon/email.png}">
+                <p class="footer-text">
+                <p th:text="${jsonData.getString('email_dir')}" class="footer-text"> info@pawparadise.com</p>
             </div>
         </div>
-    </nav>
-</header>
-<footer th:fragment="footer">
-    <div class="footer-margins">
-        <span th:text="${jsonData.getString('contact')}" class="footer-text">Contacto</span>
-        <div class="footer-info">
-            <img class="footer-icon" th:src="@{/img/icon/phone.png}"><p th:text="${jsonData.getString('telefon')}" class="footer-text">  666 666 666</p>
+        <div class="footer-margins">
+            <a class="footer-text" th:href="@{${'/' + language + '/about-us'}}"><span
+                    th:text="${jsonData.getString('about_us')}">Quienes somos</span></a>
         </div>
-        <div class="footer-info">
-            <img class="footer-icon" th:src="@{/img/icon/email.png}"><p class="footer-text"><p th:text="${jsonData.getString('email_dir')}" class="footer-text">  info@pawparadise.com</p>
+        <div class="footer-margins">
+            <span th:text="${jsonData.getString('social_media')}" class="footer-text">Síguenos</span><br>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img class="footer-icon" th:src="@{/img/icon/instagram.png}">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img class="footer-icon" th:src="@{/img/icon/facebook.png}">
+            </a>
         </div>
-    </div>
-    <div class="footer-margins">
-        <a class="footer-text" th:href="@{${'/' + language + '/about-us'}}"><span th:text="${jsonData.getString('about_us')}">Quienes somos</span></a>
-    </div>
-    <div class="footer-margins">
-        <span th:text="${jsonData.getString('social_media')}" class="footer-text">Síguenos</span><br>
-        <a href="https://www.instagram.com/" target="_blank">
-            <img class="footer-icon" th:src="@{/img/icon/instagram.png}">
-        </a>
-        <a href="https://www.facebook.com" target="_blank">
-            <img class="footer-icon" th:src="@{/img/icon/facebook.png}">
-        </a>
-    </div>
-</footer>
+    </footer>
 </body>
+
 </html>

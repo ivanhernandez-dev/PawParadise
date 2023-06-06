@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link th:rel="stylesheet" th:href="@{/css/register.css}">
     <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <title th:text="${jsonData.getString('signup')}">Register</title>
 </head>
+
 <body>
     <header th:replace="~{base/common :: header}"></header>
     <section>
@@ -14,7 +16,9 @@
                     <h1 th:text="${jsonData.getString('title_signup')}">Registrarse</h1>
                 </button>
                 <button class="btn-register-login">
-                    <a th:href="@{${'/' + language + '/login'}}"><h1 th:text="${jsonData.getString('title_login')}">Acceder</h1></a>
+                    <a th:href="@{${'/' + language + '/login'}}">
+                        <h1 th:text="${jsonData.getString('title_login')}">Acceder</h1>
+                    </a>
                 </button>
             </div>
             <div class="form-container">
@@ -23,17 +27,23 @@
                     <input type="email" class="input-register-login" name="email" value="" required id="email"><br>
                     <label th:text="${jsonData.getString('name')}" class="required" for="name">NOMBRE:</label><br>
                     <input type="text" class="input-register-login" name="name" value="" required id="name"><br>
-                    <label th:text="${jsonData.getString('surname')}" class="required" for="surname">APELLIDO:</label><br>
+                    <label th:text="${jsonData.getString('surname')}" class="required"
+                        for="surname">APELLIDO:</label><br>
                     <input type="text" class="input-register-login" name="surname" value="" required id="surname"><br>
-                    <label th:text="${jsonData.getString('password')}" class="required" for="password1">CONTRASEÑA:</label><br>
-                    <input type="password" class="input-register-login" name="password1" value="" required id="password1"><br>
-                    <label th:text="${jsonData.getString('repeat_password')}" class="required" for="password2">REPETIR CONTRASEÑA:</label><br>
-                    <input type="password" class="input-register-login" name="password2" value="" required id="password2"><br>
-                    <input id="btn-acceder" type="submit"  th:value="${jsonData.getString('signup_button')}" >
-                </form> 
+                    <label th:text="${jsonData.getString('password')}" class="required"
+                        for="password1">CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password1" value="" required
+                        id="password1"><br>
+                    <label th:text="${jsonData.getString('repeat_password')}" class="required" for="password2">REPETIR
+                        CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password2" value="" required
+                        id="password2"><br>
+                    <input id="btn-acceder" type="submit" th:value="${jsonData.getString('signup_button')}">
+                </form>
             </div>
         </div>
     </section>
     <footer th:replace="~{base/common :: footer}"></footer>
 </body>
+
 </html>
