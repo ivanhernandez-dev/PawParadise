@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class JDBCProductFeatureRepositoryImplTest {
 
@@ -27,9 +28,9 @@ class JDBCProductFeatureRepositoryImplTest {
         productFeatureRepository.setDatasource(dataSource);
     }
 
-    @DisplayName("Test getByProductIdAndLanguage(int, String)")
+    @DisplayName("Test getByProductIdAndLanguage(int, String) with a product that has product features")
     @Test
-    void getByProductIdAndLanguage() {
+    void getByProductIdAndLanguage_productHasProductFeatures() {
         List<ProductFeature> expectedProductFeatures = List.of(
                 new ProductFeature(1, "Proporciona calidez y comodidad durante todo el día"),
                 new ProductFeature(2, "Ideal para climas frescos"),
@@ -39,10 +40,24 @@ class JDBCProductFeatureRepositoryImplTest {
                 new ProductFeature(6, "Disponible en varios colores"),
                 new ProductFeature(7, "Talla: unisex"),
                 new ProductFeature(8, "Tejido transpirable que proporciona una buena ventilación"));
+        int idProduct = 1;
+        String language = "es";
 
-        List<ProductFeature> productFeatures = productFeatureRepository.getByProductIdAndLanguage(1, "es");
+        List<ProductFeature> productFeatures = productFeatureRepository.getByProductIdAndLanguage(idProduct, language);
 
         assertEquals(expectedProductFeatures, productFeatures,
                 "The product features retrieved should be the equal to the expected ones");
+    }
+
+    @DisplayName("Test getByProductIdAndLanguage(int, String) with a product that does not have product features")
+    @Test
+    void getByProductIdAndLanguage_productDoesNotHaveProductFeatures() {
+        int idProduct = -1;
+        String language = "es";
+
+        List<ProductFeature> productFeatures = productFeatureRepository.getByProductIdAndLanguage(idProduct, language);
+
+        assertTrue(productFeatures.isEmpty(),
+                "The product features retrieved should be empty");
     }
 }
