@@ -5,7 +5,10 @@ import com.fpmislata.grup4pawparadise.database.JDBCUtil;
 import com.fpmislata.grup4pawparadise.exception.ResourceNotFoundException;
 import com.fpmislata.grup4pawparadise.persistence.ProductRepository;
 import com.fpmislata.grup4pawparadise.persistence.PurchaseLineRepository;
+import com.fpmislata.grup4pawparadise.persistence.mapper.JDBCPurchaseLineRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +17,16 @@ import java.util.List;
 
 public class JDBCPurchaseLineRepository implements PurchaseLineRepository {
 
+    private JdbcTemplate jdbcTemplate;
     private final ProductRepository productRepository = new JDBCProductRepository();
+
+    public JDBCPurchaseLineRepository() {
+        this.jdbcTemplate = new JdbcTemplate(JDBCUtil.getDataSource());
+    }
+
+    public void setDatasource(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
     @Override
     public void insert(int idPurchase, int idProduct, int quantity) {
@@ -45,21 +57,11 @@ public class JDBCPurchaseLineRepository implements PurchaseLineRepository {
     }
 
     @Override
-    public List<PurchaseLine> getByPurchaseId(int idPurchase, String language) throws ResourceNotFoundException {
+    public List<PurchaseLine> getByPurchaseId(int idPurchase, String language) {
         final String SQL = "SELECT * FROM purchase_line WHERE id_purchase = ?";
-        List<Object> params = List.of(idPurchase);
-        List<PurchaseLine> purchaseLines = new ArrayList<>();
-        Connection connection = JDBCUtil.open();
-        ResultSet resultSet = JDBCUtil.select(connection, SQL, params);
-        try {
-            while (resultSet.next()) {
-                purchaseLines.add(new PurchaseLine(resultSet.getInt("id_purchase"),
-                        resultSet.getInt("quantity"),
-                        productRepository.getById(resultSet.getInt("id_product"), language)));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return purchaseLines;
+        return jdbcTemplate.query(
+                SQL,
+                new JDBCPurchaseLineRowMapper(language, productRepository),
+                idPurchase);
     }
 }

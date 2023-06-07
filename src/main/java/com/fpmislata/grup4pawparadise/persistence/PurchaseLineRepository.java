@@ -13,5 +13,5 @@ public interface PurchaseLineRepository {
 
     void delete(int idPurchase, int productId);
 
-    List<PurchaseLine> getByPurchaseId(int idPurchase, String language) throws ResourceNotFoundException;
+    List<PurchaseLine> getByPurchaseId(int idPurchase, String language);
 }
