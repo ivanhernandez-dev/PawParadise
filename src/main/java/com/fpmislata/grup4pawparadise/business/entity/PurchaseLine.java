@@ -4,20 +4,14 @@ import java.math.BigDecimal;
 
 public class PurchaseLine {
 
-    private int id;
     private int quantity;
     private Product product;
     private BigDecimal totalPrice;
 
-    public PurchaseLine(int id, int quantity, Product product) {
-        this.id = id;
+    public PurchaseLine(int quantity, Product product) {
         this.quantity = quantity;
         this.product = product;
         this.totalPrice = product.getPrice().multiply(BigDecimal.valueOf(quantity));
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getQuantity() {
@@ -37,6 +31,7 @@ public class PurchaseLine {
         return "ShoppingCart{" +
                 "quantity=" + quantity +
                 ", product=" + product +
+                ", totalPrice=" + totalPrice +
                 '}';
     }
 }

@@ -33,7 +33,7 @@ class PurchaseServiceImplTest {
     void getByUserIdWhereStatusActive() throws ResourceNotFoundException {
         Purchase expectedPurchase = new Purchase(1, new Date(), 1, 1,
                 List.of(
-                        new PurchaseLine(1, 1,
+                        new PurchaseLine(1,
                                 new Product(1, "Product 1", "Description 1",
                                         List.of(
                                                 new ProductFeature(1, "One"),
