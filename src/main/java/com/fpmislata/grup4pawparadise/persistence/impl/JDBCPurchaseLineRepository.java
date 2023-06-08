@@ -18,7 +18,7 @@ import java.util.List;
 public class JDBCPurchaseLineRepository implements PurchaseLineRepository {
 
     private JdbcTemplate jdbcTemplate;
-    private final ProductRepository productRepository = new JDBCProductRepository();
+    private ProductRepository productRepository = new JDBCProductRepository();
 
     public JDBCPurchaseLineRepository() {
         this.jdbcTemplate = new JdbcTemplate(JDBCUtil.getDataSource());
@@ -28,32 +28,27 @@ public class JDBCPurchaseLineRepository implements PurchaseLineRepository {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    public DataSource getDatasource() {
+        return jdbcTemplate.getDataSource();
+    }
+
     @Override
     public void insert(int idPurchase, int idProduct, int quantity) {
         final String SQL = "INSERT INTO purchase_line (id_purchase, id_product, quantity) VALUES (?, ?, ?) " +
                 "ON DUPLICATE KEY UPDATE quantity = quantity + ?";
-        List<Object> params = List.of(idPurchase, idProduct, quantity, quantity);
-        Connection connection = JDBCUtil.open();
-        JDBCUtil.insert(connection, SQL, params);
-        JDBCUtil.close(connection);
+        jdbcTemplate.update(SQL, idPurchase, idProduct, quantity, quantity);
     }
 
     @Override
     public void update(int idPurchase, int idProduct, int quantity) {
         final String SQL = "UPDATE purchase_line SET quantity = ? WHERE id_purchase = ? AND id_product = ?";
-        List<Object> params = List.of(quantity, idPurchase, idProduct);
-        Connection connection = JDBCUtil.open();
-        JDBCUtil.update(connection, SQL, params);
-        JDBCUtil.close(connection);
+        jdbcTemplate.update(SQL, quantity, idPurchase, idProduct);
     }
 
     @Override
     public void delete(int idPurchase, int productId) {
         final String SQL = "DELETE FROM purchase_line WHERE id_purchase = ? AND id_product = ?";
-        List<Object> params = List.of(idPurchase, productId);
-        Connection connection = JDBCUtil.open();
-        JDBCUtil.delete(connection, SQL, params);
-        JDBCUtil.close(connection);
+        jdbcTemplate.update(SQL, idPurchase, productId);
     }
 
     @Override
