@@ -1,6 +1,7 @@
 package com.fpmislata.grup4pawparadise.business.entity;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class PurchaseLine {
 
@@ -33,5 +34,13 @@ public class PurchaseLine {
                 ", product=" + product +
                 ", totalPrice=" + totalPrice +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PurchaseLine that = (PurchaseLine) o;
+        return quantity == that.quantity && Objects.equals(product, that.product) && Objects.equals(totalPrice, that.totalPrice);
     }
 }

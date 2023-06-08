@@ -2,6 +2,7 @@ package com.fpmislata.grup4pawparadise.business.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 public class Product {
 
@@ -81,5 +82,13 @@ public class Product {
                 ", stock=" + stock +
                 ", image='" + image + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id == product.id && stock == product.stock && Objects.equals(name, product.name) && Objects.equals(description, product.description) && Objects.equals(productFeatures, product.productFeatures) && Objects.equals(price, product.price) && Objects.equals(image, product.image);
     }
 }
