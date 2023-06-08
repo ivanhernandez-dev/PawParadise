@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #464646;
+}
+
+#img-about-us-container {
+    background-color: #ececec;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border-radius: 0 0 13px 13px;
+}
+
+#img-about-us {
+    margin-top: 70px;
+    padding: 17px;
+    width: 98%;
+    border-radius: 13px;
+}
+
+#container-text-about-us {
+    margin: 40px 8% 80px;
+    text-align: center;
+}
+
+section p {
+    text-align: left;
+    margin: 16px 0 16px 0;
+}
+
+#title-about-us {
+    font-family: "Carter One";
+    font-weight: bold;
+    margin-bottom: 40px;
+}

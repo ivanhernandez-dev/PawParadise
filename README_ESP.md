@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="banner" src="src/main/resources/static/img/logo-l.png?raw=true">
+  <img alt="banner" src="src/main/resources/static/img/logo/logo-l.png?raw=true">
 </div>
 
 ## Índice

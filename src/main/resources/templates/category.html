@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/category.css}">
+    <title th:text="${actualCategoryName}"></title>
 </head>
+
 <body>
-    <ul class="categoriesList">
-        <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}">
-            <li th:text="|${category.name}|">Sin producto</li>
-        </a>
-    </ul>
-
-    <ul class="productsList">
-        <a th:each="product : ${products}" th:href="@{${'/' + language + '/productos/' + product.id}}">
-            <li th:text="|${product.name}|">Sin producto</li>
-        </a>     
-    </ul>
-
+    <header th:replace="~{base/common :: header}"></header>
+    <section>
+        <h1 th:text="${actualCategoryName}">ROPA</h1>
+        <div class="category-products">
+            <a th:each="category : ${categories}" th:href="@{${'/' + language + '/categorias/' + category.id}}"
+                class="category">
+                <img class="img-product-category" th:src="${category.image}" alt="">
+                <h3 class="title-category" th:text="${category.name}"></h3>
+            </a>
+        </div>
+        <h2 th:text="${jsonData.getString('products_text')}">PRODUCTOS</h2>
+        <div class="category-products">
+            <th:block th:each="n : ${#numbers.sequence(1, 8)}">
+                <th:block th:each="product : ${products}">
+                    <a class="product" th:href="@{${'/' + language + '/productos/' + product.id}}">
+                        <img class="img-product-category" th:src="${product.image}" alt="">
+                        <h3 th:text="${product.name}"></h3>
+                        <h3 class="product-price" th:text="${product.price} + '€'"></h3>
+                    </a>
+                </th:block>
+            </th:block>
+        </div>
+    </section>
+    <footer th:replace="~{base/common :: footer}"></footer>
 </body>
+
 </html>

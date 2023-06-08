@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+.background-img-1 {
+    background-image: url("../img/imgFondo.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+h1 {
+    color: #464646;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    padding: 15px;
+}
+
+.category {
+    background-color: #ececec;
+    width: 17%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+
+@media screen and (max-width: 800px) {
+    .category {
+        min-width: 250px;
+    }
+}
+
+.category:hover {
+    transform: scale(1.1);
+}
+
+.category-container {
+    z-index: 2;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.category img {
+    width: 100%;
+}
+
+h2 {
+    color: #464646;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    margin: 5px;
+}
+
+#slogan-container-ext {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#slogan-container-int {
+    background-color: #ececec;
+    width: 800px;
+    margin: 30px;
+}
+
+h3 {
+    font-family: "Open Sans", sans-serif;
+    padding: 10px;
+}
+
+span {
+    font-weight: bolder;
+}
+
+.category img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 13px;
+}

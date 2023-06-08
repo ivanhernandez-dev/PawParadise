@@ -1,20 +1,38 @@
 package com.fpmislata.grup4pawparadise.database;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.sql.*;
 import java.util.List;
+import javax.sql.DataSource;
 
 public class JDBCUtil {
 
-    public static Connection open(){
-        System.out.println("Connecting to database...");
+    private static DataSource datasource;
+    private static final String HOST = System.getenv("DBHOST");
+    private static final String NAME = System.getenv("DBNAME");
+    private static final String USER = System.getenv("DBUSER");
+    private static final String PASSWORD = System.getenv("DBPASSWD");
 
+    public static DataSource getDataSource() {
+        if (datasource == null) {
+            DriverManagerDataSource dataSource = new DriverManagerDataSource();
+            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+            dataSource.setUrl("jdbc:mysql://" + HOST + ":3306/" + NAME);
+            dataSource.setUsername(USER);
+            dataSource.setPassword(PASSWORD);
+            datasource = dataSource;
+        }
+        return datasource;
+    }
+
+    public static Connection open() {
         Connection connection;
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/pawparadise",
-                    "root",
-                    "root"
-            );
+                    "jdbc:mysql://" + HOST + ":3306/" + NAME,
+                    USER,
+                    PASSWORD);
             return connection;
         } catch (SQLException e) {
             throw new RuntimeException();
@@ -23,11 +41,7 @@ public class JDBCUtil {
 
     public static void close(Connection connection) {
         try {
-            System.out.println("Closing database connection...");
-
             connection.close();
-
-            System.out.println("Connection status: " + connection.isValid(0));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -51,7 +65,6 @@ public class JDBCUtil {
         }
     }
 
-
     public static int update(Connection connection, String sql, List<Object> values) {
         try {
             PreparedStatement preparedStatement = setParameters(connection, sql, values);
@@ -62,13 +75,14 @@ public class JDBCUtil {
         }
     }
 
-    private static PreparedStatement setParameters(Connection connection, String sql, List<Object> values){
+    private static PreparedStatement setParameters(Connection connection, String sql, List<Object> values) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            if(values != null) {
-                for(int i=0;i<values.size();i++) {
-                    Object value=values.get(i);
-                    preparedStatement.setObject(i+1,value);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            if (values != null) {
+                for (int i = 0; i < values.size(); i++) {
+                    Object value = values.get(i);
+                    preparedStatement.setObject(i + 1, value);
                 }
             }
             return preparedStatement;

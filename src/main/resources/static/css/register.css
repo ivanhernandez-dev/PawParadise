@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+body {
+    background-color: #e6e5e5;
+}
+
+section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#main-container {
+    background-color: #f8f8f8;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    width: 40%;
+    min-width: 240px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
+}
+
+#buttons-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.btn-register-login {
+    background-color: #f8f8f8;
+    border: none;
+    text-align: center;
+    box-shadow: 2px 2px 0px 0 rgba(20, 20, 20, 0.3);
+    border-radius: 25px 25px 25px 25px;
+    width: 50%;
+    height: 45px;
+    font-family: "Carter One";
+}
+#active {
+    background-color: #66b6ab;
+}
+
+h1 {
+    color: #464646;
+}
+
+.input-register-login {
+    border-radius: 13px;
+    border-color: #b0b0b0;
+    width: 170px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    height: 30px;
+}
+
+.required {
+    color: #464646;
+    font-family: "Open Sans", sans-serif;
+}
+
+#btn-acceder {
+    box-shadow: 2px 2px 4px 4px rgba(20, 20, 20, 0.3);
+    border-radius: 13px;
+    width: 170px;
+    margin-bottom: 40px;
+    background-color: #ff5959;
+    color: #ececec;
+    font-family: "Carter One";
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+.form-container {
+    margin-top: 50px;
+    width: 215px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#form-register-login {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 50%;
+    margin-right: 50%;
+}

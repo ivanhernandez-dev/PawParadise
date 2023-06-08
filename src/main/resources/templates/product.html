@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/product.css}">
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title th:text="${product.name}"></title>
 </head>
-<body>
-   
-    <ul>
-        <li><a th:text="${products.name}"> </a></li>
-        <li><a th:text="${products.description}"> </a></li> 
-        <li><a th:text="${products.price}"> </a></li> 
-    </ul>
 
+<body>
+    <header th:replace="~{base/common :: header}"></header>
+    <div id="container-main">
+        <div class="block-img">
+            <div id="frame">
+                <img id="img-prod" th:src="${product.image}" alt="">
+            </div>
+        </div>
+        <div class="block-description-price">
+            <div>
+                <h1 th:text="${product.name}"></h1>
+                <p id="description" th:text="${product.description}"></p>
+            </div>
+            <div id="position-price-form">
+                <div>
+                    <form th:action="@{${'/' + language + '/carrito/producto/' + product.id}}" method="POST">
+                        <label th:text="${jsonData.getString('quantity')}" for="quantity" id="bold">Cantidad:</label>
+                        <br>
+                        <input type="number" name="quantity" id="quantity" min="1" max="15" value="1">
+                        <div id="position-price">
+                            <span id="price" th:text="${product.price} + '€'"></span>
+                        </div>
+                        <input type="submit" id="add" th:value="${jsonData.getString('add_button')}">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="container-features">
+        <h2 th:text="${jsonData.getString('description_text')}" id="features-title">Descripción:</h2>
+
+        <ul>
+            <li id="features" th:each="productFeature : ${product.productFeatures}">
+                <span th:text="${productFeature.description}"> </span>
+            </li>
+        </ul>
+    </div>
+    <footer th:replace="~{base/common :: footer}"></footer>
 </body>
+
 </html>

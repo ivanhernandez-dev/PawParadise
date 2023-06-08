@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link th:rel="stylesheet" th:href="@{/css/register.css}">
+    <th:block th:replace="~{base/common :: additional-head}"></th:block>
+    <title th:text="${jsonData.getString('login')}">Login</title>
+</head>
+
+<body>
+    <header th:replace="~{base/common :: header}"></header>
+    <section>
+        <div id="main-container">
+            <div id="buttons-container">
+                <button class="btn-register-login">
+                    <a th:href="@{${'/' + language + '/register'}}">
+                        <h1 th:text="${jsonData.getString('title_signup')}">Registrarse</h1>
+                    </a>
+                </button>
+                <button id="active" class="btn-register-login">
+                    <h1 th:text="${jsonData.getString('title_login')}">Acceder</h1>
+                </button>
+            </div>
+            <div class="form-container">
+                <form id="form-register-login">
+                    <label th:text="${jsonData.getString('email')}" class="required" for="email">EMAIL:</label><br>
+                    <input type="email" class="input-register-login" name="email" id="email" required><br>
+                    <label th:text="${jsonData.getString('password')}" class="required"
+                        for="password">CONTRASEÑA:</label><br>
+                    <input type="password" class="input-register-login" name="password" id="password" required>
+                    <input id="btn-acceder" type="submit" th:value="${jsonData.getString('login_button')}">
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer th:replace="~{base/common :: footer}"></footer>
+</body>
+
+</html>

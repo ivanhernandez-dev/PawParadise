@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+body {
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+#sidebar {
+    top: 70px;
+    position: fixed;
+    right: -250px;
+    width: 200px;
+    height: 100%;
+    background-color: #66b6ab;
+    transition: all 0.5s;
+    font-family: "Open Sans", sans-serif;
+}
+
+#sidebar #categories-title {
+    font-size: 18px;
+    color: #464646;
+    text-align: center;
+    line-height: 70px;
+    background-color: #9acdc6;
+    user-select: none;
+    display: block;
+}
+
+#sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    color: #464646;
+    padding: 15px 15px 15px 40px;
+    box-sizing: border-box;
+    border: 1px solid #a1e2d9;
+    transition: 0.4s;
+}
+
+#sidebar li:hover {
+    padding-left: 40px;
+    transition: 0.5s;
+}
+
+#sidebar ul a li {
+    margin-right: 16px;
+}
+
+#check {
+    left: 0;
+    display: none;
+}
+
+label #open-button,
+label #close-button {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+label #open-button {
+    right: 115px;
+    top: 13px;
+    font-size: 30px;
+    color: black;
+    padding: 6px 12px;
+    transition: all 0.5s;
+}
+@media screen and (max-width: 800px) {
+    #open-button,
+    #close-button {
+        margin-right: -5px;
+    }
+}
+
+label #close-button {
+    right: -230px;
+    top: 13px;
+    font-size: 30px;
+    color: #ff5959;
+    padding: 4px 9px;
+    margin: 0 5px 5px 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+#check:checked + label > #sidebar {
+    right: 0;
+}
+
+#check:checked + label > #open-button {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked + label > #close-button {
+    right: 115px;
+}

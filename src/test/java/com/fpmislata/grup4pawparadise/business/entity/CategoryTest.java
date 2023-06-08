@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class CategoryTest {
 
     private Category category;
-    private final static String DEFAULT_IMAGE_URL = "https://example.com/default_image.jpg";
+    private final static String DEFAULT_IMAGE_URL = "/img/default.jpg";
     private final static String CUSTOM_IMAGE_URL = "https://example.com/image.jpg";
 
     @DisplayName("Test constructors")
@@ -97,6 +97,7 @@ class CategoryTest {
     @Test
     public void testToString() {
         category = new Category(1, "Category 1", null);
-        assertEquals("Category{id=1, name='Category 1', categories=null, image='null'}", category.toString(), "Category toString should be 'Category{id=1, name='Category 1', categories=null, image='null'}'");
+        assertEquals("Category{id=1, name='Category 1', categories=null, image='null'}", category.toString(),
+                "Category toString should be 'Category{id=1, name='Category 1', categories=null, image='null'}'");
     }
 }

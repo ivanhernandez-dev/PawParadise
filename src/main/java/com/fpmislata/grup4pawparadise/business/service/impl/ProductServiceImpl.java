@@ -12,7 +12,7 @@ import com.fpmislata.grup4pawparadise.persistence.impl.JDBCProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository = new JDBCProductRepository();
     private CategoryRepository categoryRepository = new JDBCCategoryRepository();
@@ -33,5 +33,10 @@ public class ProductServiceImpl implements ProductService{
         }
 
         return this.productRepository.getByCategoryIds(categoryIds, language);
+    }
+
+    @Override
+    public List<Product> getByName(String name, String language) {
+        return this.productRepository.getByName(name, language);
     }
 }
